@@ -1,3 +1,4 @@
+import 'package:black_market/core/functions/future_delayd_navigator.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,11 @@ class DefaultButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: () {
+        futureDelayedNavigator(() {
+          onPressed();
+        });
+      },
       style: ButtonStyle(
         fixedSize: MaterialStatePropertyAll(
           Size(327.w, 52.h),
