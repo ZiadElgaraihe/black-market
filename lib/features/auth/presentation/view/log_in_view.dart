@@ -8,15 +8,18 @@ class LogInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 0,
-        elevation: 0,
-        systemOverlayStyle: SystemUiOverlayStyle.light.copyWith(
-          statusBarColor: AppColors.backgroundColor,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
+      child: Scaffold(
+        appBar: AppBar(
+          toolbarHeight: 0,
+          elevation: 0,
+          systemOverlayStyle: SystemUiOverlayStyle.light.copyWith(
+            statusBarColor: AppColors.backgroundColor,
+          ),
         ),
+        body: const LogInViewBody(),
       ),
-      body: const LogInViewBody(),
     );
   }
 }
