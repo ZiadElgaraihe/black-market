@@ -1,6 +1,8 @@
+import 'package:black_market/core/animations/left_slide_transition.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
+import 'package:black_market/features/auth/presentation/view/reset_password_view.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/rows/otp_row.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/rows/resend_code_row.dart';
 import 'package:flutter/material.dart';
@@ -48,7 +50,14 @@ class VerificationCodeViewBody extends StatelessWidget {
             const ResendCodeRow(),
             SizedBox(height: 292.h),
             DefaultButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  RightSlideTransition(
+                    page: const ResetPasswordView(),
+                  ),
+                );
+              },
               title: 'متابعة',
             ),
             SizedBox(height: 20.h),
