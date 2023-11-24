@@ -22,6 +22,9 @@ abstract class AppColors {
   ///#FFFAD9
   static Color lightYellowHover = const Color(0xFFFFFAD9);
 
+  ///#D3DCEE
+  static Color pastelBlue = const Color(0xFFD3DCEE);
+
   static Color transparent = Colors.transparent;
 
   ///#FFFFFF

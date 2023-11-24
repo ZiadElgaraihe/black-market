@@ -1,6 +1,8 @@
+import 'package:black_market/core/animations/left_slide_transition.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/presentation/view/sections/user_data_section.dart';
 import 'package:black_market/core/utils/app_icons.dart';
+import 'package:black_market/features/auth/presentation/view/verification_code_view.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/containers/forget_password_warning_message_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +29,17 @@ class ForgetPasswordViewBody extends StatelessWidget {
               suffixIcon: AppIcons.assetsIconsMessage,
             ),
             SizedBox(height: 342.h),
-            DefaultButton(onPressed: () {}, title: 'متابعة'),
+            DefaultButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  RightSlideTransition(
+                    page: const VerificationCodeView(),
+                  ),
+                );
+              },
+              title: 'متابعة',
+            ),
             SizedBox(height: 20.h),
           ],
         ),
