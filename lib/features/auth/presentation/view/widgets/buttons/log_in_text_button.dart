@@ -23,13 +23,13 @@ class LogInTextButton extends StatelessWidget {
       },
       style: ButtonStyle(
         overlayColor: MaterialStatePropertyAll(
-          AppColors.lightYellow.withOpacity(0.1),
+          AppColors.lightYellowActive.withOpacity(0.1),
         ),
       ),
       child: Text(
         title,
         style: TextStyles.textStyle12.copyWith(
-          color: AppColors.lightYellow,
+          color: AppColors.lightYellowActive,
         ),
       ),
     );

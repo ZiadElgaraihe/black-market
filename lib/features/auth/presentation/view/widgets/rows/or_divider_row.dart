@@ -23,7 +23,7 @@ class OrDividerRow extends StatelessWidget {
             'أو',
             style: GoogleFonts.tajawal(
               textStyle: TextStyles.textStyle12.copyWith(
-                color: AppColors.lightYellow,
+                color: AppColors.lightYellowActive,
                 fontWeight: FontWeight.w500,
               ),
             ),

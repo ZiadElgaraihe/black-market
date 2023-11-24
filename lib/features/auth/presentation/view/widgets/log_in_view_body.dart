@@ -1,7 +1,9 @@
+import 'package:black_market/core/animations/left_slide_transition.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/presentation/view/sections/user_data_section.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
+import 'package:black_market/features/auth/presentation/view/forget_password_view.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/buttons/continue_with_google_button.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/buttons/log_in_text_button.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/rows/no_account_row.dart';
@@ -51,7 +53,14 @@ class LogInViewBody extends StatelessWidget {
                 children: [
                   const RememberMeRow(),
                   LogInTextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        RightSlideTransition(
+                          page: const ForgetPasswordView(),
+                        ),
+                      );
+                    },
                     title: 'هل نسيت كلمة المرور ؟',
                   ),
                 ],

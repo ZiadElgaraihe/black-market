@@ -23,7 +23,7 @@ class NoAccountRow extends StatelessWidget {
           onPressed: () {
             Navigator.push(
               context,
-              LeftSlideTransition(
+              RightSlideTransition(
                 page: const SignUpView(),
               ),
             );

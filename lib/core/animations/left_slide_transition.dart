@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class LeftSlideTransition extends PageRouteBuilder {
+class RightSlideTransition extends PageRouteBuilder {
   final Widget page;
-  LeftSlideTransition({required this.page})
+  RightSlideTransition({required this.page})
       : super(
           pageBuilder: (context, animation, secondaryAnimation) => page,
           transitionDuration: const Duration(milliseconds: 500),
