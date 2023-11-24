@@ -1,6 +1,8 @@
+import 'package:black_market/core/animations/bottom_slide_transition.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/presentation/view/sections/user_data_section.dart';
 import 'package:black_market/core/utils/app_icons.dart';
+import 'package:black_market/features/auth/presentation/view/success_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -49,7 +51,15 @@ class SignUpViewBody extends StatelessWidget {
             ),
             SizedBox(height: 120.h),
             DefaultButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  BottomSlideTransition(
+                    page: const SuccessView(title: 'تم إنشاء الحساب بنجاح'),
+                  ),
+                  (route) => false,
+                );
+              },
               title: 'التالي',
             ),
             SizedBox(height: 20.h),

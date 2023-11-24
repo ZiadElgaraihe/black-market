@@ -9,13 +9,16 @@ class OtpRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Directionality(
       textDirection: TextDirection.ltr,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: List.generate(
-          4,
-          (index) => SizedBox(
-            width: 65.w,
-            child: OtpTextField(index: index),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 0.5.w),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: List.generate(
+            4,
+            (index) => SizedBox(
+              width: 65.w,
+              child: OtpTextField(index: index),
+            ),
           ),
         ),
       ),
