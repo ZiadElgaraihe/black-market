@@ -1,6 +1,7 @@
 import 'package:black_market/core/errors/failure.dart';
 import 'package:black_market/core/errors/server_failure.dart';
 import 'package:black_market/core/helpers/dio_helper.dart';
+import 'package:black_market/features/auth/data/models/user_model.dart';
 import 'package:black_market/features/auth/data/repos/auth_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -11,6 +12,33 @@ class AuthServices implements AuthRepo {
   }
 
   late DioHelper _dioHelper;
+
+  @override
+  Future<Either<Failure, UserModel>> logIn({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      Map<String, dynamic> data = await _dioHelper.postRequest(
+        endPoint: 'login',
+        data: {
+          'email': email,
+          'password': password,
+        },
+      );
+      return right(
+        UserModel.fromJson(data: data),
+      );
+    } on DioException catch (error) {
+      return left(
+        ServerFailure.fromDioException(dioException: error),
+      );
+    } catch (error) {
+      return left(
+        ServerFailure(errMessage: error.toString()),
+      );
+    }
+  }
 
   @override
   Future<Either<Failure, void>> signUp({
