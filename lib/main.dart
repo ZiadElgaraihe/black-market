@@ -1,4 +1,5 @@
 import 'package:black_market/core/utils/app_colors.dart';
+import 'package:black_market/core/utils/service_locator.dart';
 import 'package:black_market/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  setUpServiceLocator();
   //prevent app from being rotated
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
