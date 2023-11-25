@@ -7,16 +7,22 @@ import 'package:flutter_svg/flutter_svg.dart';
 class UserDataTextFormField extends StatefulWidget {
   const UserDataTextFormField({
     super.key,
+    this.controller,
     required this.hintText,
     required this.keyboardType,
     required this.obscureText,
+    this.onSaved,
     required this.suffixIcon,
+    this.validator,
   });
 
+  final TextEditingController? controller;
   final String hintText;
   final TextInputType keyboardType;
   final bool obscureText;
+  final void Function(String? newValue)? onSaved;
   final String suffixIcon;
+  final String? Function(String? value)? validator;
 
   @override
   State<UserDataTextFormField> createState() => _UserDataTextFormFieldState();
@@ -44,6 +50,7 @@ class _UserDataTextFormFieldState extends State<UserDataTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: widget.controller,
       focusNode: _focusNode,
       keyboardType: widget.keyboardType,
       obscureText: widget.obscureText,
@@ -51,12 +58,22 @@ class _UserDataTextFormFieldState extends State<UserDataTextFormField> {
         fontWeight: FontWeight.w400,
       ),
       cursorColor: AppColors.yellow,
+      onSaved: widget.onSaved,
+      validator: (widget.validator == null)
+          ? (value) {
+              if (value == null || value.isEmpty) {
+                return 'هذا الحقل مطلوب';
+              }
+              return null;
+            }
+          : widget.validator,
       decoration: InputDecoration(
         hintText: widget.hintText,
         contentPadding: EdgeInsets.symmetric(
           horizontal: 16.w,
           vertical: 15.h,
         ),
+        errorStyle: TextStyles.textStyle8,
         filled: true,
         fillColor: AppColors.darkGrey,
         border: OutlineInputBorder(

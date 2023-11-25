@@ -9,9 +9,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 class SuccessViewBody extends StatelessWidget {
   const SuccessViewBody({
     super.key,
-    required this.title,
+    required this.buttonTitle,
+    required this.onPressed, 
+    required this.title, 
   });
 
+  final String buttonTitle;
+  final void Function() onPressed;
   final String title;
 
   @override
@@ -37,8 +41,8 @@ class SuccessViewBody extends StatelessWidget {
             ),
             SizedBox(height: 171.h),
             DefaultButton(
-              onPressed: () {},
-              title: 'الرئيسية',
+              onPressed: onPressed,
+              title: buttonTitle,
             ),
           ],
         ),

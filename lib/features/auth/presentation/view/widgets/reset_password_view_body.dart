@@ -39,7 +39,11 @@ class ResetPasswordViewBody extends StatelessWidget {
                 Navigator.pushAndRemoveUntil(
                   context,
                   BottomSlideTransition(
-                    page: const SuccessView(title: 'تم إنشاء الحساب بنجاح'),
+                    page: SuccessView(
+                      buttonTitle: 'الرئيسية',
+                      onPressed: () {},
+                      title: 'تم إنشاء الحساب بنجاح',
+                    ),
                   ),
                   (route) => false,
                 );

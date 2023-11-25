@@ -6,18 +6,24 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class UserDataSection extends StatelessWidget {
   const UserDataSection({
     super.key,
+    this.controller,
     required this.hintText,
     required this.keyboardType,
     required this.obscureText,
+    this.onSaved,
     required this.sectionTitle,
     required this.suffixIcon,
+    this.validator,
   });
 
+  final TextEditingController? controller;
   final String hintText;
   final TextInputType keyboardType;
   final bool obscureText;
+  final void Function(String? newValue)? onSaved;
   final String sectionTitle;
   final String suffixIcon;
+  final String? Function(String? value)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +39,13 @@ class UserDataSection extends StatelessWidget {
         ),
         SizedBox(height: 12.h),
         UserDataTextFormField(
+          controller: controller,
           keyboardType: keyboardType,
           obscureText: obscureText,
+          onSaved: onSaved,
           hintText: hintText,
           suffixIcon: suffixIcon,
+          validator: validator,
         ),
       ],
     );

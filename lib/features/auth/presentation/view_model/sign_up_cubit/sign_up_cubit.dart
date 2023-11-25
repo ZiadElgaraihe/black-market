@@ -21,6 +21,8 @@ class SignUpCubit extends Cubit<SignUpState> {
   String? confirmedPassword;
 
   Future<void> signUp() async {
+    emit(SignUpLoading());
+    
     Either<Failure, void> result = await _authServices.signUp(
       fullName: fullName!,
       email: email!,
