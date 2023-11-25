@@ -1,31 +1,28 @@
+part 'user.dart';
+
 class UserModel {
-  int id;
-  int roleId;
-  String name;
-  String email;
-  String avatar;
-  String createdAt;
-  String updatedAt;
+  User user;
+  String token;
 
   UserModel({
-    required this.id,
-    required this.roleId,
-    required this.name,
-    required this.email,
-    required this.avatar,
-    required this.createdAt,
-    required this.updatedAt,
+    required this.user,
+    required this.token,
   });
 
   factory UserModel.fromJson({required Map<String, dynamic> data}) {
     return UserModel(
-      id: data['id'],
-      roleId: data['role_id'],
-      name: data['name'],
-      email: data['email'],
-      avatar: data['avatar'],
-      createdAt: data['created_at'],
-      updatedAt: data['updated_at'],
+      user: data['user'],
+      token: data['access_token'],
+    );
+  }
+
+  factory UserModel.fromLocalDatabase({
+    required User user,
+    required String token,
+  }) {
+    return UserModel(
+      user: user,
+      token: token,
     );
   }
 }
