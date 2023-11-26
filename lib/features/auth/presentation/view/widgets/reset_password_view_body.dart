@@ -1,13 +1,26 @@
-import 'package:black_market/core/animations/bottom_slide_transition.dart';
-import 'package:black_market/core/presentation/view/buttons/default_button.dart';
-import 'package:black_market/core/presentation/view/sections/user_data_section.dart';
-import 'package:black_market/core/utils/app_icons.dart';
-import 'package:black_market/features/auth/presentation/view/success_view.dart';
+import 'package:black_market/features/auth/presentation/view/widgets/blocs/reset_password_bloc_consumer.dart';
+import 'package:black_market/features/auth/presentation/view/widgets/forms/reset_password_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ResetPasswordViewBody extends StatelessWidget {
+class ResetPasswordViewBody extends StatefulWidget {
   const ResetPasswordViewBody({super.key});
+
+  @override
+  State<ResetPasswordViewBody> createState() => _ResetPasswordViewBodyState();
+}
+
+class _ResetPasswordViewBodyState extends State<ResetPasswordViewBody> {
+  final ValueNotifier<AutovalidateMode> _autoValidateModeValueNotifier =
+      ValueNotifier<AutovalidateMode>(AutovalidateMode.disabled);
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  @override
+  void dispose() {
+    _autoValidateModeValueNotifier.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,37 +31,14 @@ class ResetPasswordViewBody extends StatelessWidget {
         child: Column(
           children: [
             SizedBox(height: 60.h),
-            const UserDataSection(
-              hintText: 'أدخل  كود المرور',
-              keyboardType: TextInputType.visiblePassword,
-              obscureText: true,
-              sectionTitle: 'كلمة المرور',
-              suffixIcon: AppIcons.assetsIconsLock,
-            ),
-            SizedBox(height: 32.h),
-            const UserDataSection(
-              hintText: 'أدخل  كود المرور',
-              keyboardType: TextInputType.visiblePassword,
-              obscureText: true,
-              sectionTitle: 'تأكيد كلمة المرور',
-              suffixIcon: AppIcons.assetsIconsLock,
+            ResetPasswordForm(
+              autoValidateModeValueNotifier: _autoValidateModeValueNotifier,
+              formKey: _formKey,
             ),
             SizedBox(height: 342.h),
-            DefaultButton(
-              onPressed: () {
-                Navigator.pushAndRemoveUntil(
-                  context,
-                  BottomSlideTransition(
-                    page: SuccessView(
-                      buttonTitle: 'الرئيسية',
-                      onPressed: () {},
-                      title: 'تم إنشاء الحساب بنجاح',
-                    ),
-                  ),
-                  (route) => false,
-                );
-              },
-              title: 'متابعة',
+            ResetPasswordBlocConsumer(
+              autoValidateModeValueNotifier: _autoValidateModeValueNotifier,
+              formKey: _formKey,
             ),
             SizedBox(height: 20.h),
           ],
