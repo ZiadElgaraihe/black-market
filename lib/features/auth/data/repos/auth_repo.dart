@@ -18,4 +18,11 @@ abstract class AuthRepo {
   Future<Either<Failure, void>> forgetPassword({
     required String email,
   });
+
+  Future<Either<Failure, UserModel>> updatePassword({
+    required String email,
+    required String otp,
+    required String password,
+    required String confirmedPassword,
+  });
 }

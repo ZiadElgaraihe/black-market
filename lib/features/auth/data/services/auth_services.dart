@@ -90,4 +90,33 @@ class AuthServices implements AuthRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, UserModel>> updatePassword({
+    required String email,
+    required String otp,
+    required String password,
+    required String confirmedPassword,
+  }) async {
+    try {
+      Map<String, dynamic> data = await _dioHelper.postRequest(
+        endPoint: 'update_forgotten_password',
+        data: {
+          'email': email,
+          'otp': otp,
+          'password': password,
+          'password_confirmation': confirmedPassword,
+        },
+      );
+      return right(
+        UserModel.fromJson(data: data),
+      );
+    } on DioException catch (error) {
+      return left(
+        ServerFailure.fromDioException(dioException: error),
+      );
+    } catch (error) {
+      return left(ServerFailure(errMessage: error.toString()));
+    }
+  }
 }
