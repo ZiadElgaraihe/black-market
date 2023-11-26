@@ -4,12 +4,12 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'forget_password_state.dart';
+part 'resend_veification_code_state.dart';
 
-class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
-  ForgetPasswordCubit({
+class ResendVeificationCodeCubit extends Cubit<ResendVeificationCodeState> {
+  ResendVeificationCodeCubit({
     required AuthServices authServices,
-  }) : super(ForgetPasswordInitial()) {
+  }) : super(ResendVeificationCodeInitial()) {
     _authServices = authServices;
   }
 
@@ -17,8 +17,8 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
 
   String? email;
 
-  Future<void> forgetPassword() async {
-    emit(ForgetPasswordLoading());
+  Future<void> resendVerificationCode() async {
+    emit(ResendVeificationCodeLoading());
 
     Either<Failure, void> result =
         await _authServices.forgetPassword(email: email!);
@@ -27,13 +27,13 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
       //error
       (serverFailure) {
         emit(
-          ForgetPasswordFailure(errMessage: serverFailure.errMessage),
+          ResendVeificationCodeFailure(errMessage: serverFailure.errMessage),
         );
       },
       //success
       (_) {
         emit(
-          ForgetPasswordSuccess(email: email!),
+          ResendVeificationCodeSuccess(),
         );
       },
     );

@@ -5,11 +5,30 @@ import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/auth/presentation/view/reset_password_view.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/rows/otp_row.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/rows/resend_code_row.dart';
+import 'package:black_market/features/auth/presentation/view_model/resend_verification_code_cubit/resend_veification_code_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class VerificationCodeViewBody extends StatelessWidget {
-  const VerificationCodeViewBody({super.key});
+class VerificationCodeViewBody extends StatefulWidget {
+  const VerificationCodeViewBody({
+    super.key,
+    required this.email,
+  });
+
+  final String email;
+
+  @override
+  State<VerificationCodeViewBody> createState() =>
+      _VerificationCodeViewBodyState();
+}
+
+class _VerificationCodeViewBodyState extends State<VerificationCodeViewBody> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<ResendVeificationCodeCubit>().email = widget.email;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +56,7 @@ class VerificationCodeViewBody extends StatelessWidget {
             ),
             SizedBox(height: 12.h),
             Text(
-              'aliatwan@gmail.com',
+              widget.email,
               style: TextStyles.textStyle12.copyWith(
                 fontWeight: FontWeight.w400,
                 color: AppColors.yellow,

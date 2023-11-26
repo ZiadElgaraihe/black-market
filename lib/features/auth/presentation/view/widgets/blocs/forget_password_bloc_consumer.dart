@@ -47,7 +47,7 @@ class ForgetPasswordBlocConsumer extends StatelessWidget {
       Navigator.push(
         context,
         RightSlideTransition(
-          page: const VerificationCodeView(),
+          page: VerificationCodeView(email: state.email),
         ),
       );
     } else if (state is ForgetPasswordFailure) {
