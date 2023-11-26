@@ -12,7 +12,7 @@ class DioHelper {
   late Dio _dio;
 
   ///http get request
-  Future<Map<String, dynamic>> getRequest({
+  Future<dynamic> getRequest({
     required String endPoint,
     Map<String, dynamic>? queryParameters,
     String? token,
@@ -35,7 +35,7 @@ class DioHelper {
   }
 
   ///http post request
-  Future<Map<String, dynamic>> postRequest({
+  Future<dynamic> postRequest({
     required String endPoint,
     Object? data,
     String? token,
