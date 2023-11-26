@@ -28,12 +28,12 @@ class ForgetPasswordBlocConsumer extends StatelessWidget {
         } else {
           return DefaultButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                RightSlideTransition(
-                  page: const VerificationCodeView(),
-                ),
-              );
+              if (formKey.currentState!.validate()) {
+                formKey.currentState!.save();
+                context.read<ForgetPasswordCubit>().forgetPassword();
+              } else {
+                autoValidateModeValueNotifier.value = AutovalidateMode.always;
+              }
             },
             title: 'متابعة',
           );
@@ -43,25 +43,25 @@ class ForgetPasswordBlocConsumer extends StatelessWidget {
   }
 
   void _listener(context, state) {
-      if (state is ForgetPasswordSuccess) {
-        Navigator.push(
-          context,
-          RightSlideTransition(
-            page: const VerificationCodeView(),
-          ),
-        );
-      } else if (state is ForgetPasswordFailure) {
-        showAlertDialog(
-          context,
-          child: ResultAlertDialog(
-            buttonTitle: 'عودة',
-            message: state.errMessage,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            title: 'فشل',
-          ),
-        );
-      }
+    if (state is ForgetPasswordSuccess) {
+      Navigator.push(
+        context,
+        RightSlideTransition(
+          page: const VerificationCodeView(),
+        ),
+      );
+    } else if (state is ForgetPasswordFailure) {
+      showAlertDialog(
+        context,
+        child: ResultAlertDialog(
+          buttonTitle: 'عودة',
+          message: state.errMessage,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          title: 'فشل',
+        ),
+      );
     }
+  }
 }
