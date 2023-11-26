@@ -68,4 +68,26 @@ class AuthServices implements AuthRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, void>> forgetPassword({required String email}) async {
+    try {
+      await _dioHelper.postRequest(
+        endPoint: 'forget_password',
+        data: {
+          'email': email,
+        },
+      );
+
+      return right(null);
+    } on DioException catch (error) {
+      return left(
+        ServerFailure.fromDioException(dioException: error),
+      );
+    } catch (error) {
+      return left(
+        ServerFailure(errMessage: error.toString()),
+      );
+    }
+  }
 }
