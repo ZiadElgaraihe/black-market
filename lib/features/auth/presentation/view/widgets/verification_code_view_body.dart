@@ -3,9 +3,10 @@ import 'package:black_market/core/presentation/view/buttons/default_button.dart'
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/auth/presentation/view/reset_password_view.dart';
-import 'package:black_market/features/auth/presentation/view/widgets/rows/otp_row.dart';
+import 'package:black_market/features/auth/presentation/view/widgets/forms/otp_form.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/rows/resend_code_row.dart';
 import 'package:black_market/features/auth/presentation/view_model/resend_verification_code_cubit/resend_veification_code_cubit.dart';
+import 'package:black_market/features/auth/presentation/view_model/update_password_cubit/update_password_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,10 +25,22 @@ class VerificationCodeViewBody extends StatefulWidget {
 }
 
 class _VerificationCodeViewBodyState extends State<VerificationCodeViewBody> {
+  final ValueNotifier<AutovalidateMode> _autoValidateModeValueNotifier =
+      ValueNotifier<AutovalidateMode>(AutovalidateMode.disabled);
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
   @override
   void initState() {
     super.initState();
     context.read<ResendVeificationCodeCubit>().email = widget.email;
+    context.read<UpdatePasswordCubit>().email = widget.email;
+  }
+
+  @override
+  void dispose() {
+    _autoValidateModeValueNotifier.dispose();
+    super.dispose();
   }
 
   @override
@@ -64,18 +77,30 @@ class _VerificationCodeViewBodyState extends State<VerificationCodeViewBody> {
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 32.h),
-            const OtpRow(),
+            OtpForm(
+              autoValidateModeValueNotifier: _autoValidateModeValueNotifier,
+              formKey: _formKey,
+            ),
             SizedBox(height: 43.h),
             const ResendCodeRow(),
             SizedBox(height: 292.h),
             DefaultButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  RightSlideTransition(
-                    page: const ResetPasswordView(),
-                  ),
-                );
+                if (_formKey.currentState!.validate()) {
+                  //make otp empty before save new value
+                  //to make sure that otp isn't overridding on an old value
+                  context.read<UpdatePasswordCubit>().otp = '';
+                  _formKey.currentState!.save();
+                  Navigator.push(
+                    context,
+                    RightSlideTransition(
+                      page: const ResetPasswordView(),
+                    ),
+                  );
+                } else {
+                  _autoValidateModeValueNotifier.value =
+                      AutovalidateMode.always;
+                }
               },
               title: 'متابعة',
             ),

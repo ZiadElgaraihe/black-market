@@ -1,7 +1,9 @@
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
+import 'package:black_market/features/auth/presentation/view_model/update_password_cubit/update_password_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,7 +17,7 @@ class OtpTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
       showCursor: false,
       style: GoogleFonts.plusJakartaSans(
         textStyle: TextStyles.textStyle18.copyWith(
@@ -29,6 +31,15 @@ class OtpTextField extends StatelessWidget {
       inputFormatters: [
         FilteringTextInputFormatter.allow(RegExp(r'\d')),
       ],
+      onSaved: (newValue) {
+        context.read<UpdatePasswordCubit>().otp += newValue!;
+      },
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'هذا الحقل مطلوب';
+        }
+        return null;
+      },
       onChanged: (value) {
         if (value.length == 1 && index <= 3) {
           if (index != 3) {

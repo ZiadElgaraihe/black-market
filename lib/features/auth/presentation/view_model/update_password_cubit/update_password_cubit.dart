@@ -17,7 +17,7 @@ class UpdatePasswordCubit extends Cubit<UpdatePasswordState> {
   late AuthServices _authServices;
 
   String? email;
-  String? otp;
+  String otp = '';
   String? password;
   String? confirmedPassword;
 
@@ -26,7 +26,7 @@ class UpdatePasswordCubit extends Cubit<UpdatePasswordState> {
 
     Either<Failure, UserModel> result = await _authServices.updatePassword(
       email: email!,
-      otp: otp!,
+      otp: otp,
       password: password!,
       confirmedPassword: confirmedPassword!,
     );
