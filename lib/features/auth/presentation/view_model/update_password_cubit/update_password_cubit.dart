@@ -62,11 +62,16 @@ class UpdatePasswordCubit extends Cubit<UpdatePasswordState> {
           },
           //success
           (userModel) {
-            _localDatabaseServices.store<User>(
-              boxName: kUserBox,
-              key: kUserKey,
-              value: userModel.user,
-            );
+            _localDatabaseServices
+              ..store<User>(
+                boxName: kUserBox,
+                key: kUserKey,
+                value: userModel.user,
+              )
+              ..storeInSecureStorage(
+                key: kTokenKey,
+                value: userModel.token,
+              );
             emit(UpdatePasswordSuccess());
           },
         );
