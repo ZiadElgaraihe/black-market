@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:black_market/core/errors/connection_failure.dart';
 import 'package:black_market/core/errors/failure.dart';
+import 'package:black_market/core/errors/format_failure.dart';
 import 'package:black_market/core/errors/server_failure.dart';
 import 'package:black_market/core/helpers/dio_helper.dart';
 import 'package:black_market/features/auth/data/models/user_model.dart';
@@ -30,10 +34,22 @@ class AuthServices implements AuthRepo {
         UserModel.fromJson(data: data),
       );
     } on DioException catch (error) {
+      // Handle Dio-specific exceptions (network and server communication)
       return left(
         ServerFailure.fromDioException(dioException: error),
       );
+    }  on SocketException catch (error) {
+      // Handle socket exceptions (network-related issues)
+      return left(
+        ConnectionFailure(errMessage: error.message),
+      );
+    } on FormatException catch (error) {
+      // Handle format exceptions (parsing issues)
+      return left(
+        FormatFailure(errMessage: error.message),
+      );
     } catch (error) {
+      // Handle any other unexpected errors
       return left(
         ServerFailure(errMessage: error.toString()),
       );
@@ -59,10 +75,22 @@ class AuthServices implements AuthRepo {
       );
       return right(null);
     } on DioException catch (error) {
+      // Handle Dio-specific exceptions (network and server communication)
       return left(
         ServerFailure.fromDioException(dioException: error),
       );
+    }  on SocketException catch (error) {
+      // Handle socket exceptions (network-related issues)
+      return left(
+        ConnectionFailure(errMessage: error.message),
+      );
+    } on FormatException catch (error) {
+      // Handle format exceptions (parsing issues)
+      return left(
+        FormatFailure(errMessage: error.message),
+      );
     } catch (error) {
+      // Handle any other unexpected errors
       return left(
         ServerFailure(errMessage: error.toString()),
       );
@@ -81,10 +109,22 @@ class AuthServices implements AuthRepo {
 
       return right(null);
     } on DioException catch (error) {
+      // Handle Dio-specific exceptions (network and server communication)
       return left(
         ServerFailure.fromDioException(dioException: error),
       );
+    }  on SocketException catch (error) {
+      // Handle socket exceptions (network-related issues)
+      return left(
+        ConnectionFailure(errMessage: error.message),
+      );
+    } on FormatException catch (error) {
+      // Handle format exceptions (parsing issues)
+      return left(
+        FormatFailure(errMessage: error.message),
+      );
     } catch (error) {
+      // Handle any other unexpected errors
       return left(
         ServerFailure(errMessage: error.toString()),
       );
@@ -112,11 +152,25 @@ class AuthServices implements AuthRepo {
         UserModel.fromJson(data: data),
       );
     } on DioException catch (error) {
+      // Handle Dio-specific exceptions (network and server communication)
       return left(
         ServerFailure.fromDioException(dioException: error),
       );
+    }  on SocketException catch (error) {
+      // Handle socket exceptions (network-related issues)
+      return left(
+        ConnectionFailure(errMessage: error.message),
+      );
+    } on FormatException catch (error) {
+      // Handle format exceptions (parsing issues)
+      return left(
+        FormatFailure(errMessage: error.message),
+      );
     } catch (error) {
-      return left(ServerFailure(errMessage: error.toString()));
+      // Handle any other unexpected errors
+      return left(
+        ServerFailure(errMessage: error.toString()),
+      );
     }
   }
 }
