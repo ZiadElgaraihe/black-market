@@ -1,3 +1,4 @@
+import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/presentation/view/app_bars/default_app_bar.dart';
 import 'package:black_market/core/utils/service_locator.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
@@ -12,7 +13,10 @@ class SignUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<SignUpCubit>(
-      create: (context) => SignUpCubit(authServices: getIt<AuthServices>()),
+      create: (context) => SignUpCubit(
+        authServices: getIt<AuthServices>(),
+        connectionServices: getIt<ConnectionServices>(),
+      ),
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
         child: const Scaffold(

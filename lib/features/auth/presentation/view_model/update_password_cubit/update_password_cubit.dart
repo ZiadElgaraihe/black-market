@@ -1,3 +1,5 @@
+import 'package:black_market/core/data/services/connection_services.dart';
+import 'package:black_market/core/errors/connection_failure.dart';
 import 'package:black_market/core/errors/failure.dart';
 import 'package:black_market/features/auth/data/models/user_model.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
@@ -10,11 +12,14 @@ part 'update_password_state.dart';
 class UpdatePasswordCubit extends Cubit<UpdatePasswordState> {
   UpdatePasswordCubit({
     required AuthServices authServices,
+    required ConnectionServices connectionServices,
   }) : super(UpdatePasswordInitial()) {
     _authServices = authServices;
+    _connectionServices = connectionServices;
   }
 
   late AuthServices _authServices;
+  late ConnectionServices _connectionServices;
 
   String? email;
   String otp = '';
@@ -22,25 +27,38 @@ class UpdatePasswordCubit extends Cubit<UpdatePasswordState> {
   String? confirmedPassword;
 
   Future<void> updatePassword() async {
-    emit(UpdatePasswordLoading());
-
-    Either<Failure, UserModel> result = await _authServices.updatePassword(
-      email: email!,
-      otp: otp,
-      password: password!,
-      confirmedPassword: confirmedPassword!,
-    );
-
-    result.fold(
-      //error
-      (serverFailure) {
+    Either<ConnectionFailure, void> connectionResult =
+        await _connectionServices.checkInternetConnection();
+    connectionResult.fold(
+      //no connection
+      (connectionFailure) {
         emit(
-          UpdatePasswordFailure(errMessage: serverFailure.errMessage),
+          UpdatePasswordFailure(errMessage: connectionFailure.errMessage),
         );
       },
-      //success
-      (userModel) {
-        emit(UpdatePasswordSuccess());
+      //connection
+      (_) async {
+        emit(UpdatePasswordLoading());
+
+        Either<Failure, UserModel> result = await _authServices.updatePassword(
+          email: email!,
+          otp: otp,
+          password: password!,
+          confirmedPassword: confirmedPassword!,
+        );
+
+        result.fold(
+          //error
+          (serverFailure) {
+            emit(
+              UpdatePasswordFailure(errMessage: serverFailure.errMessage),
+            );
+          },
+          //success
+          (userModel) {
+            emit(UpdatePasswordSuccess());
+          },
+        );
       },
     );
   }

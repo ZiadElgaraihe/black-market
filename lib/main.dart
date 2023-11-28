@@ -1,3 +1,4 @@
+import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/service_locator.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
@@ -35,6 +36,7 @@ class BlackMarket extends StatelessWidget {
     return BlocProvider<UpdatePasswordCubit>(
       create: (context) => UpdatePasswordCubit(
         authServices: getIt<AuthServices>(),
+        connectionServices: getIt<ConnectionServices>(),
       ),
       child: ScreenUtilInit(
         designSize: const Size(375, 812),

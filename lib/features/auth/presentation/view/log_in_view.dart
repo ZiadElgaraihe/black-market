@@ -1,3 +1,4 @@
+import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/service_locator.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
@@ -15,6 +16,7 @@ class LogInView extends StatelessWidget {
     return BlocProvider<LogInCubit>(
       create: (context) => LogInCubit(
         authServices: getIt<AuthServices>(),
+        connectionServices: getIt<ConnectionServices>(),
       ),
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus!.unfocus(),

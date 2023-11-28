@@ -1,3 +1,5 @@
+import 'package:black_market/core/data/services/connection_services.dart';
+import 'package:black_market/core/errors/connection_failure.dart';
 import 'package:black_market/core/errors/failure.dart';
 import 'package:black_market/features/auth/data/models/user_model.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
@@ -10,33 +12,49 @@ part 'log_in_state.dart';
 class LogInCubit extends Cubit<LogInState> {
   LogInCubit({
     required AuthServices authServices,
+    required ConnectionServices connectionServices,
   }) : super(LogInInitial()) {
     _authServices = authServices;
+    _connectionServices = connectionServices;
   }
 
   late AuthServices _authServices;
+  late ConnectionServices _connectionServices;
 
   String? email;
   String? password;
 
   Future<void> logIn() async {
-    emit(LogInLoading());
-
-    Either<Failure, UserModel> result = await _authServices.logIn(
-      email: email!,
-      password: password!,
-    );
-
-    result.fold(
-      //error
-      (serverFailure) {
+    Either<ConnectionFailure, void> connectionResult =
+        await _connectionServices.checkInternetConnection();
+    connectionResult.fold(
+      //no connection
+      (connectionFailure) {
         emit(
-          LogInFailure(errMessage: serverFailure.errMessage),
+          LogInFailure(errMessage: connectionFailure.errMessage),
         );
       },
-      //success
-      (userModel) {
-        emit(LogInSuccess());
+      //connection
+      (_) async {
+        emit(LogInLoading());
+
+        Either<Failure, UserModel> result = await _authServices.logIn(
+          email: email!,
+          password: password!,
+        );
+
+        result.fold(
+          //error
+          (serverFailure) {
+            emit(
+              LogInFailure(errMessage: serverFailure.errMessage),
+            );
+          },
+          //success
+          (userModel) {
+            emit(LogInSuccess());
+          },
+        );
       },
     );
   }
