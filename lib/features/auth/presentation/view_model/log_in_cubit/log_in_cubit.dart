@@ -1,6 +1,9 @@
 import 'package:black_market/core/data/services/connection_services.dart';
+import 'package:black_market/core/data/services/local_database_services.dart';
 import 'package:black_market/core/errors/connection_failure.dart';
 import 'package:black_market/core/errors/failure.dart';
+import 'package:black_market/core/utils/constants.dart';
+import 'package:black_market/features/auth/data/models/user/user.dart';
 import 'package:black_market/features/auth/data/models/user_model.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
 import 'package:dartz/dartz.dart';
@@ -13,13 +16,16 @@ class LogInCubit extends Cubit<LogInState> {
   LogInCubit({
     required AuthServices authServices,
     required ConnectionServices connectionServices,
+    required LocalDatabaseServices localDatabaseServices,
   }) : super(LogInInitial()) {
     _authServices = authServices;
     _connectionServices = connectionServices;
+    _localDatabaseServices = localDatabaseServices;
   }
 
   late AuthServices _authServices;
   late ConnectionServices _connectionServices;
+  late LocalDatabaseServices _localDatabaseServices;
 
   String? email;
   String? password;
@@ -52,6 +58,11 @@ class LogInCubit extends Cubit<LogInState> {
           },
           //success
           (userModel) {
+            _localDatabaseServices.store<User>(
+              boxName: kUserBox,
+              key: kUserKey,
+              value: userModel.user,
+            );
             emit(LogInSuccess());
           },
         );
