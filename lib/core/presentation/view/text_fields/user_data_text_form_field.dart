@@ -31,6 +31,7 @@ class UserDataTextFormField extends StatefulWidget {
 class _UserDataTextFormFieldState extends State<UserDataTextFormField> {
   final FocusNode _focusNode = FocusNode();
   final ValueNotifier<bool> _isFocued = ValueNotifier<bool>(false);
+  final ValueNotifier<bool> _hasError = ValueNotifier<bool>(false);
 
   @override
   void initState() {
@@ -62,11 +63,17 @@ class _UserDataTextFormFieldState extends State<UserDataTextFormField> {
       validator: (widget.validator == null)
           ? (value) {
               if (value == null || value.isEmpty) {
+                _hasError.value = true;
                 return 'هذا الحقل مطلوب';
               }
+              _hasError.value = false;
               return null;
             }
-          : widget.validator,
+          : (value) {
+              String? customError = widget.validator!(value);
+              _hasError.value = customError != null;
+              return customError;
+            },
       decoration: InputDecoration(
         hintText: widget.hintText,
         contentPadding: EdgeInsets.symmetric(
@@ -84,20 +91,35 @@ class _UserDataTextFormFieldState extends State<UserDataTextFormField> {
           borderSide: BorderSide(color: AppColors.yellow, width: 0.5.w),
           borderRadius: BorderRadius.circular(8.w),
         ),
+        errorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: AppColors.red, width: 0.5.w),
+          borderRadius: BorderRadius.circular(8.w),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: BorderSide(color: AppColors.red, width: 0.5.w),
+          borderRadius: BorderRadius.circular(8.w),
+        ),
         suffixIcon: Padding(
           padding: EdgeInsets.symmetric(
             horizontal: 16.w,
             vertical: 15.h,
           ),
           child: ValueListenableBuilder(
-            valueListenable: _isFocued,
-            builder: (context, isFocused, child) => SvgPicture.asset(
-              widget.suffixIcon,
-              height: 22.h,
-              width: 22.w,
-              colorFilter: ColorFilter.mode(
-                isFocused ? AppColors.yellow : AppColors.white,
-                BlendMode.srcATop,
+            valueListenable: _hasError,
+            builder: (context, hasError, child) => ValueListenableBuilder(
+              valueListenable: _isFocued,
+              builder: (context, isFocused, child) => SvgPicture.asset(
+                widget.suffixIcon,
+                height: 22.h,
+                width: 22.w,
+                colorFilter: ColorFilter.mode(
+                  hasError
+                      ? AppColors.red
+                      : isFocused
+                          ? AppColors.yellow
+                          : AppColors.white,
+                  BlendMode.srcATop,
+                ),
               ),
             ),
           ),

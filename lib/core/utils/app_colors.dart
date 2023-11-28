@@ -25,6 +25,9 @@ abstract class AppColors {
   ///#D3DCEE
   static Color pastelBlue = const Color(0xFFD3DCEE);
 
+  ///FF2A2A
+  static Color red = const Color(0xFFFF2A2A);
+
   static Color transparent = Colors.transparent;
 
   ///#FFFFFF
