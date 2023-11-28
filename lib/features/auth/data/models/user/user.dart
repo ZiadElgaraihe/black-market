@@ -1,12 +1,21 @@
-part of 'user_model.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+part 'user.g.dart';
 
+@HiveType(typeId: 0)
 class User {
+  @HiveField(0)
   int id;
+  @HiveField(1)
   int roleId;
+  @HiveField(2)
   String name;
+  @HiveField(3)
   String email;
+  @HiveField(4)
   String avatar;
+  @HiveField(5)
   String createdAt;
+  @HiveField(6)
   String updatedAt;
 
   User({

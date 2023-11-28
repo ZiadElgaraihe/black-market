@@ -1,4 +1,4 @@
-part 'user.dart';
+import 'package:black_market/features/auth/data/models/user/user.dart';
 
 class UserModel {
   User user;
