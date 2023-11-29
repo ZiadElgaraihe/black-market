@@ -9,9 +9,11 @@ class DefaultNavBar extends StatelessWidget {
   DefaultNavBar({
     super.key,
     required this.currentIndexValueNotifier,
+    required this.pageController,
   });
 
   final ValueNotifier<int> currentIndexValueNotifier;
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,11 @@ class DefaultNavBar extends StatelessWidget {
             unselectedItemColor: AppColors.white.withOpacity(0.5),
             onTap: (value) {
               currentIndexValueNotifier.value = value;
+              pageController.animateToPage(
+                value,
+                duration: const Duration(seconds: 1),
+                curve: Curves.fastOutSlowIn,
+              );
             },
             items: List.generate(
               _navbarItemsData.length,
