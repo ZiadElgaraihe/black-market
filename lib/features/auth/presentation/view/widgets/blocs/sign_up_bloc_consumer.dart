@@ -3,7 +3,6 @@ import 'package:black_market/core/functions/show_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/presentation/view/buttons/default_loading_button.dart';
-import 'package:black_market/features/auth/presentation/view/log_in_view.dart';
 import 'package:black_market/features/auth/presentation/view/success_view.dart';
 import 'package:black_market/features/auth/presentation/view_model/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
@@ -48,18 +47,7 @@ class SignUpBlocConsumer extends StatelessWidget {
       Navigator.pushAndRemoveUntil(
         context,
         BottomSlideTransition(
-          page: SuccessView(
-            buttonTitle: 'تسجيل الدخول',
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                BottomSlideTransition(
-                  page: const LogInView(),
-                ),
-              );
-            },
-            title: 'تم إنشاء الحساب بنجاح',
-          ),
+          page: const SuccessView(title: 'تم إنشاء الحساب بنجاح'),
         ),
         (route) => false,
       );

@@ -47,11 +47,7 @@ class ResetPasswordBlocConsumer extends StatelessWidget {
       Navigator.pushAndRemoveUntil(
         context,
         BottomSlideTransition(
-          page: SuccessView(
-            buttonTitle: 'الرئيسية',
-            onPressed: () {},
-            title: 'تم إنشاء كلمة مرور جديدة بنجاح',
-          ),
+          page: const SuccessView(title: 'تم إنشاء كلمة مرور جديدة بنجاح'),
         ),
         (route) => false,
       );
