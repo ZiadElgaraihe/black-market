@@ -40,7 +40,7 @@ class _LogInViewBodyState extends State<LogInViewBody> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 72.h),
+              SizedBox(height: 12.h),
               Text(
                 'تسجيل الدخول\nالى حسابك',
                 style: TextStyles.textStyle26,

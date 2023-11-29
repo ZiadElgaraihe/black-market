@@ -3,7 +3,6 @@ import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/features/auth/presentation/view/log_in_view.dart';
 import 'package:black_market/features/splash/presentation/view/widgets/splash_view_body.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class SplashView extends StatelessWidget {
   const SplashView({super.key});
@@ -27,9 +26,7 @@ class SplashView extends StatelessWidget {
         appBar: AppBar(
           toolbarHeight: 0,
           elevation: 0,
-          systemOverlayStyle: SystemUiOverlayStyle.dark.copyWith(
-            statusBarColor: AppColors.yellow,
-          ),
+          backgroundColor: AppColors.transparent,
         ),
         body: const SplashViewBody(),
       ),
