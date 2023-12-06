@@ -45,7 +45,7 @@ class BlackMarket extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Black Market',
-          theme: ThemeData.dark().copyWith(
+          theme: ThemeData.dark(useMaterial3: false).copyWith(
             scaffoldBackgroundColor: AppColors.backgroundColor,
             textTheme: GoogleFonts.almaraiTextTheme(
               ThemeData.dark().textTheme,
