@@ -17,7 +17,7 @@ class CurrencyBankSection extends StatelessWidget {
         mainAxisSpacing: 20.h,
       ),
       itemCount: 7,
-      itemBuilder: (context, index) => const CurrencyBankItemContainer(),
+      itemBuilder: (context, index) => CurrencyBankItemContainer(index: index),
     );
   }
 }

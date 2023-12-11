@@ -1,10 +1,14 @@
 import 'package:black_market/core/utils/app_colors.dart';
-import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_header_price_content_column.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CurrencyHeaderPriceContainer extends StatelessWidget {
-  const CurrencyHeaderPriceContainer({super.key});
+class HeaderPriceContainer extends StatelessWidget {
+  const HeaderPriceContainer({
+    super.key,
+    required this.child,
+  });
+
+  final Widget child;
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,7 @@ class CurrencyHeaderPriceContainer extends StatelessWidget {
         color: AppColors.white,
         borderRadius: BorderRadius.circular(16.w),
       ),
-      child: const CurrencyHeaderPriceContentColumn(),
+      child: child,
     );
   }
 }
