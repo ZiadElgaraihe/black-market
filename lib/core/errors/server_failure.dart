@@ -1,5 +1,4 @@
-import 'package:black_market/core/errors/failure.dart';
-import 'package:dio/dio.dart';
+part of 'failure.dart';
 
 class ServerFailure extends Failure {
   ServerFailure({required super.errMessage});

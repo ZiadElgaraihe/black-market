@@ -1,6 +1,5 @@
 import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
-import 'package:black_market/core/errors/connection_failure.dart';
 import 'package:black_market/core/errors/failure.dart';
 import 'package:black_market/core/utils/constants.dart';
 import 'package:black_market/features/auth/data/models/user/user.dart';

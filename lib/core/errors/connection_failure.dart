@@ -1,4 +1,4 @@
-import 'package:black_market/core/errors/failure.dart';
+part of 'failure.dart';
 
 class ConnectionFailure extends Failure {
   ConnectionFailure({
