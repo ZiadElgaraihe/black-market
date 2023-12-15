@@ -1,15 +1,7 @@
 import 'package:black_market/core/data/repos/local_database_repo.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class LocalDatabaseServices implements LocalDatabaseRepo {
-  LocalDatabaseServices({
-    required FlutterSecureStorage flutterSecureStorage,
-  }) {
-    _flutterSecureStorage = flutterSecureStorage;
-  }
-
-  late FlutterSecureStorage _flutterSecureStorage;
   @override
   Future<void> store<T>({
     required String boxName,
@@ -40,13 +32,5 @@ class LocalDatabaseServices implements LocalDatabaseRepo {
     Box box = await Hive.openBox<T>(boxName);
     await box.delete(key);
     await box.close();
-  }
-
-  @override
-  Future<void> storeInSecureStorage({
-    required String key,
-    required String value,
-  }) async {
-    await _flutterSecureStorage.write(key: key, value: value);
   }
 }

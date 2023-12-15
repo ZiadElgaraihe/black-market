@@ -1,5 +1,6 @@
 import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
+import 'package:black_market/core/data/services/secure_database_services.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/service_locator.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
@@ -39,6 +40,7 @@ class BlackMarket extends StatelessWidget {
         authServices: getIt<AuthServices>(),
         connectionServices: getIt<ConnectionServices>(),
         localDatabaseServices: getIt<LocalDatabaseServices>(),
+        secureDatabaseServices: getIt<SecureDatabaseServices>(),
       ),
       child: ScreenUtilInit(
         designSize: const Size(375, 812),

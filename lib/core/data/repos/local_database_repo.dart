@@ -14,9 +14,4 @@ abstract class LocalDatabaseRepo {
     required String boxName,
     required String key,
   });
-
-  Future<void> storeInSecureStorage({
-    required String key,
-    required String value,
-  });
 }
