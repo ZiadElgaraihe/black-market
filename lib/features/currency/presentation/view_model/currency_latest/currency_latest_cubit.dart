@@ -27,8 +27,8 @@ class CurrencyLatestCubit extends Cubit<CurrencyLatestState> {
   late CurrencyServices _currencyServices;
   late LocalDatabaseServices _localDatabaseServices;
 
-  Future<void> getLatest() async {
-    if (_currencies != null) {
+  Future<void> getLatest({bool isReload = false}) async {
+    if (!isReload && _currencies != null) {
       emit(
         CurrencyLatestSuccess(currencies: _currencies!),
       );

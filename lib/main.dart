@@ -5,6 +5,8 @@ import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/service_locator.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
 import 'package:black_market/features/auth/presentation/view_model/update_password_cubit/update_password_cubit.dart';
+import 'package:black_market/features/currency/data/services/currency_services.dart';
+import 'package:black_market/features/currency/presentation/view_model/currency_latest/currency_latest_cubit.dart';
 import 'package:black_market/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -17,12 +19,13 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setUpServiceLocator();
   //prevent app from being rotated
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((_) {
-    runApp(
-      const BlackMarket(),
-    );
-  });
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
+    (_) {
+      runApp(
+        const BlackMarket(),
+      );
+    },
+  );
 }
 
 class BlackMarket extends StatelessWidget {
@@ -35,13 +38,24 @@ class BlackMarket extends StatelessWidget {
         statusBarColor: AppColors.transparent,
       ),
     );
-    return BlocProvider<UpdatePasswordCubit>(
-      create: (context) => UpdatePasswordCubit(
-        authServices: getIt<AuthServices>(),
-        connectionServices: getIt<ConnectionServices>(),
-        localDatabaseServices: getIt<LocalDatabaseServices>(),
-        secureDatabaseServices: getIt<SecureDatabaseServices>(),
-      ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<UpdatePasswordCubit>(
+          create: (context) => UpdatePasswordCubit(
+            authServices: getIt<AuthServices>(),
+            connectionServices: getIt<ConnectionServices>(),
+            localDatabaseServices: getIt<LocalDatabaseServices>(),
+            secureDatabaseServices: getIt<SecureDatabaseServices>(),
+          ),
+        ),
+        BlocProvider<CurrencyLatestCubit>(
+          create: (context) => CurrencyLatestCubit(
+            connectionServices: getIt<ConnectionServices>(),
+            currencyServices: getIt<CurrencyServices>(),
+            localDatabaseServices: getIt<LocalDatabaseServices>(),
+          ),
+        ),
+      ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
         child: MaterialApp(

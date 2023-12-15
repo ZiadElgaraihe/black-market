@@ -22,6 +22,9 @@ class CurrencyServices implements CurrencyRepo {
         List<CurrencyModel> currencies = [];
 
         for (var currency in data) {
+          if (currency['id'] == 21) {
+            break;
+          }
           currencies.add(
             CurrencyModel.fromJson(data: currency),
           );
