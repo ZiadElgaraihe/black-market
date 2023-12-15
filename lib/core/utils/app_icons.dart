@@ -1,5 +1,4 @@
 abstract class AppIcons {
-  
   /// assets/icons/about.svg
   static const String assetsIconsAbout = "assets/icons/about.svg";
 
@@ -28,7 +27,8 @@ abstract class AppIcons {
   static const String assetsIconsCurrency = "assets/icons/currency.svg";
 
   /// assets/icons/dollar_circle.svg
-  static const String assetsIconsDollarCircle = "assets/icons/dollar_circle.svg";
+  static const String assetsIconsDollarCircle =
+      "assets/icons/dollar_circle.svg";
 
   /// assets/icons/edit_square.svg
   static const String assetsIconsEditSquare = "assets/icons/edit_square.svg";
@@ -60,11 +60,44 @@ abstract class AppIcons {
   /// assets/icons/message.svg
   static const String assetsIconsMessage = "assets/icons/message.svg";
 
+  ///assets/icons/navbar_dollar.svg
+  static const String assetsIconsNavbarDollar =
+      "assets/icons/navbar_dollar.svg";
+
+  ///assets/icons/navbar_dollar_active.svg
+  static const String assetsIconsNavbarDollarActive =
+      "assets/icons/navbar_dollar_active.svg";
+
+  ///assets/icons/navbar_gold.svg
+  static const String assetsIconsNavbarGold =
+      "assets/icons/navbar_gold.svg";
+
+  ///assets/icons/navbar_gold_active.svg
+  static const String assetsIconsNavbarGoldActive =
+      "assets/icons/navbar_gold_active.svg";
+
+  ///assets/icons/navbar_heart.svg
+  static const String assetsIconsNavbarHeart =
+      "assets/icons/navbar_heart.svg";
+
+  ///assets/icons/navbar_heart_active.svg
+  static const String assetsIconsNavbarHeartActive =
+      "assets/icons/navbar_heart_active.svg";
+
+  ///assets/icons/navbar_profile.svg
+  static const String assetsIconsNavbarProfile =
+      "assets/icons/navbar_profile.svg";
+
+  ///assets/icons/navbar_profile_active.svg
+  static const String assetsIconsNavbarProfileActive =
+      "assets/icons/navbar_profile_active.svg";
+
   /// assets/icons/notification.svg
   static const String assetsIconsNotification = "assets/icons/notification.svg";
 
   /// assets/icons/notification_bing.svg
-  static const String assetsIconsNotificationBing = "assets/icons/notification_bing.svg";
+  static const String assetsIconsNotificationBing =
+      "assets/icons/notification_bing.svg";
 
   /// assets/icons/profile.svg
   static const String assetsIconsProfile = "assets/icons/profile.svg";
@@ -79,7 +112,8 @@ abstract class AppIcons {
   static const String assetsIconsShareApp = "assets/icons/share_app.svg";
 
   /// assets/icons/text_align_justify_center.svg
-  static const String assetsIconsTextAlignJustifyCenter = "assets/icons/text_align_justify_center.svg";
+  static const String assetsIconsTextAlignJustifyCenter =
+      "assets/icons/text_align_justify_center.svg";
 
   /// assets/icons/trash.svg
   static const String assetsIconsTrash = "assets/icons/trash.svg";

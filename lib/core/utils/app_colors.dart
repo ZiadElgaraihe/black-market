@@ -10,6 +10,9 @@ abstract class AppColors {
   ///#2A2A2A
   static Color darkGrey = const Color(0xFF2A2A2A);
 
+  ///#BFA500
+  static Color gold = const Color(0xFFBFA500);
+
   ///#666666
   static Color grey = const Color(0xFF666666);
 
@@ -25,7 +28,7 @@ abstract class AppColors {
   ///#D3DCEE
   static Color pastelBlue = const Color(0xFFD3DCEE);
 
-  ///FF2A2A
+  ///#FF2A2A
   static Color red = const Color(0xFFFF2A2A);
 
   static Color transparent = Colors.transparent;

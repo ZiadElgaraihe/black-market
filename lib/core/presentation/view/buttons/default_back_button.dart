@@ -6,7 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class DefaultBackButton extends StatelessWidget {
-  const DefaultBackButton({super.key});
+  const DefaultBackButton({
+    super.key,
+    required this.backButtonBackgroundColor,
+  });
+
+  final Color? backButtonBackgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +21,7 @@ class DefaultBackButton extends StatelessWidget {
       margin: EdgeInsetsDirectional.only(start: 10.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.w),
-        color: AppColors.darkGrey,
+        color: backButtonBackgroundColor ?? AppColors.darkGrey,
       ),
       child: Material(
         color: AppColors.transparent,

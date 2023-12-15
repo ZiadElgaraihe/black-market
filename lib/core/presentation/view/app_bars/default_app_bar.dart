@@ -6,9 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   const DefaultAppBar({
     super.key,
+    this.backButtonBackgroundColor,
     required this.title,
   });
 
+  final Color? backButtonBackgroundColor;
   final String title;
 
   @override
@@ -21,7 +23,9 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
         child: Row(
           children: [
-            const DefaultBackButton(),
+            DefaultBackButton(
+              backButtonBackgroundColor: backButtonBackgroundColor,
+            ),
             const Spacer(flex: 2),
             Text(
               title,
