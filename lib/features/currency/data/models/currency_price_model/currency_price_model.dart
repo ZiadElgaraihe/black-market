@@ -1,8 +1,18 @@
+import 'package:hive_flutter/hive_flutter.dart';
+
+part 'currency_price_model.g.dart';
+
+@HiveType(typeId: 2)
 class CurrencyPriceModel {
+  @HiveField(0)
   int id;
+  @HiveField(1)
   int? bankId;
+  @HiveField(2)
   double buyPrice;
+  @HiveField(3)
   double sellPrice;
+  @HiveField(4)
   String updatedAt;
 
   CurrencyPriceModel({
