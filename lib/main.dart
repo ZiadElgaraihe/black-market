@@ -2,6 +2,7 @@ import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
 import 'package:black_market/core/data/services/secure_database_services.dart';
 import 'package:black_market/core/utils/app_colors.dart';
+import 'package:black_market/core/utils/hive_setup.dart';
 import 'package:black_market/core/utils/service_locator.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
 import 'package:black_market/features/auth/presentation/view_model/update_password_cubit/update_password_cubit.dart';
@@ -17,6 +18,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  initializeLocalDatabase();
   setUpServiceLocator();
   //prevent app from being rotated
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(

@@ -38,13 +38,17 @@ class CurrencyLatestCubit extends Cubit<CurrencyLatestState> {
 
       connectionResult.fold(
         //no connection
-        (connectionFailure) async{
-          _currencies = await _localDatabaseServices.get<List<CurrencyModel>>(
+        (connectionFailure) async {
+          var returnedData = await _localDatabaseServices.get(
             boxName: kCurrencyBox,
             key: kCurrencyKey,
           );
 
-          if (_currencies != null) {
+          if (returnedData != null) {
+            _currencies = [];
+            for (var element in returnedData) {
+              _currencies!.add(element);
+            }
             emit(
               CurrencyLatestSuccess(currencies: _currencies!),
             );
@@ -65,7 +69,10 @@ class CurrencyLatestCubit extends Cubit<CurrencyLatestState> {
             //error
             (failure) {
               emit(
-                CurrencyLatestFailure(errMessage: failure.errMessage),
+                CurrencyLatestFailure(
+                  errMessage: failure.errMessage,
+                  currencies: _currencies,
+                ),
               );
             },
             //success

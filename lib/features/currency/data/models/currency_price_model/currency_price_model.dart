@@ -9,17 +9,20 @@ class CurrencyPriceModel {
   @HiveField(1)
   int? bankId;
   @HiveField(2)
-  double buyPrice;
+  double? price;
   @HiveField(3)
-  double sellPrice;
+  double? buyPrice;
   @HiveField(4)
+  double? sellPrice;
+  @HiveField(5)
   String updatedAt;
 
   CurrencyPriceModel({
     required this.id,
     this.bankId,
-    required this.buyPrice,
-    required this.sellPrice,
+    this.price,
+    this.buyPrice,
+    this.sellPrice,
     required this.updatedAt,
   });
 
@@ -27,8 +30,15 @@ class CurrencyPriceModel {
     return CurrencyPriceModel(
       id: data['id'],
       bankId: data['bank_id'],
-      buyPrice: data['buy_price'],
-      sellPrice: data['sell_price'],
+      price: data['price'] is int
+          ? data['price'].toDouble()
+          : data['price'],
+      buyPrice: data['buy_price'] is int
+          ? data['buy_price'].toDouble()
+          : data['buy_price'],
+      sellPrice: data['sell_price'] is int
+          ? data['sell_price'].toDouble()
+          : data['sell_price'],
       updatedAt: data['updated_at'],
     );
   }
