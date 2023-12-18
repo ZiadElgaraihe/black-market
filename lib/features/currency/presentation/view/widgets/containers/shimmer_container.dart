@@ -6,16 +6,18 @@ import 'package:shimmer/shimmer.dart';
 class ShimmerContainer extends StatelessWidget {
   const ShimmerContainer({
     super.key,
-    this.height,
-    this.width,
-    this.highlightColor,
     this.baseColor,
+    this.height,
+    this.highlightColor,
+    this.shape = BoxShape.rectangle,
+    this.width,
   });
 
-  final double? height;
-  final double? width;
-  final Color? highlightColor;
   final Color? baseColor;
+  final double? height;
+  final Color? highlightColor;
+  final BoxShape shape;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +28,11 @@ class ShimmerContainer extends StatelessWidget {
         height: height ?? 16.h,
         width: width ?? 50.w,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.w),
+          borderRadius: (shape == BoxShape.rectangle)
+              ? BorderRadius.circular(15.w)
+              : null,
           color: AppColors.white,
+          shape: shape,
         ),
       ),
     );
