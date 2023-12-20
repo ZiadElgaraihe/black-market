@@ -30,7 +30,11 @@ class CurrencyBankSection extends StatelessWidget {
                 Navigator.push(
                   context,
                   RightSlideTransition(
-                    page: BankView(index: index),
+                    page: BankView(
+                      bankId: state.currencies[0].bankPrices[index].bankId!,
+                      currencies: state.currencies,
+                      currencyIndex: 0,
+                    ),
                   ),
                 );
               },
@@ -50,7 +54,12 @@ class CurrencyBankSection extends StatelessWidget {
                       Navigator.push(
                         context,
                         RightSlideTransition(
-                          page: BankView(index: index),
+                          page: BankView(
+                            bankId:
+                                state.currencies![0].bankPrices[index].bankId!,
+                            currencies: state.currencies!,
+                            currencyIndex: 0,
+                          ),
                         ),
                       );
                     }

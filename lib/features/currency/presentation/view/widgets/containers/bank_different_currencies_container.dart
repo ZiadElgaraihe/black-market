@@ -1,11 +1,19 @@
 import 'package:black_market/core/utils/app_colors.dart';
+import 'package:black_market/features/currency/data/models/currency_model/currency_model.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/rows/bank_different_currencies_title_row.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/rows/bank_different_currencies_values_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BankDifferentCurrenciesContainer extends StatelessWidget {
-  const BankDifferentCurrenciesContainer({super.key});
+  const BankDifferentCurrenciesContainer({
+    super.key,
+    required this.bankId,
+    required this.currencies,
+  });
+
+  final int bankId;
+  final List<CurrencyModel> currencies;
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +35,11 @@ class BankDifferentCurrenciesContainer extends StatelessWidget {
           SizedBox(height: 12.h),
           Column(
             children: List.generate(
-              8,
-              (index) => const BankDifferentCurrenciesValuesRow(),
+              currencies.length,
+              (index) => BankDifferentCurrenciesValuesRow(
+                bankId: bankId,
+                currency: currencies[index],
+              ),
             ),
           ),
         ],

@@ -22,7 +22,10 @@ class CurrencyServices implements CurrencyRepo {
         List<CurrencyModel> currencies = [];
 
         for (var currency in data) {
-          if (currency['id'] == 21) {
+          if (currency['id'] == 21 ||
+              currency['id'] == 25 ||
+              currency['bank_prices'].isEmpty ||
+              currency['black_market_prices'].isEmpty) {
             continue;
           }
           currencies.add(

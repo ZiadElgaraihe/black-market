@@ -65,7 +65,7 @@ class CurrencyHeaderPriceContentColumn extends StatelessWidget {
   }
 
   String _getTimeSinceLastUpdate() {
-    final updatedAt = DateTime.parse(_getLastUpdatedCurrency().updatedAt);
+    final updatedAt = DateTime.parse(currencies![0].updatedAt);
     final currentTime = DateTime.now();
     final difference = currentTime.difference(updatedAt);
 

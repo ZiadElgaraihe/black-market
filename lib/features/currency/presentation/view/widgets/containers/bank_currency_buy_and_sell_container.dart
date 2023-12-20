@@ -1,12 +1,20 @@
 import 'package:black_market/core/utils/app_colors.dart';
-import 'package:black_market/features/currency/presentation/view/widgets/buttons/currency_selection_button.dart';
+import 'package:black_market/core/utils/text_styles.dart';
+import 'package:black_market/features/currency/data/models/currency_model/currency_model.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_info_column.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/dividers/custom_vertical_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class BankCurrencyBuyAndSellContainer extends StatelessWidget {
-  const BankCurrencyBuyAndSellContainer({super.key});
+  const BankCurrencyBuyAndSellContainer({
+    super.key,
+    required this.bankId,
+    required this.currency,
+  });
+
+  final int bankId;
+  final CurrencyModel currency;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +26,12 @@ class BankCurrencyBuyAndSellContainer extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const CurrencySelectionButton(),
+          Text(
+            currency.name,
+            style: TextStyles.textStyle10.copyWith(
+              color: AppColors.darkGrey,
+            ),
+          ),
           SizedBox(height: 12.5.h),
           SizedBox(
             height: 45.h,
@@ -28,14 +41,16 @@ class BankCurrencyBuyAndSellContainer extends StatelessWidget {
                 CurrencyInfoColumn(
                   title: 'شراء',
                   titleColor: AppColors.black,
-                  value: '30.24 ج.م',
+                  value:
+                      '${currency.bankPrices.firstWhere((element) => element.bankId == bankId).buyPrice} ج.م',
                   valueColor: AppColors.black,
                 ),
                 CustomVerticalDivider(color: AppColors.gold),
                 CurrencyInfoColumn(
-                  title: 'شراء',
+                  title: 'بيع',
                   titleColor: AppColors.black,
-                  value: '30.24 ج.م',
+                  value:
+                      '${currency.bankPrices.firstWhere((element) => element.bankId == bankId).sellPrice} ج.م',
                   valueColor: AppColors.black,
                 ),
               ],

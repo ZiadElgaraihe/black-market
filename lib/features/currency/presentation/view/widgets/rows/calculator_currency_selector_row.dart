@@ -2,12 +2,18 @@ import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/app_images.dart';
 import 'package:black_market/core/utils/text_styles.dart';
+import 'package:black_market/features/currency/data/models/currency_model/currency_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class CalculatorCurrencySelectorRow extends StatelessWidget {
-  const CalculatorCurrencySelectorRow({super.key});
+  const CalculatorCurrencySelectorRow({
+    super.key,
+    required this.currency,
+  });
+
+  final CurrencyModel currency;
 
   @override
   Widget build(BuildContext context) {
@@ -50,31 +56,11 @@ class CalculatorCurrencySelectorRow extends StatelessWidget {
             borderRadius: BorderRadius.circular(4.w),
             color: AppColors.white,
           ),
-          child: Row(
-            children: [
-              SvgPicture.asset(
-                AppImages.assetsImagesEgyptFlag,
-                height: 9.5.h,
-                width: 12.5.w,
-              ),
-              SizedBox(width: 4.7.w),
-              Text(
-                'USD',
-                style: TextStyles.textStyle7.copyWith(
-                  color: AppColors.black,
-                ),
-              ),
-              SizedBox(width: 4.7.w),
-              SvgPicture.asset(
-                AppIcons.assetsIconsArrowDown,
-                height: 11.h,
-                width: 11.w,
-                colorFilter: ColorFilter.mode(
-                  AppColors.darkGrey,
-                  BlendMode.srcATop,
-                ),
-              ),
-            ],
+          child: Text(
+            currency.name.split('/').first,
+            style: TextStyles.textStyle7.copyWith(
+              color: AppColors.black,
+            ),
           ),
         ),
         SizedBox(width: 14.w),

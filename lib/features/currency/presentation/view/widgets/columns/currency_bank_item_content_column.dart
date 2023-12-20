@@ -31,13 +31,10 @@ class CurrencyBankItemContentColumn extends StatelessWidget {
               icon: AppIcons.assetsIconsShare,
               onPressed: () {},
             ),
-            Hero(
-              tag: 'BankImage$index',
-              child: CircleAvatar(
-                radius: 23.3.w,
-                child: Image.asset(
-                  AppImages.assetsImagesBankMisrPng,
-                ),
+            CircleAvatar(
+              radius: 23.3.w,
+              child: Image.asset(
+                AppImages.assetsImagesBankMisrPng,
               ),
             ),
             ActionButton(
