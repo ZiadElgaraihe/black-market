@@ -5,6 +5,9 @@ class AppImages {
   /// assets/images/bank_misr.png
   static const String assetsImagesBankMisrPng = "assets/images/bank_misr.png";
 
+  ///assets/images/bank.svg
+  static const String assetsImagesBank = "assets/images/bank.svg";
+
   /// assets/images/bitcoin.svg
   static const String assetsImagesBitcoin = "assets/images/bitcoin.svg";
 

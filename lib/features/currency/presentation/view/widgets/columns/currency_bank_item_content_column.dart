@@ -8,6 +8,7 @@ import 'package:black_market/features/currency/presentation/view/widgets/columns
 import 'package:black_market/features/currency/presentation/view/widgets/dividers/custom_vertical_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CurrencyBankItemContentColumn extends StatelessWidget {
   const CurrencyBankItemContentColumn({
@@ -33,8 +34,12 @@ class CurrencyBankItemContentColumn extends StatelessWidget {
             ),
             CircleAvatar(
               radius: 23.3.w,
-              child: Image.asset(
-                AppImages.assetsImagesBankMisrPng,
+              backgroundColor: AppColors.white,
+              child: Padding(
+                padding: EdgeInsets.all(7.5.w),
+                child: SvgPicture.asset(
+                  AppImages.assetsImagesBank,
+                ),
               ),
             ),
             ActionButton(
