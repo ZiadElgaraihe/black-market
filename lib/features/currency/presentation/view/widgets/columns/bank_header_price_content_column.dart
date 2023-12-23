@@ -37,7 +37,9 @@ class BankHeaderPriceContentColumn extends StatelessWidget {
             ),
             SizedBox(width: 6.w),
             Text(
-              'بنك مصر',
+              currency.bankPrices
+                  .firstWhere((element) => element.bankId == bankId)
+                  .bankName!,
               style: TextStyles.textStyle12.copyWith(
                 color: AppColors.darkGrey,
               ),

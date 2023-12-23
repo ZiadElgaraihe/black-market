@@ -34,6 +34,29 @@ class CurrencyModel {
   });
 
   factory CurrencyModel.fromJson({required Map<String, dynamic> data}) {
+        Set<int> uniqueBankIds = <int>{};
+
+    List<CurrencyPriceModel?> bankPrices = List.generate(
+      data['bank_prices'].length,
+      (index) {
+        int bankId = data['bank_prices'][index]['bank_id'];
+
+        // Check if the bank ID is unique
+        if (uniqueBankIds.contains(bankId)) {
+          return null; // Skip duplicate entry
+        }
+
+        uniqueBankIds.add(bankId); // Add the bank ID to the Set
+
+        return CurrencyPriceModel.fromJson(
+          data: data['bank_prices'][index],
+        );
+      },
+    );
+
+    // Remove null entries (skipped duplicates)
+    bankPrices.removeWhere((element) => element == null);
+    
     return CurrencyModel(
       id: data['id'],
       icon: data['icon'],
@@ -52,10 +75,8 @@ class CurrencyModel {
         ),
       ),
       bankPrices: List.generate(
-        data['bank_prices'].length,
-        (index) => CurrencyPriceModel.fromJson(
-          data: data['bank_prices'][index],
-        ),
+        bankPrices.length,
+        (index) => bankPrices[index]!,
       ),
     );
   }

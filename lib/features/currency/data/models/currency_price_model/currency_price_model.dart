@@ -16,6 +16,8 @@ class CurrencyPriceModel {
   double? sellPrice;
   @HiveField(5)
   String updatedAt;
+  @HiveField(6)
+  String? bankName;
 
   CurrencyPriceModel({
     required this.id,
@@ -30,9 +32,7 @@ class CurrencyPriceModel {
     return CurrencyPriceModel(
       id: data['id'],
       bankId: data['bank_id'],
-      price: data['price'] is int
-          ? data['price'].toDouble()
-          : data['price'],
+      price: data['price'] is int ? data['price'].toDouble() : data['price'],
       buyPrice: data['buy_price'] is int
           ? data['buy_price'].toDouble()
           : data['buy_price'],

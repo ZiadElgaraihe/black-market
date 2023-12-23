@@ -1,11 +1,13 @@
 import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
 import 'package:black_market/core/data/services/secure_database_services.dart';
+import 'package:black_market/core/helpers/dio_helper.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/hive_setup.dart';
 import 'package:black_market/core/utils/service_locator.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
 import 'package:black_market/features/auth/presentation/view_model/update_password_cubit/update_password_cubit.dart';
+import 'package:black_market/features/currency/data/services/bank_services.dart';
 import 'package:black_market/features/currency/data/services/currency_services.dart';
 import 'package:black_market/features/currency/presentation/view_model/currency_latest/currency_latest_cubit.dart';
 import 'package:black_market/features/splash/presentation/view/splash_view.dart';
@@ -52,8 +54,13 @@ class BlackMarket extends StatelessWidget {
         ),
         BlocProvider<CurrencyLatestCubit>(
           create: (context) => CurrencyLatestCubit(
+            bankServices: BankServices(
+              dioHelper: getIt<DioHelper>(),
+            ),
             connectionServices: getIt<ConnectionServices>(),
-            currencyServices: getIt<CurrencyServices>(),
+            currencyServices: CurrencyServices(
+              dioHelper: getIt<DioHelper>(),
+            ),
             localDatabaseServices: getIt<LocalDatabaseServices>(),
           ),
         ),

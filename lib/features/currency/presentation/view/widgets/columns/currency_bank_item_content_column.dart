@@ -49,10 +49,11 @@ class CurrencyBankItemContentColumn extends StatelessWidget {
           ],
         ),
         Text(
-          'بنك مصر',
+          (bankPrice != null) ? '${bankPrice!.bankName}' : 'N/A',
           style: TextStyles.textStyle11.copyWith(
             color: AppColors.white,
           ),
+          textAlign: TextAlign.center,
         ),
         SizedBox(
           height: 48.h,

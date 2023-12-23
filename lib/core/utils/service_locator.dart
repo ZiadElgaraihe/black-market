@@ -3,7 +3,6 @@ import 'package:black_market/core/data/services/local_database_services.dart';
 import 'package:black_market/core/data/services/secure_database_services.dart';
 import 'package:black_market/core/helpers/dio_helper.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
-import 'package:black_market/features/currency/data/services/currency_services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 
@@ -32,13 +31,6 @@ void setUpServiceLocator() {
   //auth services
   getIt.registerSingleton<AuthServices>(
     AuthServices(
-      dioHelper: getIt<DioHelper>(),
-    ),
-  );
-
-  //currency services
-  getIt.registerSingleton<CurrencyServices>(
-    CurrencyServices(
       dioHelper: getIt<DioHelper>(),
     ),
   );

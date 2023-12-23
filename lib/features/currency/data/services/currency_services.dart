@@ -23,7 +23,6 @@ class CurrencyServices implements CurrencyRepo {
 
         for (var currency in data) {
           if (currency['id'] == 21 ||
-              currency['id'] == 25 ||
               currency['bank_prices'].isEmpty ||
               currency['black_market_prices'].isEmpty) {
             continue;
