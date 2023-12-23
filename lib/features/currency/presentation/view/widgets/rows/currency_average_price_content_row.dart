@@ -12,9 +12,11 @@ class CurrencyAveragePriceContentRow extends StatelessWidget {
   const CurrencyAveragePriceContentRow({
     super.key,
     this.currencies,
+    required this.currentIndex,
   });
 
   final List<CurrencyModel>? currencies;
+  final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,7 @@ class CurrencyAveragePriceContentRow extends StatelessWidget {
             title: 'شراء',
             titleColor: AppColors.black,
             value: (currencies != null)
-                ? '${currencies![0].bankPrices.where((element) => element.bankId == 8).first.buyPrice} ج.م'
+                ? '${currencies![currentIndex].bankPrices.where((element) => element.bankId == 8).first.buyPrice} ج.م'
                 : 'N/A',
             valueColor: AppColors.black,
           ),
@@ -44,7 +46,7 @@ class CurrencyAveragePriceContentRow extends StatelessWidget {
             title: 'بيع',
             titleColor: AppColors.black,
             value: (currencies != null)
-                ? '${currencies![0].bankPrices.where((element) => element.bankId == 8).first.sellPrice} ج.م'
+                ? '${currencies![currentIndex].bankPrices.where((element) => element.bankId == 8).first.sellPrice} ج.م'
                 : 'N/A',
             valueColor: AppColors.black,
           ),

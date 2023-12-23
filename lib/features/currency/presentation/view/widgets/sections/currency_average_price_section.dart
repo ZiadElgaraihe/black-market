@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CurrencyAveragePriceSection extends StatelessWidget {
-  const CurrencyAveragePriceSection({super.key});
+  const CurrencyAveragePriceSection({
+    super.key,
+    required this.currentIndex,
+  });
+
+  final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,9 @@ class CurrencyAveragePriceSection extends StatelessWidget {
         borderRadius: BorderRadius.circular(12.w),
         color: AppColors.yellow,
       ),
-      child: const CurrencyAveragePriceBlocBuilder(),
+      child: CurrencyAveragePriceBlocBuilder(
+        currentIndex: currentIndex,
+      ),
     );
   }
 }

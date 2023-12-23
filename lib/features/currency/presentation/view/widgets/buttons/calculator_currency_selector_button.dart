@@ -28,13 +28,59 @@ class CalculatorCurrencySelectorButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        showAlertDialog(
-          context,
-          child: AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(15.w),
+        _showBankCurrencies(context);
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 5.w,
+          vertical: 5.h,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(4.w),
+          color: AppColors.white,
+        ),
+        child: Row(
+          children: [
+            Text(
+              currencies[currencyIndexValueNotifier.value]
+                  .name
+                  .split('/')
+                  .first,
+              style: TextStyles.textStyle7.copyWith(
+                color: AppColors.black,
+              ),
             ),
-            content: SingleChildScrollView(
+            SizedBox(width: 4.7.w),
+            SvgPicture.asset(
+              AppIcons.assetsIconsArrowDown,
+              height: 11.h,
+              width: 11.w,
+              colorFilter: ColorFilter.mode(
+                AppColors.darkGrey,
+                BlendMode.srcATop,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showBankCurrencies(BuildContext context) {
+    showAlertDialog(
+      context,
+      child: Padding(
+        padding: EdgeInsets.symmetric(vertical: 100.h),
+        child: AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.w),
+          ),
+          content: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxHeight: 450.h,
+              minWidth: 250.w,
+            ),
+            child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -75,39 +121,6 @@ class CalculatorCurrencySelectorButton extends StatelessWidget {
               ),
             ),
           ),
-        );
-      },
-      child: Container(
-        padding: EdgeInsets.symmetric(
-          horizontal: 5.w,
-          vertical: 5.h,
-        ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(4.w),
-          color: AppColors.white,
-        ),
-        child: Row(
-          children: [
-            Text(
-              currencies[currencyIndexValueNotifier.value]
-                  .name
-                  .split('/')
-                  .first,
-              style: TextStyles.textStyle7.copyWith(
-                color: AppColors.black,
-              ),
-            ),
-            SizedBox(width: 4.7.w),
-            SvgPicture.asset(
-              AppIcons.assetsIconsArrowDown,
-              height: 11.h,
-              width: 11.w,
-              colorFilter: ColorFilter.mode(
-                AppColors.darkGrey,
-                BlendMode.srcATop,
-              ),
-            ),
-          ],
         ),
       ),
     );

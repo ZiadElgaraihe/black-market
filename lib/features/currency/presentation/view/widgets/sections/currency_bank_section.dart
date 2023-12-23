@@ -9,7 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CurrencyBankSection extends StatelessWidget {
-  const CurrencyBankSection({super.key});
+  const CurrencyBankSection({
+    super.key,
+    required this.currentIndex,
+  });
+
+  final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -24,23 +29,23 @@ class CurrencyBankSection extends StatelessWidget {
           );
         } else if (state is CurrencyLatestSuccess) {
           return CurrencyBankGridView(
-            itemCount: state.currencies[0].bankPrices.length,
+            itemCount: state.currencies[currentIndex].bankPrices.length,
             itemBuilder: (context, index) => CurrencyBankItemContainer(
               onTap: () {
                 Navigator.push(
                   context,
                   RightSlideTransition(
                     page: BankView(
-                      bankId: state.currencies[0].bankPrices[index].bankId!,
+                      bankId: state.currencies[currentIndex].bankPrices[index].bankId!,
                       currencies: state.currencies,
-                      currencyIndex: 0,
+                      currencyIndex: currentIndex,
                     ),
                   ),
                 );
               },
               child: CurrencyBankItemContentColumn(
                 index: index,
-                bankPrice: state.currencies[0].bankPrices[index],
+                bankPrice: state.currencies[currentIndex].bankPrices[index],
               ),
             ),
           );
@@ -56,9 +61,9 @@ class CurrencyBankSection extends StatelessWidget {
                         RightSlideTransition(
                           page: BankView(
                             bankId:
-                                state.currencies![0].bankPrices[index].bankId!,
+                                state.currencies![currentIndex].bankPrices[index].bankId!,
                             currencies: state.currencies!,
-                            currencyIndex: 0,
+                            currencyIndex: currentIndex,
                           ),
                         ),
                       );
@@ -66,7 +71,7 @@ class CurrencyBankSection extends StatelessWidget {
                   : null,
               child: CurrencyBankItemContentColumn(
                 index: index,
-                bankPrice: state.currencies?[0].bankPrices[index],
+                bankPrice: state.currencies?[currentIndex].bankPrices[index],
               ),
             ),
           );

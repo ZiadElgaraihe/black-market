@@ -7,7 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CurrencyHeaderSection extends StatelessWidget {
-  const CurrencyHeaderSection({super.key});
+  const CurrencyHeaderSection({
+    super.key,
+    required this.currentIndexValueNotifier,
+  });
+
+  final ValueNotifier<int> currentIndexValueNotifier;
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +29,10 @@ class CurrencyHeaderSection extends StatelessWidget {
                 SizedBox(height: 26.h),
                 const CurrencyHeaderAppInfoColumn(),
                 SizedBox(height: 30.h),
-                const HeaderPriceContainer(
-                  child: CurrencyHeaderPriceBlocConsumer(),
+                HeaderPriceContainer(
+                  child: CurrencyHeaderPriceBlocConsumer(
+                    currentIndexValueNotifier: currentIndexValueNotifier,
+                  ),
                 ),
               ],
             ),

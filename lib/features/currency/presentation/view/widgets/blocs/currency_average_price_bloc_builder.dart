@@ -5,7 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CurrencyAveragePriceBlocBuilder extends StatelessWidget {
-  const CurrencyAveragePriceBlocBuilder({super.key});
+  const CurrencyAveragePriceBlocBuilder({
+    super.key,
+    required this.currentIndex,
+  });
+
+  final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -14,11 +19,19 @@ class CurrencyAveragePriceBlocBuilder extends StatelessWidget {
         if (state is CurrencyLatestLoading) {
           return const CurrencyAveragePriceShimmerRow();
         } else if (state is CurrencyLatestSuccess) {
-          return CurrencyAveragePriceContentRow(currencies: state.currencies);
+          return CurrencyAveragePriceContentRow(
+            currencies: state.currencies,
+            currentIndex: currentIndex,
+          );
         } else if (state is CurrencyLatestFailure) {
-          return CurrencyAveragePriceContentRow(currencies: state.currencies);
+          return CurrencyAveragePriceContentRow(
+            currencies: state.currencies,
+            currentIndex: currentIndex,
+          );
         } else {
-          return const CurrencyAveragePriceContentRow();
+          return CurrencyAveragePriceContentRow(
+            currentIndex: currentIndex,
+          );
         }
       },
     );

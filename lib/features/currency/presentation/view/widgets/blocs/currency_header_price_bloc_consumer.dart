@@ -7,7 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CurrencyHeaderPriceBlocConsumer extends StatelessWidget {
-  const CurrencyHeaderPriceBlocConsumer({super.key});
+  const CurrencyHeaderPriceBlocConsumer({
+    super.key,
+    required this.currentIndexValueNotifier,
+  });
+
+  final ValueNotifier<int> currentIndexValueNotifier;
 
   @override
   Widget build(BuildContext context) {
@@ -19,13 +24,17 @@ class CurrencyHeaderPriceBlocConsumer extends StatelessWidget {
         } else if (state is CurrencyLatestSuccess) {
           return CurrencyHeaderPriceContentColumn(
             currencies: state.currencies,
+            currentIndexValueNotifier: currentIndexValueNotifier,
           );
         } else if (state is CurrencyLatestFailure) {
           return CurrencyHeaderPriceContentColumn(
             currencies: state.currencies,
+            currentIndexValueNotifier: currentIndexValueNotifier,
           );
         } else {
-          return const CurrencyHeaderPriceContentColumn();
+          return CurrencyHeaderPriceContentColumn(
+            currentIndexValueNotifier: currentIndexValueNotifier,
+          );
         }
       },
     );

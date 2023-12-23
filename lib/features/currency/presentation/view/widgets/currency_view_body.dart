@@ -7,8 +7,21 @@ import 'package:black_market/features/currency/presentation/view_model/currency_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CurrencyViewBody extends StatelessWidget {
+class CurrencyViewBody extends StatefulWidget {
   const CurrencyViewBody({super.key});
+
+  @override
+  State<CurrencyViewBody> createState() => _CurrencyViewBodyState();
+}
+
+class _CurrencyViewBodyState extends State<CurrencyViewBody> {
+  final ValueNotifier<int> _currentIndexValueNotifier = ValueNotifier<int>(0);
+
+  @override
+  void dispose() {
+    _currentIndexValueNotifier.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +32,24 @@ class CurrencyViewBody extends StatelessWidget {
           context.read<CurrencyLatestCubit>().getLatest(isReload: true);
         },
         color: AppColors.yellow,
-        child: const SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
-          child: Column(
-            children: [
-              CurrencyHeaderSection(),
-              CurrencyChartSection(),
-              CurrencyAveragePriceSection(),
-              CurrencyBankSection(),
-            ],
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: ValueListenableBuilder(
+            valueListenable: _currentIndexValueNotifier,
+            builder: (context, currentIndex, child) => Column(
+              children: [
+                CurrencyHeaderSection(
+                  currentIndexValueNotifier: _currentIndexValueNotifier,
+                ),
+                const CurrencyChartSection(),
+                CurrencyAveragePriceSection(
+                  currentIndex: currentIndex,
+                ),
+                CurrencyBankSection(
+                  currentIndex: currentIndex,
+                ),
+              ],
+            ),
           ),
         ),
       ),

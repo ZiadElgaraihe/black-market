@@ -11,15 +11,20 @@ class CurrencyHeaderPriceContentColumn extends StatelessWidget {
   const CurrencyHeaderPriceContentColumn({
     super.key,
     this.currencies,
+    required this.currentIndexValueNotifier,
   });
 
   final List<CurrencyModel>? currencies;
+  final ValueNotifier<int> currentIndexValueNotifier;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CurrencySelectionButton(currencies: currencies),
+        CurrencySelectionButton(
+          currencies: currencies,
+          currentIndexValueNotifier: currentIndexValueNotifier,
+        ),
         SizedBox(height: 14.h),
         SizedBox(
           height: 45.h,
@@ -30,7 +35,7 @@ class CurrencyHeaderPriceContentColumn extends StatelessWidget {
                 title: 'سعر البنك',
                 titleColor: AppColors.grey,
                 value: (currencies != null)
-                    ? '${currencies![0].bankPrices.where((element) => element.bankId == 8).first.buyPrice} ج.م'
+                    ? '${currencies![currentIndexValueNotifier.value].bankPrices.where((element) => element.bankId == 8).first.buyPrice} ج.م'
                     : 'N/A',
                 valueColor: AppColors.darkGrey,
               ),
@@ -58,14 +63,17 @@ class CurrencyHeaderPriceContentColumn extends StatelessWidget {
   }
 
   CurrencyPriceModel _getLastUpdatedCurrency() {
-    return currencies![0].blackMarketPrices.reduce((a, b) =>
-        DateTime.parse(a.updatedAt).isAfter(DateTime.parse(b.updatedAt))
-            ? b
-            : a);
+    return currencies![currentIndexValueNotifier.value]
+        .blackMarketPrices
+        .reduce((a, b) =>
+            DateTime.parse(a.updatedAt).isAfter(DateTime.parse(b.updatedAt))
+                ? b
+                : a);
   }
 
   String _getTimeSinceLastUpdate() {
-    final updatedAt = DateTime.parse(currencies![0].updatedAt);
+    final updatedAt =
+        DateTime.parse(currencies![currentIndexValueNotifier.value].updatedAt);
     final currentTime = DateTime.now();
     final difference = currentTime.difference(updatedAt);
 
