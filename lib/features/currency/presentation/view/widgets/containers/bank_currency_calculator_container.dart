@@ -27,15 +27,24 @@ class _BankCurrencyCalculatorContainerState
     extends State<BankCurrencyCalculatorContainer> {
   final TextEditingController _controller = TextEditingController();
   late final ValueNotifier<double> _valueInEgyptianPound;
+  late final ValueNotifier<int> _currentCalculatorCurrencyIndex;
 
   @override
   void initState() {
+    _currentCalculatorCurrencyIndex = ValueNotifier<int>(widget.currencyIndex);
     _valueInEgyptianPound = ValueNotifier<double>(
       widget.currencies[widget.currencyIndex].bankPrices
           .firstWhere((element) => element.bankId == widget.bankId)
           .buyPrice!,
     );
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _currentCalculatorCurrencyIndex.dispose();
+    _valueInEgyptianPound.dispose();
+    super.dispose();
   }
 
   @override
@@ -47,25 +56,32 @@ class _BankCurrencyCalculatorContainerState
         borderRadius: BorderRadius.circular(12.w),
         color: AppColors.darkGrey,
       ),
-      child: Column(
-        children: [
-          CalculatorCurrencySelectorRow(
-            currency: widget.currencies[widget.currencyIndex],
-          ),
-          SizedBox(height: 11.h),
-          MoneyValueConverterTextField(
-            bankId: widget.bankId,
-            controller: _controller,
-            currency: widget.currencies[widget.currencyIndex],
-            valueInEgyptianPound: _valueInEgyptianPound,
-          ),
-          SizedBox(height: 11.h),
-          CurrencyComparisonRow(
-            controller: _controller,
-            currency: widget.currencies[widget.currencyIndex],
-            valueInEgyptianPound: _valueInEgyptianPound,
-          )
-        ],
+      child: ValueListenableBuilder(
+        valueListenable: _currentCalculatorCurrencyIndex,
+        builder: (context, currentCalculatorCurrencyIndex, child) => Column(
+          children: [
+            CalculatorCurrencySelectorRow(
+              bankId: widget.bankId,
+              controller: _controller,
+              currencies: widget.currencies,
+              currencyIndexValueNotifier: _currentCalculatorCurrencyIndex,
+              valueInEgyptianPound: _valueInEgyptianPound,
+            ),
+            SizedBox(height: 11.h),
+            MoneyValueConverterTextField(
+              bankId: widget.bankId,
+              controller: _controller,
+              currency: widget.currencies[currentCalculatorCurrencyIndex],
+              valueInEgyptianPound: _valueInEgyptianPound,
+            ),
+            SizedBox(height: 11.h),
+            CurrencyComparisonRow(
+              controller: _controller,
+              currency: widget.currencies[currentCalculatorCurrencyIndex],
+              valueInEgyptianPound: _valueInEgyptianPound,
+            )
+          ],
+        ),
       ),
     );
   }

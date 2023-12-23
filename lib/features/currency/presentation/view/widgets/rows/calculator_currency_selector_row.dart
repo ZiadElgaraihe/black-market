@@ -3,6 +3,7 @@ import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/app_images.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/currency/data/models/currency_model/currency_model.dart';
+import 'package:black_market/features/currency/presentation/view/widgets/buttons/calculator_currency_selector_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -10,10 +11,18 @@ import 'package:flutter_svg/flutter_svg.dart';
 class CalculatorCurrencySelectorRow extends StatelessWidget {
   const CalculatorCurrencySelectorRow({
     super.key,
-    required this.currency,
+    required this.bankId,
+    required this.controller,
+    required this.currencies,
+    required this.currencyIndexValueNotifier,
+    required this.valueInEgyptianPound,
   });
 
-  final CurrencyModel currency;
+  final int bankId;
+  final TextEditingController controller;
+  final List<CurrencyModel> currencies;
+  final ValueNotifier<int> currencyIndexValueNotifier;
+  final ValueNotifier<double> valueInEgyptianPound;
 
   @override
   Widget build(BuildContext context) {
@@ -47,21 +56,12 @@ class CalculatorCurrencySelectorRow extends StatelessWidget {
           ),
         ),
         const Spacer(),
-        Container(
-          padding: EdgeInsets.symmetric(
-            horizontal: 5.w,
-            vertical: 5.h,
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4.w),
-            color: AppColors.white,
-          ),
-          child: Text(
-            currency.name.split('/').first,
-            style: TextStyles.textStyle7.copyWith(
-              color: AppColors.black,
-            ),
-          ),
+        CalculatorCurrencySelectorButton(
+          bankId: bankId,
+          controller: controller,
+          currencies: currencies,
+          currencyIndexValueNotifier: currencyIndexValueNotifier,
+          valueInEgyptianPound: valueInEgyptianPound,
         ),
         SizedBox(width: 14.w),
         SvgPicture.asset(
