@@ -8,8 +8,8 @@ void showAlertDialog(
   showDialog(
     context: context,
     barrierDismissible: canDismiss,
-    builder: (context) => WillPopScope(
-      onWillPop: () async => canDismiss,
+    builder: (context) => PopScope(
+      canPop: canDismiss,
       child: child,
     ),
   );
