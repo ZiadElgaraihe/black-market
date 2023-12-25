@@ -20,6 +20,7 @@ class CurrencyBankSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CurrencyLatestCubit, CurrencyLatestState>(
       builder: (context, state) {
+        CurrencyLatestCubit cubit = context.read<CurrencyLatestCubit>();
         if (state is CurrencyLatestLoading) {
           return CurrencyBankGridView(
             itemCount: 10,
@@ -29,15 +30,15 @@ class CurrencyBankSection extends StatelessWidget {
           );
         } else if (state is CurrencyLatestSuccess) {
           return CurrencyBankGridView(
-            itemCount: state.currencies[currentIndex].bankPrices.length,
+            itemCount: cubit.currencies![currentIndex].bankPrices.length,
             itemBuilder: (context, index) => CurrencyBankItemContainer(
               onTap: () {
                 Navigator.push(
                   context,
                   RightSlideTransition(
                     page: BankView(
-                      bankId: state.currencies[currentIndex].bankPrices[index].bankId!,
-                      currencies: state.currencies,
+                      bankId: cubit.currencies![currentIndex].bankPrices[index].bankId!,
+                      currencies: cubit.currencies!,
                       currencyIndex: currentIndex,
                     ),
                   ),
@@ -45,24 +46,24 @@ class CurrencyBankSection extends StatelessWidget {
               },
               child: CurrencyBankItemContentColumn(
                 index: index,
-                bankPrice: state.currencies[currentIndex].bankPrices[index],
+                bankPrice: cubit.currencies![currentIndex].bankPrices[index],
               ),
             ),
           );
         } else if (state is CurrencyLatestFailure) {
           return CurrencyBankGridView(
             itemCount:
-                (state.currencies != null) ? state.currencies!.length : 10,
+                (cubit.currencies != null) ? cubit.currencies!.length : 10,
             itemBuilder: (context, index) => CurrencyBankItemContainer(
-              onTap: (state.currencies != null)
+              onTap: (cubit.currencies != null)
                   ? () {
                       Navigator.push(
                         context,
                         RightSlideTransition(
                           page: BankView(
                             bankId:
-                                state.currencies![currentIndex].bankPrices[index].bankId!,
-                            currencies: state.currencies!,
+                                cubit.currencies![currentIndex].bankPrices[index].bankId!,
+                            currencies: cubit.currencies!,
                             currencyIndex: currentIndex,
                           ),
                         ),
@@ -71,7 +72,7 @@ class CurrencyBankSection extends StatelessWidget {
                   : null,
               child: CurrencyBankItemContentColumn(
                 index: index,
-                bankPrice: state.currencies?[currentIndex].bankPrices[index],
+                bankPrice: cubit.currencies?[currentIndex].bankPrices[index],
               ),
             ),
           );

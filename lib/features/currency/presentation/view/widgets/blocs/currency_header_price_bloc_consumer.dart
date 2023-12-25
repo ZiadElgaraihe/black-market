@@ -19,16 +19,17 @@ class CurrencyHeaderPriceBlocConsumer extends StatelessWidget {
     return BlocConsumer<CurrencyLatestCubit, CurrencyLatestState>(
       listener: _listener,
       builder: (context, state) {
+        CurrencyLatestCubit cubit = context.read<CurrencyLatestCubit>();
         if (state is CurrencyLatestLoading) {
           return const CurrencyHeaderPriceShimmerColumn();
         } else if (state is CurrencyLatestSuccess) {
           return CurrencyHeaderPriceContentColumn(
-            currencies: state.currencies,
+            currencies: cubit.currencies!,
             currentIndexValueNotifier: currentIndexValueNotifier,
           );
         } else if (state is CurrencyLatestFailure) {
           return CurrencyHeaderPriceContentColumn(
-            currencies: state.currencies,
+            currencies: cubit.currencies,
             currentIndexValueNotifier: currentIndexValueNotifier,
           );
         } else {

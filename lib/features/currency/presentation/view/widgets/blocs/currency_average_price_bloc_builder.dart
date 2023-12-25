@@ -16,16 +16,17 @@ class CurrencyAveragePriceBlocBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<CurrencyLatestCubit, CurrencyLatestState>(
       builder: (context, state) {
+        CurrencyLatestCubit cubit = context.read<CurrencyLatestCubit>();
         if (state is CurrencyLatestLoading) {
           return const CurrencyAveragePriceShimmerRow();
         } else if (state is CurrencyLatestSuccess) {
           return CurrencyAveragePriceContentRow(
-            currencies: state.currencies,
+            currencies: cubit.currencies!,
             currentIndex: currentIndex,
           );
         } else if (state is CurrencyLatestFailure) {
           return CurrencyAveragePriceContentRow(
-            currencies: state.currencies,
+            currencies: cubit.currencies,
             currentIndex: currentIndex,
           );
         } else {

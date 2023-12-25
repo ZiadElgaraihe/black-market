@@ -25,7 +25,7 @@ class CurrencyLatestCubit extends Cubit<CurrencyLatestState> {
     _localDatabaseServices = localDatabaseServices;
   }
 
-  List<CurrencyModel>? _currencies;
+  List<CurrencyModel>? currencies;
 
   late BankServices _bankServices;
   late ConnectionServices _connectionServices;
@@ -33,10 +33,8 @@ class CurrencyLatestCubit extends Cubit<CurrencyLatestState> {
   late LocalDatabaseServices _localDatabaseServices;
 
   Future<void> getLatest({bool isReload = false}) async {
-    if (!isReload && _currencies != null) {
-      emit(
-        CurrencyLatestSuccess(currencies: _currencies!),
-      );
+    if (!isReload && currencies != null) {
+      emit(CurrencyLatestSuccess());
     } else {
       Either<ConnectionFailure, void> connectionResult =
           await _connectionServices.checkInternetConnection();
@@ -50,13 +48,11 @@ class CurrencyLatestCubit extends Cubit<CurrencyLatestState> {
           );
 
           if (returnedData != null) {
-            _currencies = [];
+            currencies = [];
             for (var element in returnedData) {
-              _currencies!.add(element);
+              currencies!.add(element);
             }
-            emit(
-              CurrencyLatestSuccess(currencies: _currencies!),
-            );
+            emit(CurrencyLatestSuccess());
           } else {
             emit(
               CurrencyLatestFailure(errMessage: connectionFailure.errMessage),
@@ -76,7 +72,6 @@ class CurrencyLatestCubit extends Cubit<CurrencyLatestState> {
               emit(
                 CurrencyLatestFailure(
                   errMessage: failure.errMessage,
-                  currencies: _currencies,
                 ),
               );
             },
@@ -91,7 +86,6 @@ class CurrencyLatestCubit extends Cubit<CurrencyLatestState> {
                   emit(
                     CurrencyLatestFailure(
                       errMessage: serverFailure.errMessage,
-                      currencies: _currencies,
                     ),
                   );
                 },
@@ -115,15 +109,13 @@ class CurrencyLatestCubit extends Cubit<CurrencyLatestState> {
                               .name;
                     }
                   }
-                  _currencies = currencies;
+                  this.currencies = currencies;
                   _localDatabaseServices.store<List<CurrencyModel>>(
                     boxName: kCurrencyBox,
                     key: kCurrencyKey,
                     value: currencies,
                   );
-                  emit(
-                    CurrencyLatestSuccess(currencies: currencies),
-                  );
+                  emit(CurrencyLatestSuccess());
                 },
               );
             },
