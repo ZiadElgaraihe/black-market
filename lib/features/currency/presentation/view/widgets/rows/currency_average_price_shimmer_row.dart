@@ -1,8 +1,8 @@
+import 'package:black_market/core/presentation/view/columns/buy_and_sell_info_shimmer_column.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
-import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_info_shimmer_column.dart';
-import 'package:black_market/features/currency/presentation/view/widgets/dividers/custom_vertical_divider.dart';
+import 'package:black_market/core/presentation/view/dividers/custom_vertical_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -25,14 +25,14 @@ class CurrencyAveragePriceShimmerRow extends StatelessWidget {
             ),
           ),
           CustomVerticalDivider(color: AppColors.gold),
-          CurrencyInfoShimmerColumn(
+          BuyAndSellInfoShimmerColumn(
             title: 'شراء',
             titleColor: AppColors.black,
             baseColor: AppColors.gold,
             highlightColor: AppColors.gold.withOpacity(0.5),
           ),
           CustomVerticalDivider(color: AppColors.gold),
-          CurrencyInfoShimmerColumn(
+          BuyAndSellInfoShimmerColumn(
             title: 'بيع',
             titleColor: AppColors.black,
             baseColor: AppColors.gold,

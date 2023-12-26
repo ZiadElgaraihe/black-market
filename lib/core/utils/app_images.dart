@@ -17,8 +17,8 @@ class AppImages {
   /// assets/images/gold_era.svg
   static const String assetsImagesGoldEra = "assets/images/gold_era.svg";
 
-  /// assets/images/gold_image.svg
-  static const String assetsImagesGoldImage = "assets/images/gold_image.svg";
+  /// assets/images/gold_image.jpg
+  static const String assetsImagesGoldImageJpg = "assets/images/gold_image.jpg";
 
   /// assets/images/google.svg
   static const String assetsImagesGoogle = "assets/images/google.svg";

@@ -1,9 +1,9 @@
+import 'package:black_market/core/presentation/view/columns/buy_and_sell_info_column.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/features/currency/data/models/currency_model/currency_model.dart';
 import 'package:black_market/features/currency/data/models/currency_price_model/currency_price_model.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/buttons/currency_selection_button.dart';
-import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_info_column.dart';
-import 'package:black_market/features/currency/presentation/view/widgets/dividers/custom_vertical_divider.dart';
+import 'package:black_market/core/presentation/view/dividers/custom_vertical_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -31,7 +31,7 @@ class CurrencyHeaderPriceContentColumn extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              CurrencyInfoColumn(
+              BuyAndSellInfoColumn(
                 title: 'سعر البنك',
                 titleColor: AppColors.grey,
                 value: (currencies != null)
@@ -40,14 +40,14 @@ class CurrencyHeaderPriceContentColumn extends StatelessWidget {
                 valueColor: AppColors.darkGrey,
               ),
               CustomVerticalDivider(color: AppColors.lightGrey),
-              CurrencyInfoColumn(
+              BuyAndSellInfoColumn(
                 title: 'آخر تحديث',
                 titleColor: AppColors.grey,
                 value: (currencies != null) ? _getTimeSinceLastUpdate() : 'N/A',
                 valueColor: AppColors.darkGrey,
               ),
               CustomVerticalDivider(color: AppColors.lightGrey),
-              CurrencyInfoColumn(
+              BuyAndSellInfoColumn(
                 title: 'السوق السوداء',
                 titleColor: AppColors.grey,
                 value: (currencies != null)

@@ -1,19 +1,21 @@
 import 'package:black_market/core/utils/text_styles.dart';
+import 'package:black_market/features/currency/presentation/view/widgets/containers/shimmer_container.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CurrencyInfoColumn extends StatelessWidget {
-  const CurrencyInfoColumn({
+class BuyAndSellInfoShimmerColumn extends StatelessWidget {
+  const BuyAndSellInfoShimmerColumn({
     super.key,
     required this.title,
     required this.titleColor,
-    required this.value,
-    required this.valueColor,
+    this.highlightColor,
+    this.baseColor,
   });
 
   final String title;
   final Color titleColor;
-  final String value;
-  final Color valueColor;
+  final Color? highlightColor;
+  final Color? baseColor;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +28,10 @@ class CurrencyInfoColumn extends StatelessWidget {
             color: titleColor,
           ),
         ),
-        Text(
-          value,
-          style: TextStyles.textStyle10.copyWith(
-            color: valueColor,
-          ),
+        ShimmerContainer(
+          width: 55.w,
+          highlightColor: highlightColor,
+          baseColor: baseColor,
         ),
       ],
     );

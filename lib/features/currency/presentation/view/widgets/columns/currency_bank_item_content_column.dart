@@ -3,9 +3,9 @@ import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/app_images.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/currency/data/models/currency_price_model/currency_price_model.dart';
-import 'package:black_market/features/currency/presentation/view/widgets/buttons/action_button.dart';
-import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_info_column.dart';
-import 'package:black_market/features/currency/presentation/view/widgets/dividers/custom_vertical_divider.dart';
+import 'package:black_market/core/presentation/view/buttons/action_button.dart';
+import 'package:black_market/core/presentation/view/columns/buy_and_sell_info_column.dart';
+import 'package:black_market/core/presentation/view/dividers/custom_vertical_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -60,7 +60,7 @@ class CurrencyBankItemContentColumn extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CurrencyInfoColumn(
+              BuyAndSellInfoColumn(
                 title: 'شراء',
                 titleColor: AppColors.white,
                 value:
@@ -68,7 +68,7 @@ class CurrencyBankItemContentColumn extends StatelessWidget {
                 valueColor: AppColors.white,
               ),
               CustomVerticalDivider(color: AppColors.grey),
-              CurrencyInfoColumn(
+              BuyAndSellInfoColumn(
                 title: 'بيع',
                 titleColor: AppColors.white,
                 value:

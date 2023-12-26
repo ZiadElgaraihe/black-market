@@ -1,22 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CurrencyBankGridView extends StatelessWidget {
-  const CurrencyBankGridView({
+class DefaultGridView extends StatelessWidget {
+  const DefaultGridView({
     super.key,
     required this.itemBuilder,
     required this.itemCount,
+    this.padding,
+    this.physics,
+    this.shrinkWrap = false,
   });
 
-  final Widget Function(BuildContext, int) itemBuilder;
+  final Widget Function(BuildContext context, int index) itemBuilder;
   final int itemCount;
+  final EdgeInsetsGeometry? padding;
+  final ScrollPhysics? physics;
+  final bool shrinkWrap;
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: EdgeInsets.only(right: 24.w, left: 24.w, bottom: 20.h),
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
+      padding: padding,
+      physics: physics,
+      shrinkWrap: shrinkWrap,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         crossAxisSpacing: 15.w,
