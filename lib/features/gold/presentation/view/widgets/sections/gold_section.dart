@@ -9,14 +9,17 @@ class GoldSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: DefaultGridView(
-        padding: EdgeInsets.only(top: 12.h, bottom: 20.h),
-        physics: const BouncingScrollPhysics(),
-        itemCount: 10,
-        itemBuilder: (context, index) => const GridViewItemContainer(
-          child: GoldItemContentColumn(),
-        ),
+    return DefaultGridView(
+      padding: EdgeInsets.only(
+        top: 12.h,
+        right: 24.w,
+        bottom: 20.h,
+        left: 24.w,
+      ),
+      physics: const BouncingScrollPhysics(),
+      itemCount: 10,
+      itemBuilder: (context, index) => const GridViewItemContainer(
+        child: GoldItemContentColumn(),
       ),
     );
   }

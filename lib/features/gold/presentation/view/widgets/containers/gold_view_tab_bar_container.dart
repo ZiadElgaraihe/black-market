@@ -7,16 +7,18 @@ class GoldViewTabBarContainer extends StatelessWidget {
   GoldViewTabBarContainer({
     super.key,
     required this.currentSectionIndexValueNotifier,
+    required this.pageController,
   });
 
   final ValueNotifier<int> currentSectionIndexValueNotifier;
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 75.h,
       padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
-      margin: EdgeInsets.symmetric(vertical: 12.h),
+      margin: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
       decoration: BoxDecoration(
         color: AppColors.darkGrey,
         borderRadius: BorderRadius.circular(16.w),
@@ -28,6 +30,11 @@ class GoldViewTabBarContainer extends StatelessWidget {
           (index) => GestureDetector(
             onTap: () {
               currentSectionIndexValueNotifier.value = index;
+              pageController.animateToPage(
+                index,
+                duration: const Duration(seconds: 1),
+                curve: Curves.fastOutSlowIn,
+              );
             },
             child: ValueListenableBuilder(
               valueListenable: currentSectionIndexValueNotifier,
