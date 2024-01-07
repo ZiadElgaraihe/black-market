@@ -1,7 +1,7 @@
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
-import 'package:black_market/features/gold/presentation/view/widgets/rows/gold_bars_and_icons_data_row.dart';
+import 'package:black_market/features/gold/presentation/view/widgets/rows/gold_ingots_and_icons_data_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -76,30 +76,30 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
           indent: 5.w,
           endIndent: 5.w,
         ),
-        const GoldBarsAndIconsDataRow(
+        const GoldIngotsAndIconsDataRow(
           title: 'سعر الجرام',
           price: '2500',
         ),
-        const GoldBarsAndIconsDataRow(
+        const GoldIngotsAndIconsDataRow(
           title: 'مصنعية الجرام',
           price: '2500',
         ),
-        const GoldBarsAndIconsDataRow(
+        const GoldIngotsAndIconsDataRow(
           title: 'الضربية الكلية',
           price: '2500',
         ),
-        GoldBarsAndIconsDataRow(
+        GoldIngotsAndIconsDataRow(
           title: 'السعر شامل الضريبة و المصنعية',
           price: '2500',
           textStyle: TextStyles.textStyle14.copyWith(
             color: AppColors.yellow,
           ),
         ),
-        const GoldBarsAndIconsDataRow(
+        const GoldIngotsAndIconsDataRow(
           title: 'مبلغ الاستيراد',
           price: '2500',
         ),
-        const GoldBarsAndIconsDataRow(
+        const GoldIngotsAndIconsDataRow(
           title: 'الفرق',
           price: '2500',
         ),

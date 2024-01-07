@@ -3,8 +3,8 @@ import 'package:black_market/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class GoldBarsAndIconsDataRow extends StatelessWidget {
-  const GoldBarsAndIconsDataRow({
+class GoldIngotsAndIconsDataRow extends StatelessWidget {
+  const GoldIngotsAndIconsDataRow({
     super.key,
     required this.price,
     required this.title,

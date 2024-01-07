@@ -2,12 +2,12 @@ import 'package:black_market/features/gold/presentation/view/widgets/tiles/gold_
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class GoldBarsSection extends StatelessWidget {
-  const GoldBarsSection({super.key});
+class GoldIngotsSection extends StatelessWidget {
+  const GoldIngotsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const List<String> bars = <String>[
+    const List<String> ingots = <String>[
       '1جرام',
       '5جرام',
       '10جرام',
@@ -17,9 +17,9 @@ class GoldBarsSection extends StatelessWidget {
     return ListView.separated(
       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
       physics: const BouncingScrollPhysics(),
-      itemCount: bars.length,
+      itemCount: ingots.length,
       itemBuilder: (context, index) => GoldListItemExpansionTile(
-        title: bars[index],
+        title: ingots[index],
       ),
       separatorBuilder: (context, index) => SizedBox(height: 18.h),
     );
