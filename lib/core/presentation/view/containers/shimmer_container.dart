@@ -9,6 +9,7 @@ class ShimmerContainer extends StatelessWidget {
     this.baseColor,
     this.height,
     this.highlightColor,
+    this.raduis,
     this.shape = BoxShape.rectangle,
     this.width,
   });
@@ -16,6 +17,7 @@ class ShimmerContainer extends StatelessWidget {
   final Color? baseColor;
   final double? height;
   final Color? highlightColor;
+  final double? raduis;
   final BoxShape shape;
   final double? width;
 
@@ -29,7 +31,7 @@ class ShimmerContainer extends StatelessWidget {
         width: width ?? 50.w,
         decoration: BoxDecoration(
           borderRadius: (shape == BoxShape.rectangle)
-              ? BorderRadius.circular(15.w)
+              ? BorderRadius.circular(raduis ?? 15.w)
               : null,
           color: AppColors.white,
           shape: shape,

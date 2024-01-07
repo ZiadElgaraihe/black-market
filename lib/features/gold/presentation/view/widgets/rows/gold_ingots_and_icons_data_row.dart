@@ -6,13 +6,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class GoldIngotsAndIconsDataRow extends StatelessWidget {
   const GoldIngotsAndIconsDataRow({
     super.key,
-    required this.price,
     required this.title,
+    this.price,
     this.textStyle,
   });
 
-  final String price;
   final String title;
+  final String? price;
   final TextStyle? textStyle;
 
   @override
@@ -31,7 +31,7 @@ class GoldIngotsAndIconsDataRow extends StatelessWidget {
                 ),
           ),
           Text(
-            '$price ج.م',
+            (price != null) ? '$price ج.م' : 'N/A',
             style: textStyle ??
                 TextStyles.textStyle14.copyWith(
                   color: AppColors.white,

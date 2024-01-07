@@ -1,6 +1,7 @@
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
+import 'package:black_market/features/gold/data/models/ingots_coins/ingots_coins_model.dart';
 import 'package:black_market/features/gold/presentation/view/widgets/rows/gold_ingots_and_icons_data_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -9,10 +10,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 class GoldListItemExpansionTile extends StatefulWidget {
   const GoldListItemExpansionTile({
     super.key,
-    required this.title,
+    this.company,
+    this.price,
+    this.weight,
   });
 
-  final String title;
+  final CompanyDataModel? company;
+  final PriceModel? price;
+  final double? weight;
 
   @override
   State<GoldListItemExpansionTile> createState() =>
@@ -32,7 +37,7 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
   Widget build(BuildContext context) {
     return ExpansionTile(
       title: Text(
-        widget.title,
+        (widget.weight != null) ? '${widget.weight} جرام' : 'N/A',
         style: TextStyles.textStyle16.copyWith(
           color: AppColors.white,
         ),
@@ -76,32 +81,44 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
           indent: 5.w,
           endIndent: 5.w,
         ),
-        const GoldIngotsAndIconsDataRow(
+        GoldIngotsAndIconsDataRow(
           title: 'سعر الجرام',
-          price: '2500',
+          price: (widget.price != null && widget.weight != null)
+              ? '${widget.price!.buyPrice / widget.weight!}'
+              : null,
         ),
-        const GoldIngotsAndIconsDataRow(
+        GoldIngotsAndIconsDataRow(
           title: 'مصنعية الجرام',
-          price: '2500',
+          price: (widget.company != null)
+              ? '${widget.company!.workmanship}'
+              : null,
         ),
-        const GoldIngotsAndIconsDataRow(
+        GoldIngotsAndIconsDataRow(
           title: 'الضربية الكلية',
-          price: '2500',
+          price: (widget.company != null)
+              ? '${widget.company!.tax + widget.company!.workmanship}'
+              : null,
         ),
         GoldIngotsAndIconsDataRow(
           title: 'السعر شامل الضريبة و المصنعية',
-          price: '2500',
+          price: (widget.price != null && widget.company != null)
+              ? '${widget.price!.buyPrice + widget.company!.tax + widget.company!.workmanship}'
+              : null,
           textStyle: TextStyles.textStyle14.copyWith(
             color: AppColors.yellow,
           ),
         ),
-        const GoldIngotsAndIconsDataRow(
+        GoldIngotsAndIconsDataRow(
           title: 'مبلغ الاستيراد',
-          price: '2500',
+          price: (widget.company != null) 
+              ? '${widget.company!.returnFees}' 
+              : null,
         ),
-        const GoldIngotsAndIconsDataRow(
+        GoldIngotsAndIconsDataRow(
           title: 'الفرق',
-          price: '2500',
+          price: (widget.price != null)
+              ? '${widget.price!.buyPrice - widget.price!.sellPrice}'
+              : null,
         ),
       ],
     );

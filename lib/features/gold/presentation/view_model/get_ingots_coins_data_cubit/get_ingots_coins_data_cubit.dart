@@ -39,6 +39,8 @@ class GetIngotsCoinsDataCubit extends Cubit<GetIngotsCoinsDataState> {
         },
         //connection
         (_) async {
+          emit(GetIngotsCoinsDataLoading());
+          
           Either<Failure, IngotsCoinsModel> result =
               await _goldServices.getIngotsCoinsData();
 
