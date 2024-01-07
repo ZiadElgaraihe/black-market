@@ -12,10 +12,15 @@ class GoldServices implements GoldRepo {
     return await executeAndHandleErrors<List<GoldModel>>(
       () async {
         List<dynamic> data = await _dioHelper.getRequest(
-            endPoint: 'https://voipsys.space/api/gold');
+          endPoint: 'https://voipsys.space/api/gold',
+        );
+
         List<GoldModel> golds = <GoldModel>[];
 
         for (var goldData in data) {
+          if (int.tryParse(goldData['karat']) == null) {
+            continue;
+          }
           golds.add(
             GoldModel.fromJson(data: goldData),
           );
