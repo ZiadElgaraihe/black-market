@@ -5,11 +5,17 @@ import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/app_images.dart';
 import 'package:black_market/core/utils/text_styles.dart';
+import 'package:black_market/features/gold/data/models/gold/gold_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GoldItemContentColumn extends StatelessWidget {
-  const GoldItemContentColumn({super.key});
+  const GoldItemContentColumn({
+    super.key,
+    this.gold,
+  });
+
+  final GoldModel? gold;
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +47,7 @@ class GoldItemContentColumn extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(vertical: 9.8.h),
           child: Text(
-            'ذهب عيار 24',
+            (gold != null) ? 'ذهب عيار ${gold!.karat}' : 'N/A',
             style: TextStyles.textStyle12.copyWith(
               color: AppColors.white,
             ),
@@ -55,14 +61,14 @@ class GoldItemContentColumn extends StatelessWidget {
               BuyAndSellInfoColumn(
                 title: 'شراء',
                 titleColor: AppColors.lightGrey,
-                value: '30.24 ج.م',
+                value: (gold != null) ? '${gold!.price.buyPrice} ج.م' : 'N/A',
                 valueColor: AppColors.white,
               ),
               CustomVerticalDivider(color: AppColors.grey),
               BuyAndSellInfoColumn(
                 title: 'بيع',
                 titleColor: AppColors.lightGrey,
-                value: '31.25 ج.م',
+                value: (gold != null) ? '${gold!.price.sellPrice} ج.م' : 'N/A',
                 valueColor: AppColors.white,
               ),
             ],

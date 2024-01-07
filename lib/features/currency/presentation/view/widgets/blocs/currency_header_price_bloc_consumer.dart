@@ -46,12 +46,12 @@ class CurrencyHeaderPriceBlocConsumer extends StatelessWidget {
       showAlertDialog(
         context,
         child: ResultAlertDialog(
-          buttonTitle: 'Cancel',
+          buttonTitle: 'عودة',
           message: state.errMessage,
           onPressed: () {
             Navigator.pop(context);
           },
-          title: 'Failure',
+          title: 'فشل',
         ),
       );
     }

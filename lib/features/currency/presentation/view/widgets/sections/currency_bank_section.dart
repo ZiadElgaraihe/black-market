@@ -3,7 +3,7 @@ import 'package:black_market/core/presentation/view/containers/grid_view_item_co
 import 'package:black_market/core/presentation/view/grid_views/default_grid_view.dart';
 import 'package:black_market/features/currency/presentation/view/bank_view.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_bank_item_content_column.dart';
-import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_bank_item_shimmer_column.dart';
+import 'package:black_market/core/presentation/view/columns/grid_view_item_shimmer_column.dart';
 import 'package:black_market/features/currency/presentation/view_model/currency_latest/currency_latest_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,7 +29,7 @@ class CurrencyBankSection extends StatelessWidget {
             shrinkWrap: true,
             itemCount: 10,
             itemBuilder: (context, index) => const GridViewItemContainer(
-              child: CurrencyBankItemShimmerColumn(),
+              child: GridViewItemShimmerColumn(containTwoActionButtons: true),
             ),
           );
         } else if (state is CurrencyLatestSuccess) {
