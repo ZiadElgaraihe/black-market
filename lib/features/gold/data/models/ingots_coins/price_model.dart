@@ -1,3 +1,5 @@
+part of 'ingots_coins_model.dart';
+
 class PriceModel {
   int id;
   double buyPrice;

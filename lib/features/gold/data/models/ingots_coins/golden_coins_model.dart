@@ -1,5 +1,4 @@
-import 'package:black_market/features/gold/data/models/ingots/company_data_model.dart';
-import 'package:black_market/features/gold/data/models/ingots/price_model.dart';
+part of 'ingots_coins_model.dart';
 
 class GoldenCoinsModel {
   int id;

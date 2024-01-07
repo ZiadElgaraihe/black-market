@@ -30,4 +30,15 @@ class GoldServices implements GoldRepo {
       },
     );
   }
+
+  @override
+  Future<Either<Failure, IngotsCoinsModel>> getIngotsCoinsData() async {
+    return await executeAndHandleErrors<IngotsCoinsModel>(() async {
+      Map<String, dynamic> data = await _dioHelper.getRequest(
+        endPoint: 'https://voipsys.space/api/ingots-coins',
+      );
+
+      return IngotsCoinsModel.fromJson(data: data);
+    });
+  }
 }
