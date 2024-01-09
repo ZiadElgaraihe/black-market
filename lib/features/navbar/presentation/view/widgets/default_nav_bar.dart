@@ -36,11 +36,7 @@ class DefaultNavBar extends StatelessWidget {
             unselectedItemColor: AppColors.white.withOpacity(0.5),
             onTap: (value) {
               currentIndexValueNotifier.value = value;
-              pageController.animateToPage(
-                value,
-                duration: const Duration(seconds: 1),
-                curve: Curves.fastOutSlowIn,
-              );
+              pageController.jumpToPage(value);
             },
             items: List.generate(
               _navbarItemsData.length,
