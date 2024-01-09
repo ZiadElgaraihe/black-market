@@ -2,6 +2,7 @@ import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
 import 'package:black_market/core/data/services/secure_database_services.dart';
 import 'package:black_market/core/helpers/dio_helper.dart';
+import 'package:black_market/core/presentation/view_model/favourite_cubit/favourite_cubit.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/hive_setup.dart';
 import 'package:black_market/core/utils/service_locator.dart';
@@ -61,6 +62,11 @@ class BlackMarket extends StatelessWidget {
             currencyServices: CurrencyServices(
               dioHelper: getIt<DioHelper>(),
             ),
+            localDatabaseServices: getIt<LocalDatabaseServices>(),
+          ),
+        ),
+        BlocProvider<FavouriteCubit>(
+          create: (context) => FavouriteCubit(
             localDatabaseServices: getIt<LocalDatabaseServices>(),
           ),
         ),

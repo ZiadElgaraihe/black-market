@@ -1,8 +1,7 @@
-import 'package:black_market/core/presentation/view/buttons/action_button.dart';
+import 'package:black_market/core/presentation/view/buttons/share_button.dart';
 import 'package:black_market/core/presentation/view/columns/buy_and_sell_info_column.dart';
 import 'package:black_market/core/presentation/view/dividers/custom_vertical_divider.dart';
 import 'package:black_market/core/utils/app_colors.dart';
-import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/app_images.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/gold/data/models/gold/gold_model.dart';
@@ -38,8 +37,7 @@ class GoldItemContentColumn extends StatelessWidget {
               ),
             ),
             const Spacer(flex: 1),
-            ActionButton(
-              icon: AppIcons.assetsIconsShare,
+            ShareButton(
               onPressed: () {},
             ),
           ],

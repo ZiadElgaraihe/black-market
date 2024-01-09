@@ -42,6 +42,10 @@ abstract class AppIcons {
   /// assets/icons/gold.svg
   static const String assetsIconsGold = "assets/icons/gold.svg";
 
+  ///assets/icons/heart_pressed.svg
+  static const String assetsIconsHeartPressed =
+      "assets/icons/heart_pressed.svg";
+
   /// assets/icons/heart.svg
   static const String assetsIconsHeart = "assets/icons/heart.svg";
 
@@ -69,16 +73,14 @@ abstract class AppIcons {
       "assets/icons/navbar_dollar_active.svg";
 
   ///assets/icons/navbar_gold.svg
-  static const String assetsIconsNavbarGold =
-      "assets/icons/navbar_gold.svg";
+  static const String assetsIconsNavbarGold = "assets/icons/navbar_gold.svg";
 
   ///assets/icons/navbar_gold_active.svg
   static const String assetsIconsNavbarGoldActive =
       "assets/icons/navbar_gold_active.svg";
 
   ///assets/icons/navbar_heart.svg
-  static const String assetsIconsNavbarHeart =
-      "assets/icons/navbar_heart.svg";
+  static const String assetsIconsNavbarHeart = "assets/icons/navbar_heart.svg";
 
   ///assets/icons/navbar_heart_active.svg
   static const String assetsIconsNavbarHeartActive =
