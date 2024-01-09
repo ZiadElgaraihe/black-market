@@ -30,11 +30,7 @@ class GoldViewTabBarContainer extends StatelessWidget {
           (index) => GestureDetector(
             onTap: () {
               currentSectionIndexValueNotifier.value = index;
-              pageController.animateToPage(
-                index,
-                duration: const Duration(seconds: 1),
-                curve: Curves.fastOutSlowIn,
-              );
+              pageController.jumpToPage(index);
             },
             child: ValueListenableBuilder(
               valueListenable: currentSectionIndexValueNotifier,
