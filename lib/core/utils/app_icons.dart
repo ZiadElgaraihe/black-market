@@ -120,6 +120,9 @@ abstract class AppIcons {
   /// assets/icons/trash.svg
   static const String assetsIconsTrash = "assets/icons/trash.svg";
 
+  ///assets/icons/wallet.svg
+  static const String assetsIconsWallet = "assets/icons/wallet.svg";
+
   /// assets/icons/warning_icon.svg
   static const String assetsIconsWarningIcon = "assets/icons/warning_icon.svg";
 }

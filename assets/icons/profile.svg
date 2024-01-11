@@ -1,4 +1,8 @@
-<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M10.8575 19.8568C7.47331 19.8568 4.58331 19.3301 4.58331 17.2211C4.58331 15.112 7.45498 13.1651 10.8575 13.1651C14.2416 13.1651 17.1316 15.0932 17.1316 17.2022C17.1316 19.3104 14.26 19.8568 10.8575 19.8568Z" stroke="white" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M10.8509 10.2425C13.0717 10.2425 14.8717 8.44251 14.8717 6.22168C14.8717 4.00085 13.0717 2.20001 10.8509 2.20001C8.63002 2.20001 6.82919 4.00085 6.82919 6.22168C6.82169 8.43501 8.60919 10.235 10.8225 10.2425C10.8325 10.2425 10.8417 10.2425 10.8509 10.2425Z" stroke="white" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="vuesax/linear/profile">
+<g id="profile">
+<path id="Vector" d="M11.6467 9.96384C11.5551 9.95467 11.4451 9.95467 11.3442 9.96384C9.16255 9.89051 7.43005 8.10301 7.43005 5.90301C7.43005 3.65717 9.24505 1.83301 11.5001 1.83301C13.7459 1.83301 15.5701 3.65717 15.5701 5.90301C15.5609 8.10301 13.8284 9.89051 11.6467 9.96384Z" stroke="#FAFAFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_2" d="M7.06329 13.347C4.84495 14.832 4.84495 17.252 7.06329 18.7278C9.58412 20.4145 13.7183 20.4145 16.2391 18.7278C18.4575 17.2428 18.4575 14.8228 16.2391 13.347C13.7275 11.6695 9.59329 11.6695 7.06329 13.347Z" stroke="#FAFAFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</g>
 </svg>
