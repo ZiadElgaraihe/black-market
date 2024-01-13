@@ -18,7 +18,7 @@ class GoldModel {
       id: data['id'],
       name: data['name'],
       karat: data['karat'],
-      price: data['price'],
+      price: GoldPriceModel.fromJson(data: data['price']),
     );
   }
 }
