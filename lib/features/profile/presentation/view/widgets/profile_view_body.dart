@@ -3,6 +3,7 @@ import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/profile/presentation/view/edit_profile_view.dart';
+import 'package:black_market/features/profile/presentation/view/setting_view.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/bottom_sheets/log_out_modal_bottom_sheet.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/buttons/danger_zone_button.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/buttons/profile_item_container_button.dart';
@@ -73,10 +74,17 @@ class ProfileViewBody extends StatelessWidget {
         ),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsSetting,
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              RightSlideTransition(
+                page: const SettingView(),
+              ),
+            );
+          },
           title: 'الاعدادات',
         ),
-        SizedBox(height: 20.h),
+        SizedBox(height: 21.h),
         DangerZoneButton(
           icon: AppIcons.assetsIconsLogOut,
           onPressed: () {

@@ -17,6 +17,10 @@ abstract class AppIcons {
   /// assets/icons/bank.svg
   static const String assetsIconsBank = "assets/icons/bank.svg";
 
+  ///assets/icons/change_password.svg
+  static const String assetsIconsChangePassword =
+      "assets/icons/change_password.svg";
+
   /// assets/icons/close.svg
   static const String assetsIconsClose = "assets/icons/close.svg";
 
@@ -32,7 +36,7 @@ abstract class AppIcons {
 
   ///assets/icons/edit_profile.svg
   static const String assetsIconsEditProfile = "assets/icons/edit_profile.svg";
-  
+
   /// assets/icons/edit_square.svg
   static const String assetsIconsEditSquare = "assets/icons/edit_square.svg";
 
