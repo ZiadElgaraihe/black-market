@@ -1,8 +1,6 @@
-<svg width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="vuesax/linear/profile">
-<g id="profile">
-<path id="Vector" d="M11.6467 9.96384C11.5551 9.95467 11.4451 9.95467 11.3442 9.96384C9.16255 9.89051 7.43005 8.10301 7.43005 5.90301C7.43005 3.65717 9.24505 1.83301 11.5001 1.83301C13.7459 1.83301 15.5701 3.65717 15.5701 5.90301C15.5609 8.10301 13.8284 9.89051 11.6467 9.96384Z" stroke="#FAFAFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_2" d="M7.06329 13.347C4.84495 14.832 4.84495 17.252 7.06329 18.7278C9.58412 20.4145 13.7183 20.4145 16.2391 18.7278C18.4575 17.2428 18.4575 14.8228 16.2391 13.347C13.7275 11.6695 9.59329 11.6695 7.06329 13.347Z" stroke="#FAFAFA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
+<svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Profile">
+<path id="Stroke 1" fill-rule="evenodd" clip-rule="evenodd" d="M7.85748 18.8568C4.47331 18.8568 1.58331 18.3301 1.58331 16.2211C1.58331 14.112 4.45498 12.1651 7.85748 12.1651C11.2416 12.1651 14.1316 14.0932 14.1316 16.2022C14.1316 18.3104 11.26 18.8568 7.85748 18.8568Z" stroke="white" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Stroke 3" fill-rule="evenodd" clip-rule="evenodd" d="M7.85085 9.24251C10.0717 9.24251 11.8717 7.44251 11.8717 5.22168C11.8717 3.00085 10.0717 1.20001 7.85085 1.20001C5.63002 1.20001 3.82919 3.00085 3.82919 5.22168C3.82169 7.43501 5.60919 9.23501 7.82252 9.24251C7.83252 9.24251 7.84169 9.24251 7.85085 9.24251Z" stroke="white" stroke-opacity="0.7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </svg>

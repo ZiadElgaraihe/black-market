@@ -13,6 +13,9 @@ abstract class AppColors {
   ///#BFA500
   static Color gold = const Color(0xFFBFA500);
 
+  ///#43A048
+  static Color green = const Color(0xFF43A048);
+
   ///#666666
   static Color grey = const Color(0xFF666666);
 

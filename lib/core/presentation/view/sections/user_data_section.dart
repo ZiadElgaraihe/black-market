@@ -7,6 +7,7 @@ class UserDataSection extends StatelessWidget {
   const UserDataSection({
     super.key,
     this.controller,
+    this.enabled = true,
     required this.hintText,
     required this.keyboardType,
     required this.obscureText,
@@ -17,6 +18,7 @@ class UserDataSection extends StatelessWidget {
   });
 
   final TextEditingController? controller;
+  final bool enabled;
   final String hintText;
   final TextInputType keyboardType;
   final bool obscureText;
@@ -40,6 +42,7 @@ class UserDataSection extends StatelessWidget {
         SizedBox(height: 12.h),
         UserDataTextFormField(
           controller: controller,
+          enabled: enabled,
           keyboardType: keyboardType,
           obscureText: obscureText,
           onSaved: onSaved,

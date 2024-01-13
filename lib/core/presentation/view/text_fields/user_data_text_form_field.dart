@@ -8,6 +8,7 @@ class UserDataTextFormField extends StatefulWidget {
   const UserDataTextFormField({
     super.key,
     this.controller,
+    required this.enabled,
     required this.hintText,
     required this.keyboardType,
     required this.obscureText,
@@ -17,6 +18,7 @@ class UserDataTextFormField extends StatefulWidget {
   });
 
   final TextEditingController? controller;
+  final bool enabled;
   final String hintText;
   final TextInputType keyboardType;
   final bool obscureText;
@@ -53,6 +55,7 @@ class _UserDataTextFormFieldState extends State<UserDataTextFormField> {
     return TextFormField(
       controller: widget.controller,
       focusNode: _focusNode,
+      enabled: widget.enabled,
       keyboardType: widget.keyboardType,
       obscureText: widget.obscureText,
       style: TextStyles.textStyle12.copyWith(

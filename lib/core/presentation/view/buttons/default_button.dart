@@ -9,24 +9,36 @@ class DefaultButton extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.title,
+    this.backgroundColor,
+    this.height,
+    this.textColor,
+    this.width,
   });
 
-  final void Function() onPressed;
+  final Color? backgroundColor;
+  final double? height;
+  final void Function()? onPressed;
+  final Color? textColor;
   final String title;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
-        futureDelayedNavigator(() {
-          onPressed();
-        });
-      },
+      onPressed: (onPressed != null)
+          ? () {
+              futureDelayedNavigator(() {
+                onPressed!();
+              });
+            }
+          : null,
       style: ButtonStyle(
         fixedSize: MaterialStatePropertyAll(
-          Size(327.w, 52.h),
+          Size(width ?? 327.w, height ?? 52.h),
         ),
-        backgroundColor: MaterialStatePropertyAll(AppColors.yellow),
+        backgroundColor: MaterialStatePropertyAll(
+          backgroundColor ?? AppColors.yellow,
+        ),
         shape: MaterialStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14.w),
@@ -36,7 +48,7 @@ class DefaultButton extends StatelessWidget {
       child: Text(
         title,
         style: TextStyles.textStyle16.copyWith(
-          color: AppColors.black,
+          color: textColor ?? AppColors.black,
           fontWeight: FontWeight.w800,
         ),
       ),

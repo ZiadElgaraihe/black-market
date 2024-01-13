@@ -30,6 +30,9 @@ abstract class AppIcons {
   static const String assetsIconsDollarCircle =
       "assets/icons/dollar_circle.svg";
 
+  ///assets/icons/edit_profile.svg
+  static const String assetsIconsEditProfile = "assets/icons/edit_profile.svg";
+  
   /// assets/icons/edit_square.svg
   static const String assetsIconsEditSquare = "assets/icons/edit_square.svg";
 
