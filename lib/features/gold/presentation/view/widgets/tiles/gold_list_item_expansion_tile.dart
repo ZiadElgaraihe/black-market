@@ -10,12 +10,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 class GoldListItemExpansionTile extends StatefulWidget {
   const GoldListItemExpansionTile({
     super.key,
+    this.isCoin = false,
     this.company,
     this.price,
     this.weight,
   });
 
   final CompanyDataModel? company;
+  final bool isCoin;
   final PriceModel? price;
   final double? weight;
 
@@ -37,7 +39,11 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
   Widget build(BuildContext context) {
     return ExpansionTile(
       title: Text(
-        (widget.weight != null) ? '${widget.weight} جرام' : 'N/A',
+        (widget.weight != null)
+            ? (widget.isCoin)
+                ? '${widget.weight! / 8} جنيه - ${widget.weight} جرام'
+                : '${widget.weight} جرام'
+            : 'N/A',
         style: TextStyles.textStyle16.copyWith(
           color: AppColors.white,
         ),
@@ -103,16 +109,17 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
           title: 'السعر شامل الضريبة و المصنعية',
           price: (widget.price != null && widget.company != null)
               ? '${widget.price!.buyPrice + widget.company!.tax + widget.company!.workmanship}'
-              : null,
+              : (widget.price != null)
+                  ? '${widget.price!.buyPrice}'
+                  : null,
           textStyle: TextStyles.textStyle14.copyWith(
             color: AppColors.yellow,
           ),
         ),
         GoldIngotsAndIconsDataRow(
           title: 'مبلغ الاستيراد',
-          price: (widget.company != null) 
-              ? '${widget.company!.returnFees}' 
-              : null,
+          price:
+              (widget.company != null) ? '${widget.company!.returnFees}' : null,
         ),
         GoldIngotsAndIconsDataRow(
           title: 'الفرق',

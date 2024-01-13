@@ -47,6 +47,7 @@ class GetCoinsDataBlocConsumer extends StatelessWidget {
               ),
               itemCount: getIngotsCoinsDataCubit.goldenCoins?.length ?? 4,
               itemBuilder: (context, index) => GoldListItemExpansionTile(
+                isCoin: true,
                 weight: getIngotsCoinsDataCubit.goldenCoins?[index].weight,
                 company: getIngotsCoinsDataCubit
                     .goldenCoins?[index].companies.firstOrNull,

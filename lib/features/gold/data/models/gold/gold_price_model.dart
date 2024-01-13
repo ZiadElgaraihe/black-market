@@ -14,8 +14,12 @@ class GoldPriceModel {
   factory GoldPriceModel.fromJson({required Map<String, dynamic> data}) {
     return GoldPriceModel(
       id: data['id'],
-      buyPrice: data['buy_price'],
-      sellPrice: data['price'],
+      buyPrice: (data['buy_price'] is int)
+          ? data['buy_price'].toDouble()
+          : data['buy_price'],
+      sellPrice: (data['price'] is int) 
+          ? data['price'].toDouble() 
+          : data['price'],
     );
   }
 }

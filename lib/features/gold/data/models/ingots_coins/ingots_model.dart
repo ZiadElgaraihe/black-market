@@ -22,7 +22,9 @@ class IngotsModel {
       id: data['id'],
       name: data['name'],
       karat: data['karat'],
-      weight: data['weight'],
+      weight: (data['weight'] is int)
+          ? data['weight'].toDouble() 
+          : data['weight'],
       companies: List.generate(
         data['companies_data'].length,
         (index) => CompanyDataModel.fromJson(

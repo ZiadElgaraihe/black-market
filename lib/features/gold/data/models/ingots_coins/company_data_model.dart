@@ -19,9 +19,9 @@ class CompanyDataModel {
     return CompanyDataModel(
       id: data['id'],
       companyId: data['company_id'],
-      workmanship: data['workmanship'],
-      tax: data['tax'],
-      returnFees: data['return_fees'],
+      workmanship: data['workmanship'].toInt(),
+      tax: (data['tax'] is int) ? data['tax'].toDouble() : data['tax'],
+      returnFees: data['return_fees'].toInt(),
     );
   }
 }

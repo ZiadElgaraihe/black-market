@@ -1,4 +1,4 @@
-import 'package:black_market/features/gold/presentation/view/widgets/sections/gold_icons_section.dart';
+import 'package:black_market/features/gold/presentation/view/widgets/sections/gold_coins_section.dart';
 import 'package:black_market/features/gold/presentation/view/widgets/sections/gold_ingots_section.dart';
 import 'package:black_market/features/gold/presentation/view/widgets/sections/gold_section.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +26,6 @@ class GoldViewPageViewBuilder extends StatelessWidget {
   final List<Widget> _pages = <Widget>[
     const GoldSection(),
     const GoldIngotsSection(),
-    const GoldIconsSection(),
+    const GoldCoinsSection(),
   ];
 }

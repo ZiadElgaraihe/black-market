@@ -14,8 +14,12 @@ class PriceModel {
   factory PriceModel.fromJson({required Map<String, dynamic> data}) {
     return PriceModel(
       id: data['id'],
-      buyPrice: data['buy_price'],
-      sellPrice: data['sell_price'],
+      buyPrice: (data['buy_price'] is int)
+          ? data['buy_price'].toDouble()
+          : data['buy_price'],
+      sellPrice: (data['sell_price'] is int)
+          ? data['sell_price'].toDouble()
+          : data['sell_price'],
     );
   }
 }
