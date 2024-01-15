@@ -1,4 +1,6 @@
+import 'package:black_market/core/animations/left_slide_transition.dart';
 import 'package:black_market/core/utils/app_icons.dart';
+import 'package:black_market/features/profile/presentation/view/change_password_view.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/buttons/danger_zone_button.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/buttons/profile_item_container_button.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,14 @@ class SettingViewBody extends StatelessWidget {
         SizedBox(height: 30.h),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsChangePassword,
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              RightSlideTransition(
+                page: const ChangePasswordView(),
+              ),
+            );
+          },
           title: 'تغيير كلمه المرور',
         ),
         ProfileItemContainerButton(

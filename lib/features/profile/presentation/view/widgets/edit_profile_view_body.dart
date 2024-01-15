@@ -19,7 +19,7 @@ class EditProfileViewBody extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: canEditValueNotifier,
       builder: (context, canEdit, child) => SingleChildScrollView(
-        padding: EdgeInsets.only(right: 24.w, bottom: 20.h, left: 24.w),
+        padding: EdgeInsets.symmetric(horizontal: 24.w),
         physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
@@ -71,7 +71,7 @@ class EditProfileViewBody extends StatelessWidget {
               controller: TextEditingController(text: 'aliatwan02@gmail.com'),
               enabled: canEdit,
               hintText: 'أدخل البريد الإلكتروني',
-              keyboardType: TextInputType.visiblePassword,
+              keyboardType: TextInputType.emailAddress,
               obscureText: false,
               sectionTitle: 'البريد الإلكتروني',
               suffixIcon: AppIcons.assetsIconsMessage,
@@ -83,6 +83,7 @@ class EditProfileViewBody extends StatelessWidget {
               onPressed: canEdit ? () {} : null,
               title: 'تعديل',
             ),
+            SizedBox(height: 20.h),
           ],
         ),
       ),

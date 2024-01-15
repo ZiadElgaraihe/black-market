@@ -8,10 +8,7 @@ class SettingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: DefaultAppBar(
-        title: 'الإعدادات',
-        canPop: true,
-      ),
+      appBar: DefaultAppBar(title: 'الإعدادات'),
       body: SettingViewBody(),
     );
   }
