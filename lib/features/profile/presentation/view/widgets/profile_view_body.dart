@@ -2,6 +2,7 @@ import 'package:black_market/core/animations/left_slide_transition.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
+import 'package:black_market/features/profile/presentation/view/base_currency_view.dart';
 import 'package:black_market/features/profile/presentation/view/edit_profile_view.dart';
 import 'package:black_market/features/profile/presentation/view/setting_view.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/bottom_sheets/log_out_modal_bottom_sheet.dart';
@@ -69,7 +70,14 @@ class ProfileViewBody extends StatelessWidget {
         ),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsDollarCircle,
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              RightSlideTransition(
+                page: const BaseCurrencyView(),
+              ),
+            );
+          },
           title: 'العملة الاساسية',
         ),
         ProfileItemContainerButton(
