@@ -2,6 +2,7 @@ import 'package:black_market/core/animations/left_slide_transition.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/features/profile/presentation/view/change_password_view.dart';
 import 'package:black_market/features/profile/presentation/view/language_view.dart';
+import 'package:black_market/features/profile/presentation/view/notifications_setting_view.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/buttons/danger_zone_button.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/buttons/profile_item_container_button.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,14 @@ class SettingViewBody extends StatelessWidget {
         ),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsNotificationBing,
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              RightSlideTransition(
+                page: const NotificationsSettingView(),
+              ),
+            );
+          },
           title: 'اعدادات الاشعارات',
         ),
         SizedBox(height: 25.h),
