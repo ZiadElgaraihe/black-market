@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/currency/data/models/currency_model/currency_model.dart';
@@ -32,7 +33,7 @@ class MoneyValueConverterTextField extends StatelessWidget {
       ],
       cursorColor: AppColors.yellow,
       decoration: InputDecoration(
-        hintText: 'أدخل المبلغ',
+        hintText: Tr.of(context).enterAmount,
         border: OutlineInputBorder(
           borderSide: BorderSide(
             color: AppColors.darkGrey,
@@ -62,8 +63,8 @@ class MoneyValueConverterTextField extends StatelessWidget {
           width: 37.w,
           decoration: BoxDecoration(
             color: AppColors.yellow,
-            borderRadius: BorderRadius.horizontal(
-              left: Radius.circular(6.w),
+            borderRadius: BorderRadiusDirectional.horizontal(
+              end: Radius.circular(6.w),
             ),
           ),
           child: Material(
@@ -84,7 +85,7 @@ class MoneyValueConverterTextField extends StatelessWidget {
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  'حساب',
+                  Tr.of(context).calculate,
                   style: TextStyles.textStyle8.copyWith(
                     color: AppColors.black,
                   ),

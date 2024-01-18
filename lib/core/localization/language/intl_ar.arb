@@ -2,24 +2,35 @@
     "aboutTheApp": "عن التطبيق",
     "arabic": "العربية",
     "areYouSureToLogOut": "هل أنت متأكد من تسجيل الخروج",
+    "averagePrice": "متوسط السعر",
 
+    "bankPrice": "سعر البنك",
     "baseCurrency": "العملة الأساسية",
+    "blackMarket": "السوق السوداء",
+    "buy": "شراء",
 
-    "currencies": "العملات",
-    "changePassword": "تغيير كلمة المرور",
+    "calculate": "حساب",
+    "calculator": "الحاسبة",
+    "cancel": "عودة",
     "change": "تغيير",
+    "changePassword": "تغيير كلمة المرور",
     "changePhoto": "تغيير الصورة",
+    "currencies": "العملات",
+    "currency": "العملة",
     "currentPassword": "كلمة المرور الحالية",
 
     "deleteAccount": "حذف الحساب",
 
     "editProfile": "تعديل الملف الشخصي",
+    "egyptianPoundAbbreviation": "ج.م",
     "email": "البريد الإلكتروني",
+    "english": "الإنجليزية",
+    "enterAmount": "أدخل المبلغ",
     "enterEmail": "أدخل البريد الإلكتروني",
     "enterFullName": "أدخل الاسم بالكامل",
     "enterPassword": "أدخل  كود المرور",
-    "english": "الإنجليزية",
 
+    "failure": "فشل",
     "fullName": "الاسم بالكامل",
 
     "gold": "الذهب",
@@ -27,6 +38,7 @@
     "home": "الرئيسية",
 
     "language": "اللغة",
+    "lastUpdated": "آخر تحديث",
     "logOut": "تسجيل الخروج",
 
     "mySavings": "مدخراتي",
@@ -42,6 +54,9 @@
     
     "selectLanguage": "حدد اللغة",
     "selectTheBaseCurrency": "حدد العملة الأساسية",
+    "sell": "بيع",
     "setting": "الإعدادات",
-    "shareTheApp": "مشاركة التطبيق"
+    "shareTheApp": "مشاركة التطبيق",
+
+    "welcome": "مرحباً"
 }

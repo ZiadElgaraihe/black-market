@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
@@ -54,7 +55,7 @@ class CurrencyComparisonRow extends StatelessWidget {
               color: AppColors.white,
             ),
             child: Text(
-              '$value EGP',
+              '$value ${Tr.of(context).egyptianPoundAbbreviation}',
               style: TextStyles.textStyle7.copyWith(
                 color: AppColors.black,
               ),

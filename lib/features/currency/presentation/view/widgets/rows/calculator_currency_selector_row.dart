@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/app_images.dart';
@@ -47,7 +48,7 @@ class CalculatorCurrencySelectorRow extends StatelessWidget {
               ),
               SizedBox(width: 2.w),
               Text(
-                'الحاسبة',
+                Tr.of(context).calculator,
                 style: TextStyles.textStyle10.copyWith(
                   color: AppColors.black,
                 ),

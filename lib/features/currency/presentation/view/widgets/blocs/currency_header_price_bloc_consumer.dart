@@ -1,4 +1,5 @@
 import 'package:black_market/core/functions/show_alert_dialog.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_header_price_content_column.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_header_price_shimmer_column.dart';
@@ -46,12 +47,12 @@ class CurrencyHeaderPriceBlocConsumer extends StatelessWidget {
       showAlertDialog(
         context,
         child: ResultAlertDialog(
-          buttonTitle: 'عودة',
+          buttonTitle: Tr.of(context).cancel,
           message: state.errMessage,
           onPressed: () {
             Navigator.pop(context);
           },
-          title: 'فشل',
+          title: Tr.of(context).failure,
         ),
       );
     }

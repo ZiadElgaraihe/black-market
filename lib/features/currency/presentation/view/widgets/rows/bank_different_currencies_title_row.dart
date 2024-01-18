@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -11,21 +12,21 @@ class BankDifferentCurrenciesTitlesRow extends StatelessWidget {
     return Row(
       children: [
         Text(
-          'العملة',
+          Tr.of(context).currency,
           style: TextStyles.textStyle14.copyWith(
             color: AppColors.white,
           ),
         ),
         const Spacer(),
         Text(
-          'شراء',
+          Tr.of(context).buy,
           style: TextStyles.textStyle14.copyWith(
             color: AppColors.white,
           ),
         ),
         SizedBox(width: 53.w),
         Text(
-          'بيع',
+          Tr.of(context).sell,
           style: TextStyles.textStyle14.copyWith(
             color: AppColors.white,
           ),

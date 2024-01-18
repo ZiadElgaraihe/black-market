@@ -26,29 +26,42 @@ class MessageLookup extends MessageLookupByLibrary {
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "areYouSureToLogOut": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد من تسجيل الخروج"),
+        "averagePrice": MessageLookupByLibrary.simpleMessage("متوسط السعر"),
+        "bankPrice": MessageLookupByLibrary.simpleMessage("سعر البنك"),
         "baseCurrency": MessageLookupByLibrary.simpleMessage("العملة الأساسية"),
+        "blackMarket": MessageLookupByLibrary.simpleMessage("السوق السوداء"),
+        "buy": MessageLookupByLibrary.simpleMessage("شراء"),
+        "calculate": MessageLookupByLibrary.simpleMessage("حساب"),
+        "calculator": MessageLookupByLibrary.simpleMessage("الحاسبة"),
+        "cancel": MessageLookupByLibrary.simpleMessage("عودة"),
         "change": MessageLookupByLibrary.simpleMessage("تغيير"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
         "changePhoto": MessageLookupByLibrary.simpleMessage("تغيير الصورة"),
         "currencies": MessageLookupByLibrary.simpleMessage("العملات"),
+        "currency": MessageLookupByLibrary.simpleMessage("العملة"),
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الحالية"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "editProfile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+        "egyptianPoundAbbreviation":
+            MessageLookupByLibrary.simpleMessage("ج.م"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+        "enterAmount": MessageLookupByLibrary.simpleMessage("أدخل المبلغ"),
         "enterEmail":
             MessageLookupByLibrary.simpleMessage("أدخل البريد الإلكتروني"),
         "enterFullName":
             MessageLookupByLibrary.simpleMessage("أدخل الاسم بالكامل"),
         "enterPassword":
             MessageLookupByLibrary.simpleMessage("أدخل  كود المرور"),
+        "failure": MessageLookupByLibrary.simpleMessage("فشل"),
         "fullName": MessageLookupByLibrary.simpleMessage("الاسم بالكامل"),
         "gold": MessageLookupByLibrary.simpleMessage("الذهب"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "lastUpdated": MessageLookupByLibrary.simpleMessage("آخر تحديث"),
         "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "mySavings": MessageLookupByLibrary.simpleMessage("مدخراتي"),
         "newPassword":
@@ -65,7 +78,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "selectLanguage": MessageLookupByLibrary.simpleMessage("حدد اللغة"),
         "selectTheBaseCurrency":
             MessageLookupByLibrary.simpleMessage("حدد العملة الأساسية"),
+        "sell": MessageLookupByLibrary.simpleMessage("بيع"),
         "setting": MessageLookupByLibrary.simpleMessage("الإعدادات"),
-        "shareTheApp": MessageLookupByLibrary.simpleMessage("مشاركة التطبيق")
+        "shareTheApp": MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
+        "welcome": MessageLookupByLibrary.simpleMessage("مرحباً")
       };
 }

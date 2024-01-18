@@ -80,6 +80,26 @@ class Tr {
     );
   }
 
+  /// `Average Price`
+  String get averagePrice {
+    return Intl.message(
+      'Average Price',
+      name: 'averagePrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Bank Price`
+  String get bankPrice {
+    return Intl.message(
+      'Bank Price',
+      name: 'bankPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Base Currency`
   String get baseCurrency {
     return Intl.message(
@@ -90,21 +110,61 @@ class Tr {
     );
   }
 
-  /// `Currencies`
-  String get currencies {
+  /// `Black Market`
+  String get blackMarket {
     return Intl.message(
-      'Currencies',
-      name: 'currencies',
+      'Black Market',
+      name: 'blackMarket',
       desc: '',
       args: [],
     );
   }
 
-  /// `Change The Photo`
-  String get changePhoto {
+  /// `Buy`
+  String get buy {
     return Intl.message(
-      'Change The Photo',
-      name: 'changePhoto',
+      'Buy',
+      name: 'buy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Calc`
+  String get calculate {
+    return Intl.message(
+      'Calc',
+      name: 'calculate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Calculator`
+  String get calculator {
+    return Intl.message(
+      'Calculator',
+      name: 'calculator',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Change`
+  String get change {
+    return Intl.message(
+      'Change',
+      name: 'change',
       desc: '',
       args: [],
     );
@@ -120,11 +180,31 @@ class Tr {
     );
   }
 
-  /// `Change`
-  String get change {
+  /// `Change The Photo`
+  String get changePhoto {
     return Intl.message(
-      'Change',
-      name: 'change',
+      'Change The Photo',
+      name: 'changePhoto',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Currencies`
+  String get currencies {
+    return Intl.message(
+      'Currencies',
+      name: 'currencies',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Currency`
+  String get currency {
+    return Intl.message(
+      'Currency',
+      name: 'currency',
       desc: '',
       args: [],
     );
@@ -160,11 +240,41 @@ class Tr {
     );
   }
 
+  /// `EGP`
+  String get egyptianPoundAbbreviation {
+    return Intl.message(
+      'EGP',
+      name: 'egyptianPoundAbbreviation',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Email`
   String get email {
     return Intl.message(
       'Email',
       name: 'email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter Amount`
+  String get enterAmount {
+    return Intl.message(
+      'Enter Amount',
+      name: 'enterAmount',
       desc: '',
       args: [],
     );
@@ -200,11 +310,11 @@ class Tr {
     );
   }
 
-  /// `English`
-  String get english {
+  /// `Failure`
+  String get failure {
     return Intl.message(
-      'English',
-      name: 'english',
+      'Failure',
+      name: 'failure',
       desc: '',
       args: [],
     );
@@ -245,6 +355,16 @@ class Tr {
     return Intl.message(
       'Language',
       name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last Updated`
+  String get lastUpdated {
+    return Intl.message(
+      'Last Updated',
+      name: 'lastUpdated',
       desc: '',
       args: [],
     );
@@ -360,6 +480,16 @@ class Tr {
     );
   }
 
+  /// `Sell`
+  String get sell {
+    return Intl.message(
+      'Sell',
+      name: 'sell',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Setting`
   String get setting {
     return Intl.message(
@@ -375,6 +505,16 @@ class Tr {
     return Intl.message(
       'Share The App',
       name: 'shareTheApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome`
+  String get welcome {
+    return Intl.message(
+      'Welcome',
+      name: 'welcome',
       desc: '',
       args: [],
     );

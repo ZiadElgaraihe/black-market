@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/columns/buy_and_sell_info_column.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
@@ -26,7 +27,7 @@ class CurrencyAveragePriceContentRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'متوسط السعر',
+            Tr.of(context).averagePrice,
             style: TextStyles.textStyle10.copyWith(
               color: AppColors.black,
               fontWeight: FontWeight.w800,
@@ -34,19 +35,19 @@ class CurrencyAveragePriceContentRow extends StatelessWidget {
           ),
           CustomVerticalDivider(color: AppColors.gold),
           BuyAndSellInfoColumn(
-            title: 'شراء',
+            title: Tr.of(context).buy,
             titleColor: AppColors.black,
             value: (currencies != null)
-                ? '${currencies![currentIndex].bankPrices.where((element) => element.bankId == 8).first.buyPrice} ج.م'
+                ? '${currencies![currentIndex].bankPrices.where((element) => element.bankId == 8).first.buyPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
                 : 'N/A',
             valueColor: AppColors.black,
           ),
           CustomVerticalDivider(color: AppColors.gold),
           BuyAndSellInfoColumn(
-            title: 'بيع',
+            title: Tr.of(context).sell,
             titleColor: AppColors.black,
             value: (currencies != null)
-                ? '${currencies![currentIndex].bankPrices.where((element) => element.bankId == 8).first.sellPrice} ج.م'
+                ? '${currencies![currentIndex].bankPrices.where((element) => element.bankId == 8).first.sellPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
                 : 'N/A',
             valueColor: AppColors.black,
           ),

@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/buttons/favourite_button.dart';
 import 'package:black_market/core/presentation/view/buttons/share_button.dart';
 import 'package:black_market/core/presentation/view/columns/buy_and_sell_info_column.dart';
@@ -57,18 +58,20 @@ class CurrencyBankItemContentColumn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               BuyAndSellInfoColumn(
-                title: 'شراء',
+                title: Tr.of(context).buy,
                 titleColor: AppColors.white,
-                value:
-                    (bankPrice != null) ? '${bankPrice!.buyPrice} ج.م' : 'N/A',
+                value: (bankPrice != null)
+                    ? '${bankPrice!.buyPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
+                    : 'N/A',
                 valueColor: AppColors.white,
               ),
               CustomVerticalDivider(color: AppColors.grey),
               BuyAndSellInfoColumn(
-                title: 'بيع',
+                title: Tr.of(context).sell,
                 titleColor: AppColors.white,
-                value:
-                    (bankPrice != null) ? '${bankPrice!.sellPrice} ج.م' : 'N/A',
+                value: (bankPrice != null)
+                    ? '${bankPrice!.sellPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
+                    : 'N/A',
                 valueColor: AppColors.white,
               ),
             ],

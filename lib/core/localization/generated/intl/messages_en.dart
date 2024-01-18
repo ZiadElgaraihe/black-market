@@ -26,26 +26,39 @@ class MessageLookup extends MessageLookupByLibrary {
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "areYouSureToLogOut":
             MessageLookupByLibrary.simpleMessage("Are you sure to log out"),
+        "averagePrice": MessageLookupByLibrary.simpleMessage("Average Price"),
+        "bankPrice": MessageLookupByLibrary.simpleMessage("Bank Price"),
         "baseCurrency": MessageLookupByLibrary.simpleMessage("Base Currency"),
+        "blackMarket": MessageLookupByLibrary.simpleMessage("Black Market"),
+        "buy": MessageLookupByLibrary.simpleMessage("Buy"),
+        "calculate": MessageLookupByLibrary.simpleMessage("Calc"),
+        "calculator": MessageLookupByLibrary.simpleMessage("Calculator"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "change": MessageLookupByLibrary.simpleMessage("Change"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "changePhoto": MessageLookupByLibrary.simpleMessage("Change The Photo"),
         "currencies": MessageLookupByLibrary.simpleMessage("Currencies"),
+        "currency": MessageLookupByLibrary.simpleMessage("Currency"),
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("Current Password"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "egyptianPoundAbbreviation":
+            MessageLookupByLibrary.simpleMessage("EGP"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
+        "enterAmount": MessageLookupByLibrary.simpleMessage("Enter Amount"),
         "enterEmail": MessageLookupByLibrary.simpleMessage("Enter Email"),
         "enterFullName":
             MessageLookupByLibrary.simpleMessage("Enter Full Name"),
         "enterPassword": MessageLookupByLibrary.simpleMessage("Enter Password"),
+        "failure": MessageLookupByLibrary.simpleMessage("Failure"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gold": MessageLookupByLibrary.simpleMessage("Gold"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "lastUpdated": MessageLookupByLibrary.simpleMessage("Last Updated"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "mySavings": MessageLookupByLibrary.simpleMessage("My Savings"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
@@ -62,7 +75,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Select Language"),
         "selectTheBaseCurrency":
             MessageLookupByLibrary.simpleMessage("Select the base currency"),
+        "sell": MessageLookupByLibrary.simpleMessage("Sell"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
-        "shareTheApp": MessageLookupByLibrary.simpleMessage("Share The App")
+        "shareTheApp": MessageLookupByLibrary.simpleMessage("Share The App"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome")
       };
 }
