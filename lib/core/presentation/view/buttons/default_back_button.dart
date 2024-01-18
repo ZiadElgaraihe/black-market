@@ -1,12 +1,19 @@
 import 'package:black_market/core/functions/future_delayd_navigator.dart';
+import 'package:black_market/core/presentation/view_model/localization_cubit/localization_cubit.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class DefaultBackButton extends StatelessWidget {
-  const DefaultBackButton({super.key});
+  const DefaultBackButton({
+    super.key,
+    this.backButtonBackgroundColor,
+  });
+
+  final Color? backButtonBackgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +23,7 @@ class DefaultBackButton extends StatelessWidget {
       margin: EdgeInsetsDirectional.only(start: 10.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16.w),
-        color: AppColors.darkGrey,
+        color: backButtonBackgroundColor ?? AppColors.darkGrey,
       ),
       child: Material(
         color: AppColors.transparent,
@@ -30,7 +37,9 @@ class DefaultBackButton extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
             child: SvgPicture.asset(
-              AppIcons.assetsIconsArrowBack,
+              context.read<LocalizationCubit>().isArabic()
+                  ? AppIcons.assetsIconsArrowBackRight
+                  : AppIcons.assetsIconsArrowBackLeft,
               height: 20.h,
               width: 20.w,
             ),

@@ -1,3 +1,7 @@
+import 'package:black_market/features/currency/presentation/view/currency_view.dart';
+import 'package:black_market/features/favourite/presentation/view/favourite_view.dart';
+import 'package:black_market/features/gold/presentation/view/gold_view.dart';
+import 'package:black_market/features/profile/presentation/view/profile_view.dart';
 import 'package:flutter/material.dart';
 
 class NavBarViewBody extends StatelessWidget {
@@ -24,17 +28,9 @@ class NavBarViewBody extends StatelessWidget {
   }
 
   final List<Widget> _views = <Widget>[
-    const SafeArea(
-      child: Text('Currency'),
-    ),
-    const SafeArea(
-      child: Text('Gold'),
-    ),
-    const SafeArea(
-      child: Text('Favourite'),
-    ),
-    const SafeArea(
-      child: Text('Profile'),
-    ),
+    const CurrencyView(),
+    const GoldView(),
+    const FavouriteView(),
+    const ProfileView(),
   ];
 }

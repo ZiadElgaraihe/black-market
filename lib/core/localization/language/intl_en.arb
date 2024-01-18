@@ -1,0 +1,74 @@
+{
+    "aboutTheApp": "About The App",
+    "arabic": "Arabic",
+    "areYouSureToLogOut": "Are you sure to log out",
+    "averagePrice": "Average Price",
+
+    "bankPrice": "Bank Price",
+    "baseCurrency": "Base Currency",
+    "blackMarket": "Black Market",
+    "buy": "Buy",
+
+    "calculate": "Calc",
+    "calculator": "Calculator",
+    "cancel": "Cancel",
+    "change": "Change",
+    "changePassword": "Change Password",
+    "changePhoto": "Change The Photo",
+    "currencies": "Currencies",
+    "currency": "Currency",
+    "currentPassword": "Current Password",
+
+    "deleteAccount": "Delete Account",
+    "difference": "Difference",
+
+    "editProfile": "Edit Profile",
+    "egyptianPoundAbbreviation": "EGP",
+    "email": "Email",
+    "english": "English",
+    "enterAmount": "Enter Amount",
+    "enterEmail": "Enter Email",
+    "enterFullName": "Enter Full Name",
+    "enterPassword": "Enter Password",
+
+    "failure": "Failure",
+    "favourite": "Favourite",
+    "fullName": "Full Name",
+
+    "gold": "Gold",
+    "gram": "Gram",
+
+    "home": "Home",
+
+    "importPrice": "Import price",
+    "ingots": "Ingots",
+
+    "language": "Language",
+    "lastUpdated": "Last Updated",
+    "logOut": "Log Out",
+
+    "mySavings": "My Savings",
+
+    "newPassword": "New Password",
+    "newPasswordConfirmation": "New Password Confirmation",
+    "news": "News",
+    "notifications": "Notifications",
+    "notificationsSetting": "Notifications Setting",
+
+    "passwordChangedSuccessfully": "Password Changed Successfully!",
+    "priceIncludesTaxAndWorkmanship": "Price includes tax and workmanship",
+    "pricePerGram": "Price per gram",
+    "profile": "Profile",
+    "pound": "Pound",
+    
+    "selectLanguage": "Select Language",
+    "selectTheBaseCurrency": "Select the base currency",
+    "sell": "Sell",
+    "setting": "Setting",
+    "shareTheApp": "Share The App",
+
+    "totalTax": "Total tax",
+
+    "welcome": "Welcome",
+    "workmanshipPerGram": "Workmanship per gram"
+}

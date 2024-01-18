@@ -7,9 +7,13 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   const DefaultAppBar({
     super.key,
     required this.title,
+    this.backButtonBackgroundColor,
+    this.canPop = true,
   });
 
+  final Color? backButtonBackgroundColor;
   final String title;
+  final bool canPop;
 
   @override
   Size get preferredSize => Size.fromHeight(60.h);
@@ -21,8 +25,11 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
         child: Row(
           children: [
-            const DefaultBackButton(),
-            const Spacer(flex: 2),
+            if (canPop)
+              DefaultBackButton(
+                backButtonBackgroundColor: backButtonBackgroundColor,
+              ),
+            Spacer(flex: (canPop) ? 2 : 3),
             Text(
               title,
               style: TextStyles.textStyle18,

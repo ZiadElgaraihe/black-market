@@ -43,7 +43,6 @@ class LogInBlocConsumer extends StatelessWidget {
 
   void _listener(context, state) {
     if (state is LogInSuccess) {
-      print('success');
     } else if (state is LogInFailure) {
       showAlertDialog(
         context,
