@@ -1,10 +1,11 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class GoldViewTabBarContainer extends StatelessWidget {
-  GoldViewTabBarContainer({
+class GoldViewTabBarContainer extends StatefulWidget {
+  const GoldViewTabBarContainer({
     super.key,
     required this.currentSectionIndexValueNotifier,
     required this.pageController,
@@ -12,6 +13,24 @@ class GoldViewTabBarContainer extends StatelessWidget {
 
   final ValueNotifier<int> currentSectionIndexValueNotifier;
   final PageController pageController;
+
+  @override
+  State<GoldViewTabBarContainer> createState() =>
+      _GoldViewTabBarContainerState();
+}
+
+class _GoldViewTabBarContainerState extends State<GoldViewTabBarContainer> {
+  late List<String> _tabBarTitles;
+
+  @override
+  void didChangeDependencies() {
+    _tabBarTitles = <String>[
+      Tr.of(context).gold,
+      Tr.of(context).ingots,
+      Tr.of(context).currencies,
+    ];
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +48,11 @@ class GoldViewTabBarContainer extends StatelessWidget {
           _tabBarTitles.length,
           (index) => GestureDetector(
             onTap: () {
-              currentSectionIndexValueNotifier.value = index;
-              pageController.jumpToPage(index);
+              widget.currentSectionIndexValueNotifier.value = index;
+              widget.pageController.jumpToPage(index);
             },
             child: ValueListenableBuilder(
-              valueListenable: currentSectionIndexValueNotifier,
+              valueListenable: widget.currentSectionIndexValueNotifier,
               builder: (context, currenctSectionIndex, child) => Container(
                 width: 94.w,
                 alignment: Alignment.center,
@@ -58,10 +77,4 @@ class GoldViewTabBarContainer extends StatelessWidget {
       ),
     );
   }
-
-  final List<String> _tabBarTitles = <String>[
-    'الذهب',
-    'السبائك',
-    'العملات',
-  ];
 }

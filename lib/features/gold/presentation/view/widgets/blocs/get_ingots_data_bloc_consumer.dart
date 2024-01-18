@@ -1,4 +1,5 @@
 import 'package:black_market/core/functions/show_alert_dialog.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/containers/shimmer_container.dart';
 import 'package:black_market/core/utils/app_colors.dart';
@@ -61,18 +62,18 @@ class GetIngotsDataBlocConsumer extends StatelessWidget {
   }
 
   void _listener(context, state) {
-      if (state is GetIngotsCoinsDataFailure) {
-        showAlertDialog(
-          context,
-          child: ResultAlertDialog(
-            buttonTitle: 'عودة',
-            message: state.errMessage,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            title: 'فشل',
-          ),
-        );
-      }
+    if (state is GetIngotsCoinsDataFailure) {
+      showAlertDialog(
+        context,
+        child: ResultAlertDialog(
+          buttonTitle: Tr.of(context).cancel,
+          message: state.errMessage,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          title: Tr.of(context).failure,
+        ),
+      );
     }
+  }
 }

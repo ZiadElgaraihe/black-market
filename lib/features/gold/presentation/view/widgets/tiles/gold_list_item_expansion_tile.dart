@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
@@ -41,8 +42,8 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
       title: Text(
         (widget.weight != null)
             ? (widget.isCoin)
-                ? '${widget.weight! / 8} جنيه - ${widget.weight} جرام'
-                : '${widget.weight} جرام'
+                ? '${widget.weight! / 8} ${Tr.of(context).pound} - ${widget.weight} ${Tr.of(context).gram}'
+                : '${widget.weight} ${Tr.of(context).gram}'
             : 'N/A',
         style: TextStyles.textStyle16.copyWith(
           color: AppColors.white,
@@ -88,25 +89,25 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
           endIndent: 5.w,
         ),
         GoldIngotsAndIconsDataRow(
-          title: 'سعر الجرام',
+          title: Tr.of(context).pricePerGram,
           price: (widget.price != null && widget.weight != null)
               ? '${widget.price!.buyPrice / widget.weight!}'
               : null,
         ),
         GoldIngotsAndIconsDataRow(
-          title: 'مصنعية الجرام',
+          title: Tr.of(context).workmanshipPerGram,
           price: (widget.company != null)
               ? '${widget.company!.workmanship}'
               : null,
         ),
         GoldIngotsAndIconsDataRow(
-          title: 'الضربية الكلية',
+          title: Tr.of(context).totalTax,
           price: (widget.company != null)
               ? '${widget.company!.tax + widget.company!.workmanship}'
               : null,
         ),
         GoldIngotsAndIconsDataRow(
-          title: 'السعر شامل الضريبة و المصنعية',
+          title: Tr.of(context).priceIncludesTaxAndWorkmanship,
           price: (widget.price != null && widget.company != null)
               ? '${widget.price!.buyPrice + widget.company!.tax + widget.company!.workmanship}'
               : (widget.price != null)
@@ -117,12 +118,12 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
           ),
         ),
         GoldIngotsAndIconsDataRow(
-          title: 'مبلغ الاستيراد',
+          title: Tr.of(context).importPrice,
           price:
               (widget.company != null) ? '${widget.company!.returnFees}' : null,
         ),
         GoldIngotsAndIconsDataRow(
-          title: 'الفرق',
+          title: Tr.of(context).difference,
           price: (widget.price != null)
               ? '${widget.price!.buyPrice - widget.price!.sellPrice}'
               : null,

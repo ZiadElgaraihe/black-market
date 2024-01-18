@@ -43,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("Current Password"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
+        "difference": MessageLookupByLibrary.simpleMessage("Difference"),
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "egyptianPoundAbbreviation":
             MessageLookupByLibrary.simpleMessage("EGP"),
@@ -56,7 +57,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "failure": MessageLookupByLibrary.simpleMessage("Failure"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gold": MessageLookupByLibrary.simpleMessage("Gold"),
+        "gram": MessageLookupByLibrary.simpleMessage("Gram"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "importPrice": MessageLookupByLibrary.simpleMessage("Import price"),
+        "ingots": MessageLookupByLibrary.simpleMessage("Ingots"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lastUpdated": MessageLookupByLibrary.simpleMessage("Last Updated"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
@@ -70,6 +74,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Notifications Setting"),
         "passwordChangedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Password Changed Successfully!"),
+        "pound": MessageLookupByLibrary.simpleMessage("Pound"),
+        "priceIncludesTaxAndWorkmanship": MessageLookupByLibrary.simpleMessage(
+            "Price includes tax and workmanship"),
+        "pricePerGram": MessageLookupByLibrary.simpleMessage("Price per gram"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "selectLanguage":
             MessageLookupByLibrary.simpleMessage("Select Language"),
@@ -78,6 +86,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "sell": MessageLookupByLibrary.simpleMessage("Sell"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "shareTheApp": MessageLookupByLibrary.simpleMessage("Share The App"),
-        "welcome": MessageLookupByLibrary.simpleMessage("Welcome")
+        "totalTax": MessageLookupByLibrary.simpleMessage("Total tax"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
+        "workmanshipPerGram":
+            MessageLookupByLibrary.simpleMessage("Workmanship per gram")
       };
 }

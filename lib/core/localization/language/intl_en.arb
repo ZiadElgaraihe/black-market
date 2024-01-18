@@ -20,6 +20,7 @@
     "currentPassword": "Current Password",
 
     "deleteAccount": "Delete Account",
+    "difference": "Difference",
 
     "editProfile": "Edit Profile",
     "egyptianPoundAbbreviation": "EGP",
@@ -34,8 +35,12 @@
     "fullName": "Full Name",
 
     "gold": "Gold",
+    "gram": "Gram",
 
     "home": "Home",
+
+    "importPrice": "Import price",
+    "ingots": "Ingots",
 
     "language": "Language",
     "lastUpdated": "Last Updated",
@@ -50,7 +55,10 @@
     "notificationsSetting": "Notifications Setting",
 
     "passwordChangedSuccessfully": "Password Changed Successfully!",
+    "priceIncludesTaxAndWorkmanship": "Price includes tax and workmanship",
+    "pricePerGram": "Price per gram",
     "profile": "Profile",
+    "pound": "Pound",
     
     "selectLanguage": "Select Language",
     "selectTheBaseCurrency": "Select the base currency",
@@ -58,5 +66,8 @@
     "setting": "Setting",
     "shareTheApp": "Share The App",
 
-    "welcome": "Welcome"
+    "totalTax": "Total tax",
+
+    "welcome": "Welcome",
+    "workmanshipPerGram": "Workmanship per gram"
 }

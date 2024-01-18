@@ -43,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الحالية"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
+        "difference": MessageLookupByLibrary.simpleMessage("الفرق"),
         "editProfile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
         "egyptianPoundAbbreviation":
@@ -59,7 +60,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "failure": MessageLookupByLibrary.simpleMessage("فشل"),
         "fullName": MessageLookupByLibrary.simpleMessage("الاسم بالكامل"),
         "gold": MessageLookupByLibrary.simpleMessage("الذهب"),
+        "gram": MessageLookupByLibrary.simpleMessage("جرام"),
         "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "importPrice": MessageLookupByLibrary.simpleMessage("مبلغ الاستيراد"),
+        "ingots": MessageLookupByLibrary.simpleMessage("السبائك"),
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "lastUpdated": MessageLookupByLibrary.simpleMessage("آخر تحديث"),
         "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
@@ -74,6 +78,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("إعدادات الإشعارات"),
         "passwordChangedSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم تغيير كلمة المرور بنجاح!"),
+        "pound": MessageLookupByLibrary.simpleMessage("جنيه"),
+        "priceIncludesTaxAndWorkmanship": MessageLookupByLibrary.simpleMessage(
+            "السعر شامل المصنعية و الضريبة"),
+        "pricePerGram": MessageLookupByLibrary.simpleMessage("سعر الجرام"),
         "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
         "selectLanguage": MessageLookupByLibrary.simpleMessage("حدد اللغة"),
         "selectTheBaseCurrency":
@@ -81,6 +89,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "sell": MessageLookupByLibrary.simpleMessage("بيع"),
         "setting": MessageLookupByLibrary.simpleMessage("الإعدادات"),
         "shareTheApp": MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
-        "welcome": MessageLookupByLibrary.simpleMessage("مرحباً")
+        "totalTax": MessageLookupByLibrary.simpleMessage("الضريبة الكلية"),
+        "welcome": MessageLookupByLibrary.simpleMessage("مرحباً"),
+        "workmanshipPerGram":
+            MessageLookupByLibrary.simpleMessage("مصنعية الجرام")
       };
 }

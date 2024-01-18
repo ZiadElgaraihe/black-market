@@ -1,4 +1,5 @@
 import 'package:black_market/core/functions/show_alert_dialog.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/columns/grid_view_item_shimmer_column.dart';
 import 'package:black_market/core/presentation/view/containers/grid_view_item_container.dart';
@@ -66,18 +67,18 @@ class GetGoldDataBlocConsumer extends StatelessWidget {
   }
 
   void _listener(context, state) {
-      if (state is GetGoldDataFailure) {
-        showAlertDialog(
-          context,
-          child: ResultAlertDialog(
-            buttonTitle: 'عودة',
-            message: state.errMessage,
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            title: 'فشل',
-          ),
-        );
-      }
+    if (state is GetGoldDataFailure) {
+      showAlertDialog(
+        context,
+        child: ResultAlertDialog(
+          buttonTitle: Tr.of(context).cancel,
+          message: state.errMessage,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          title: Tr.of(context).failure,
+        ),
+      );
     }
+  }
 }

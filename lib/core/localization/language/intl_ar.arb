@@ -20,6 +20,7 @@
     "currentPassword": "كلمة المرور الحالية",
 
     "deleteAccount": "حذف الحساب",
+    "difference": "الفرق",
 
     "editProfile": "تعديل الملف الشخصي",
     "egyptianPoundAbbreviation": "ج.م",
@@ -34,8 +35,12 @@
     "fullName": "الاسم بالكامل",
 
     "gold": "الذهب",
+    "gram": "جرام",
 
     "home": "الرئيسية",
+
+    "importPrice": "مبلغ الاستيراد",
+    "ingots": "السبائك",
 
     "language": "اللغة",
     "lastUpdated": "آخر تحديث",
@@ -50,7 +55,10 @@
     "notificationsSetting": "إعدادات الإشعارات",
 
     "passwordChangedSuccessfully": "تم تغيير كلمة المرور بنجاح!",
+    "priceIncludesTaxAndWorkmanship": "السعر شامل المصنعية و الضريبة",
+    "pricePerGram": "سعر الجرام",
     "profile": "الملف الشخصي",
+    "pound": "جنيه",
     
     "selectLanguage": "حدد اللغة",
     "selectTheBaseCurrency": "حدد العملة الأساسية",
@@ -58,5 +66,8 @@
     "setting": "الإعدادات",
     "shareTheApp": "مشاركة التطبيق",
 
-    "welcome": "مرحباً"
+    "totalTax": "الضريبة الكلية",
+
+    "welcome": "مرحباً",
+    "workmanshipPerGram": "مصنعية الجرام"
 }

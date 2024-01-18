@@ -230,6 +230,16 @@ class Tr {
     );
   }
 
+  /// `Difference`
+  String get difference {
+    return Intl.message(
+      'Difference',
+      name: 'difference',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Edit Profile`
   String get editProfile {
     return Intl.message(
@@ -340,11 +350,41 @@ class Tr {
     );
   }
 
+  /// `Gram`
+  String get gram {
+    return Intl.message(
+      'Gram',
+      name: 'gram',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Home`
   String get home {
     return Intl.message(
       'Home',
       name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Import price`
+  String get importPrice {
+    return Intl.message(
+      'Import price',
+      name: 'importPrice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ingots`
+  String get ingots {
+    return Intl.message(
+      'Ingots',
+      name: 'ingots',
       desc: '',
       args: [],
     );
@@ -450,11 +490,41 @@ class Tr {
     );
   }
 
+  /// `Price includes tax and workmanship`
+  String get priceIncludesTaxAndWorkmanship {
+    return Intl.message(
+      'Price includes tax and workmanship',
+      name: 'priceIncludesTaxAndWorkmanship',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price per gram`
+  String get pricePerGram {
+    return Intl.message(
+      'Price per gram',
+      name: 'pricePerGram',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Profile`
   String get profile {
     return Intl.message(
       'Profile',
       name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pound`
+  String get pound {
+    return Intl.message(
+      'Pound',
+      name: 'pound',
       desc: '',
       args: [],
     );
@@ -510,11 +580,31 @@ class Tr {
     );
   }
 
+  /// `Total tax`
+  String get totalTax {
+    return Intl.message(
+      'Total tax',
+      name: 'totalTax',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Welcome`
   String get welcome {
     return Intl.message(
       'Welcome',
       name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Workmanship per gram`
+  String get workmanshipPerGram {
+    return Intl.message(
+      'Workmanship per gram',
+      name: 'workmanshipPerGram',
       desc: '',
       args: [],
     );

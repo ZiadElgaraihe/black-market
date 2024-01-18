@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,9 @@ class GoldIngotsAndIconsDataRow extends StatelessWidget {
                 ),
           ),
           Text(
-            (price != null) ? '$price ج.م' : 'N/A',
+            (price != null)
+                ? '$price ${Tr.of(context).egyptianPoundAbbreviation}'
+                : 'N/A',
             style: textStyle ??
                 TextStyles.textStyle14.copyWith(
                   color: AppColors.white,
