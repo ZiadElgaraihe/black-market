@@ -1,4 +1,5 @@
-import 'package:black_market/core/animations/left_slide_transition.dart';
+import 'package:black_market/core/animations/side_slide_transition.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
@@ -46,51 +47,51 @@ class ProfileViewBody extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              RightSlideTransition(
+              SideSlideTransition(
                 page: const EditProfileView(),
               ),
             );
           },
-          title: 'تعديل الملف الشخصي',
+          title: Tr.of(context).editProfile,
         ),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsWallet,
           onTap: () {},
-          title: 'مدخراتي',
+          title: Tr.of(context).mySavings,
         ),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsShareApp,
           onTap: () {},
-          title: 'مشاركة التطبيق',
+          title: Tr.of(context).shareTheApp,
         ),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsAbout,
           onTap: () {},
-          title: 'عن التطبيق',
+          title: Tr.of(context).aboutTheApp,
         ),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsDollarCircle,
           onTap: () {
             Navigator.push(
               context,
-              RightSlideTransition(
+              SideSlideTransition(
                 page: const BaseCurrencyView(),
               ),
             );
           },
-          title: 'العملة الاساسية',
+          title: Tr.of(context).baseCurrency,
         ),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsSetting,
           onTap: () {
             Navigator.push(
               context,
-              RightSlideTransition(
+              SideSlideTransition(
                 page: const SettingView(),
               ),
             );
           },
-          title: 'الاعدادات',
+          title: Tr.of(context).setting,
         ),
         SizedBox(height: 21.h),
         DangerZoneButton(
@@ -104,7 +105,7 @@ class ProfileViewBody extends StatelessWidget {
               },
             );
           },
-          title: 'تسجيل الخروج',
+          title: Tr.of(context).logOut,
         ),
       ],
     );

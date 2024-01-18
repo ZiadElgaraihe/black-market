@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/edit_profile_view_app_bar.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/edit_profile_view_body.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class _EditProfileViewState extends State<EditProfileView> {
       onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
       child: Scaffold(
         appBar: EditProfileViewAppBar(
-          title: 'تعديل الملف الشخصي',
+          title: Tr.of(context).editProfile,
           onEditTapped: () {
             _canEdit.value = !_canEdit.value;
           },

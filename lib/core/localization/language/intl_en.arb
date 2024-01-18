@@ -1,0 +1,47 @@
+{
+    "aboutTheApp": "About The App",
+    "arabic": "Arabic",
+    "areYouSureToLogOut": "Are you sure to log out",
+
+    "baseCurrency": "Base Currency",
+
+    "currencies": "Currencies",
+    "changePhoto": "Change The Photo",
+    "changePassword": "Change Password",
+    "change": "Change",
+    "currentPassword": "Current Password",
+
+    "deleteAccount": "Delete Account",
+
+    "editProfile": "Edit Profile",
+    "email": "Email",
+    "enterEmail": "Enter Email",
+    "enterFullName": "Enter Full Name",
+    "enterPassword": "Enter Password",
+    "english": "English",
+
+    "fullName": "Full Name",
+
+    "gold": "Gold",
+
+    "home": "Home",
+
+    "language": "Language",
+    "logOut": "Log Out",
+
+    "mySavings": "My Savings",
+
+    "newPassword": "New Password",
+    "newPasswordConfirmation": "New Password Confirmation",
+    "news": "News",
+    "notifications": "Notifications",
+    "notificationsSetting": "Notifications Setting",
+
+    "passwordChangedSuccessfully": "Password Changed Successfully!",
+    "profile": "Profile",
+    
+    "selectLanguage": "Select Language",
+    "selectTheBaseCurrency": "Select the base currency",
+    "setting": "Setting",
+    "shareTheApp": "Share The App"
+}

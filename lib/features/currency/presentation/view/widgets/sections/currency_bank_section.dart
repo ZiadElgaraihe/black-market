@@ -1,4 +1,4 @@
-import 'package:black_market/core/animations/left_slide_transition.dart';
+import 'package:black_market/core/animations/side_slide_transition.dart';
 import 'package:black_market/core/presentation/view/columns/grid_view_item_shimmer_column.dart';
 import 'package:black_market/core/presentation/view/containers/grid_view_item_container.dart';
 import 'package:black_market/core/presentation/view/grid_views/default_grid_view.dart';
@@ -44,7 +44,7 @@ class CurrencyBankSection extends StatelessWidget {
                 if (cubit.currencies != null) {
                   Navigator.push(
                     context,
-                    RightSlideTransition(
+                    SideSlideTransition(
                       page: BankView(
                         bankId: cubit.currencies![currentIndex]
                             .bankPrices[index].bankId!,

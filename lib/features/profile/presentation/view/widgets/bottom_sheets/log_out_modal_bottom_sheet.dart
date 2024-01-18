@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
@@ -37,7 +38,7 @@ class LogOutModalBottomSheet extends StatelessWidget {
           ),
           SizedBox(height: 57.h),
           Text(
-            'هل انت متأكد من تسجيل الخروج',
+            Tr.of(context).areYouSureToLogOut,
             style: TextStyles.textStyle18.copyWith(
               color: AppColors.white,
             ),
@@ -63,7 +64,7 @@ class LogOutModalBottomSheet extends StatelessWidget {
             textColor: AppColors.white,
             width: 180.w,
             onPressed: () {},
-            title: 'تسجيل الخروج',
+            title: Tr.of(context).logOut,
           ),
         ],
       ),

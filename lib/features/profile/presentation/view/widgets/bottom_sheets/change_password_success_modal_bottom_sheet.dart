@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_images.dart';
@@ -34,7 +35,7 @@ class ChangePasswordSuccessModalBottomSheet extends StatelessWidget {
           ),
           SizedBox(height: 43.h),
           Text(
-            'تم تغيير كلمة المرور بنجاح!',
+            Tr.of(context).passwordChangedSuccessfully,
             style: TextStyles.textStyle22.copyWith(
               color: AppColors.yellow,
               fontWeight: FontWeight.w800,
@@ -43,7 +44,7 @@ class ChangePasswordSuccessModalBottomSheet extends StatelessWidget {
           SizedBox(height: 50.h),
           DefaultButton(
             onPressed: () {},
-            title: 'الرئيسية',
+            title: Tr.of(context).home,
           ),
         ],
       ),

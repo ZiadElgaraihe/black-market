@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/presentation/view/sections/user_data_section.dart';
 import 'package:black_market/core/utils/app_colors.dart';
@@ -17,27 +18,27 @@ class ChangePasswordViewBody extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(height: 24.h),
-          const UserDataSection(
-            hintText: 'أدخل  كود المرور',
+          UserDataSection(
+            hintText: Tr.of(context).enterPassword,
             keyboardType: TextInputType.visiblePassword,
             obscureText: true,
-            sectionTitle: 'كلمة المرور الحالية',
+            sectionTitle: Tr.of(context).currentPassword,
             suffixIcon: AppIcons.assetsIconsLock,
           ),
           SizedBox(height: 32.h),
-          const UserDataSection(
-            hintText: 'أدخل  كود المرور',
+          UserDataSection(
+            hintText: Tr.of(context).enterPassword,
             keyboardType: TextInputType.visiblePassword,
             obscureText: true,
-            sectionTitle: 'كلمة المرور الجديدة',
+            sectionTitle: Tr.of(context).newPassword,
             suffixIcon: AppIcons.assetsIconsLock,
           ),
           SizedBox(height: 32.h),
-          const UserDataSection(
-            hintText: 'أدخل  كود المرور',
+          UserDataSection(
+            hintText: Tr.of(context).enterPassword,
             keyboardType: TextInputType.visiblePassword,
             obscureText: true,
-            sectionTitle: 'تاكيد كلمة المرور الجديدة',
+            sectionTitle: Tr.of(context).newPasswordConfirmation,
             suffixIcon: AppIcons.assetsIconsLock,
           ),
           SizedBox(height: 266.h),
@@ -51,7 +52,7 @@ class ChangePasswordViewBody extends StatelessWidget {
                 },
               );
             },
-            title: 'تغيير',
+            title: Tr.of(context).change,
           ),
           SizedBox(height: 20.h),
         ],

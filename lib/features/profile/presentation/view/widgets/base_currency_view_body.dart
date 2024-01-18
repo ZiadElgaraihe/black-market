@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/containers/radio_button_container.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class BaseCurrencyViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 24.h),
           Text(
-            'حدد العملة الأساسية',
+            Tr.of(context).selectTheBaseCurrency,
             style: TextStyles.textStyle16,
           ),
           SizedBox(height: 12.h),

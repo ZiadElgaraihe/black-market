@@ -1,4 +1,5 @@
-import 'package:black_market/core/animations/left_slide_transition.dart';
+import 'package:black_market/core/animations/side_slide_transition.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/features/profile/presentation/view/change_password_view.dart';
 import 'package:black_market/features/profile/presentation/view/language_view.dart';
@@ -21,51 +22,52 @@ class SettingViewBody extends StatelessWidget {
           onTap: () {
             Navigator.push(
               context,
-              RightSlideTransition(
+              SideSlideTransition(
                 page: const ChangePasswordView(),
               ),
             );
           },
-          title: 'تغيير كلمه المرور',
+          title: Tr.of(context).changePassword,
         ),
-        ProfileItemContainerButton(
-          icon: AppIcons.assetsIconsBank,
-          onTap: () {},
-          title: 'الترتيب المفضل للبنوك',
-        ),
-        ProfileItemContainerButton(
-            icon: AppIcons.assetsIconsDollarCircle,
-            onTap: () {},
-            title: 'الترتيب المفضل للعملات'),
+        // ProfileItemContainerButton(
+        //   icon: AppIcons.assetsIconsBank,
+        //   onTap: () {},
+        //   title: 'الترتيب المفضل للبنوك',
+        // ),
+        // ProfileItemContainerButton(
+        //   icon: AppIcons.assetsIconsDollarCircle,
+        //   onTap: () {},
+        //   title: 'الترتيب المفضل للعملات',
+        // ),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsLanguage,
           onTap: () {
             Navigator.push(
               context,
-              RightSlideTransition(
+              SideSlideTransition(
                 page: const LanguageView(),
               ),
             );
           },
-          title: 'اللغة',
+          title: Tr.of(context).language,
         ),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsNotificationBing,
           onTap: () {
             Navigator.push(
               context,
-              RightSlideTransition(
+              SideSlideTransition(
                 page: const NotificationsSettingView(),
               ),
             );
           },
-          title: 'اعدادات الاشعارات',
+          title: Tr.of(context).notificationsSetting,
         ),
         SizedBox(height: 25.h),
         DangerZoneButton(
           icon: AppIcons.assetsIconsTrash,
           onPressed: () {},
-          title: 'حذف الحساب',
+          title: Tr.of(context).deleteAccount,
         ),
       ],
     );

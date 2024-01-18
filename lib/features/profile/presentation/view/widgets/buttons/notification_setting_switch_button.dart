@@ -39,7 +39,7 @@ class _NotificationSettingSwitchButtonState
               thumbIcon: MaterialStatePropertyAll(
                 Icon(
                   Icons.circle,
-                  color: AppColors.white,
+                  color: AppColors.transparent,
                 ),
               ),
               value: isTurnOn,

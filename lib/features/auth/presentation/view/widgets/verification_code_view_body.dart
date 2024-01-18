@@ -1,4 +1,4 @@
-import 'package:black_market/core/animations/left_slide_transition.dart';
+import 'package:black_market/core/animations/side_slide_transition.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
@@ -93,7 +93,7 @@ class _VerificationCodeViewBodyState extends State<VerificationCodeViewBody> {
                   _formKey.currentState!.save();
                   Navigator.push(
                     context,
-                    RightSlideTransition(
+                    SideSlideTransition(
                       page: const ResetPasswordView(),
                     ),
                   );

@@ -1,0 +1,47 @@
+{
+    "aboutTheApp": "عن التطبيق",
+    "arabic": "العربية",
+    "areYouSureToLogOut": "هل أنت متأكد من تسجيل الخروج",
+
+    "baseCurrency": "العملة الأساسية",
+
+    "currencies": "العملات",
+    "changePassword": "تغيير كلمة المرور",
+    "change": "تغيير",
+    "changePhoto": "تغيير الصورة",
+    "currentPassword": "كلمة المرور الحالية",
+
+    "deleteAccount": "حذف الحساب",
+
+    "editProfile": "تعديل الملف الشخصي",
+    "email": "البريد الإلكتروني",
+    "enterEmail": "أدخل البريد الإلكتروني",
+    "enterFullName": "أدخل الاسم بالكامل",
+    "enterPassword": "أدخل  كود المرور",
+    "english": "الإنجليزية",
+
+    "fullName": "الاسم بالكامل",
+
+    "gold": "الذهب",
+
+    "home": "الرئيسية",
+
+    "language": "اللغة",
+    "logOut": "تسجيل الخروج",
+
+    "mySavings": "مدخراتي",
+
+    "newPassword": "كلمة المرور الجديدة",
+    "newPasswordConfirmation": "تاكيد كلمة المرور الجديدة",
+    "news": "الأخبار",
+    "notifications": "الإشعارات",
+    "notificationsSetting": "إعدادات الإشعارات",
+
+    "passwordChangedSuccessfully": "تم تغيير كلمة المرور بنجاح!",
+    "profile": "الملف الشخصي",
+    
+    "selectLanguage": "حدد اللغة",
+    "selectTheBaseCurrency": "حدد العملة الأساسية",
+    "setting": "الإعدادات",
+    "shareTheApp": "مشاركة التطبيق"
+}

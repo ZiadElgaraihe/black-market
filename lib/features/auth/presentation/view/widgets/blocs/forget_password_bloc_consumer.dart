@@ -1,4 +1,4 @@
-import 'package:black_market/core/animations/left_slide_transition.dart';
+import 'package:black_market/core/animations/side_slide_transition.dart';
 import 'package:black_market/core/functions/show_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
@@ -46,7 +46,7 @@ class ForgetPasswordBlocConsumer extends StatelessWidget {
     if (state is ForgetPasswordSuccess) {
       Navigator.push(
         context,
-        RightSlideTransition(
+        SideSlideTransition(
           page: VerificationCodeView(email: state.email),
         ),
       );

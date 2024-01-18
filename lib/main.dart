@@ -2,7 +2,9 @@ import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
 import 'package:black_market/core/data/services/secure_database_services.dart';
 import 'package:black_market/core/helpers/dio_helper.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view_model/favourite_cubit/favourite_cubit.dart';
+import 'package:black_market/core/presentation/view_model/localization_cubit/localization_cubit.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/hive_setup.dart';
 import 'package:black_market/core/utils/service_locator.dart';
@@ -27,7 +29,12 @@ void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
     (_) {
       runApp(
-        const BlackMarket(),
+        BlocProvider<LocalizationCubit>(
+          create: (context) => LocalizationCubit(
+            localDatabaseServices: getIt<LocalDatabaseServices>(),
+          ),
+          child: const BlackMarket(),
+        ),
       );
     },
   );
@@ -73,26 +80,28 @@ class BlackMarket extends StatelessWidget {
       ],
       child: ScreenUtilInit(
         designSize: const Size(375, 812),
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Black Market',
-          theme: ThemeData.dark(useMaterial3: false).copyWith(
-            scaffoldBackgroundColor: AppColors.backgroundColor,
-            textTheme: GoogleFonts.almaraiTextTheme(
-              ThemeData.dark().textTheme,
-            ),
-          ),
-          localizationsDelegates: const [
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-          ],
-          supportedLocales: const [
-            Locale('ar'), // Arabic
-            Locale('en'), // English
-          ],
-          locale: const Locale('ar'),
-          home: const SplashView(),
+        child: BlocBuilder<LocalizationCubit, LocalizationState>(
+          builder: (context, state) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Black Market',
+              theme: ThemeData.dark(useMaterial3: false).copyWith(
+                scaffoldBackgroundColor: AppColors.backgroundColor,
+                textTheme: GoogleFonts.almaraiTextTheme(
+                  ThemeData.dark().textTheme,
+                ),
+              ),
+              localizationsDelegates: const [
+                Tr.delegate,
+                GlobalMaterialLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+              ],
+              supportedLocales: Tr.delegate.supportedLocales,
+              locale: context.read<LocalizationCubit>().appLocale,
+              home: const SplashView(),
+            );
+          },
         ),
       ),
     );

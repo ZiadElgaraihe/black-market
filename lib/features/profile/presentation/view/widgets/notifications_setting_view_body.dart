@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/profile/presentation/view/widgets/rows/notification_setting_switch_row.dart';
@@ -16,7 +17,7 @@ class NotificationsSettingViewBody extends StatelessWidget {
         children: [
           SizedBox(height: 24.h),
           Text(
-            'إشعارات',
+            Tr.of(context).notifications,
             style: TextStyles.textStyle16,
           ),
           SizedBox(height: 24.h),
@@ -28,11 +29,11 @@ class NotificationsSettingViewBody extends StatelessWidget {
             ),
             child: Column(
               children: [
-                const NotificationSettingSwitchRow(title: 'العملات'),
+                NotificationSettingSwitchRow(title: Tr.of(context).currencies),
                 Divider(thickness: 0.5.h),
-                const NotificationSettingSwitchRow(title: 'الذهب'),
+                NotificationSettingSwitchRow(title: Tr.of(context).gold),
                 Divider(thickness: 0.5.h),
-                const NotificationSettingSwitchRow(title: 'الأخبار'),
+                NotificationSettingSwitchRow(title: Tr.of(context).news),
               ],
             ),
           )

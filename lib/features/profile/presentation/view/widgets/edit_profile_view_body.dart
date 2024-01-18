@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/presentation/view/sections/user_data_section.dart';
 import 'package:black_market/core/utils/app_colors.dart';
@@ -49,7 +50,7 @@ class EditProfileViewBody extends StatelessWidget {
               ),
               onPressed: canEdit ? () {} : null,
               child: Text(
-                'تغيير الصورة',
+                Tr.of(context).changePhoto,
                 style: TextStyles.textStyle10.copyWith(
                   color: AppColors.green.withOpacity(canEdit ? 1 : 0.5),
                 ),
@@ -59,10 +60,10 @@ class EditProfileViewBody extends StatelessWidget {
             UserDataSection(
               controller: TextEditingController(text: 'علي عبدالله'),
               enabled: canEdit,
-              hintText: 'أدخل الاسم بالكامل',
+              hintText: Tr.of(context).enterFullName,
               keyboardType: TextInputType.name,
               obscureText: false,
-              sectionTitle: 'الاسم بالكامل',
+              sectionTitle: Tr.of(context).fullName,
               
               suffixIcon: AppIcons.assetsIconsProfile,
             ),
@@ -70,10 +71,10 @@ class EditProfileViewBody extends StatelessWidget {
             UserDataSection(
               controller: TextEditingController(text: 'aliatwan02@gmail.com'),
               enabled: canEdit,
-              hintText: 'أدخل البريد الإلكتروني',
+              hintText: Tr.of(context).enterEmail,
               keyboardType: TextInputType.emailAddress,
               obscureText: false,
-              sectionTitle: 'البريد الإلكتروني',
+              sectionTitle: Tr.of(context).email,
               suffixIcon: AppIcons.assetsIconsMessage,
             ),
             SizedBox(height: 216.h),
@@ -81,7 +82,7 @@ class EditProfileViewBody extends StatelessWidget {
               backgroundColor:
                   !canEdit ? AppColors.yellow.withOpacity(0.5) : null,
               onPressed: canEdit ? () {} : null,
-              title: 'تعديل',
+              title: Tr.of(context).change,
             ),
             SizedBox(height: 20.h),
           ],
