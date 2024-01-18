@@ -80,7 +80,7 @@ class CurrencyHeaderPriceContentColumn extends StatelessWidget {
     final updatedAt =
         DateTime.parse(currencies![currentIndexValueNotifier.value].updatedAt);
     final currentTime = DateTime.now();
-    final difference = currentTime.difference(updatedAt);
+    final difference = currentTime.difference(updatedAt).abs();
 
     if (difference.inSeconds <= 59) {
       final seconds = difference.inSeconds;
