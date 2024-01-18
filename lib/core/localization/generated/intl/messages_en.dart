@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter Full Name"),
         "enterPassword": MessageLookupByLibrary.simpleMessage("Enter Password"),
         "failure": MessageLookupByLibrary.simpleMessage("Failure"),
+        "favourite": MessageLookupByLibrary.simpleMessage("Favourite"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gold": MessageLookupByLibrary.simpleMessage("Gold"),
         "gram": MessageLookupByLibrary.simpleMessage("Gram"),

@@ -330,6 +330,16 @@ class Tr {
     );
   }
 
+  /// `Favourite`
+  String get favourite {
+    return Intl.message(
+      'Favourite',
+      name: 'favourite',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Full Name`
   String get fullName {
     return Intl.message(

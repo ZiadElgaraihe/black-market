@@ -58,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterPassword":
             MessageLookupByLibrary.simpleMessage("أدخل  كود المرور"),
         "failure": MessageLookupByLibrary.simpleMessage("فشل"),
+        "favourite": MessageLookupByLibrary.simpleMessage("المفضلة"),
         "fullName": MessageLookupByLibrary.simpleMessage("الاسم بالكامل"),
         "gold": MessageLookupByLibrary.simpleMessage("الذهب"),
         "gram": MessageLookupByLibrary.simpleMessage("جرام"),
