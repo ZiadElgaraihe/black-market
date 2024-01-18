@@ -25,10 +25,10 @@ class _CurrencyChartSectionState extends State<CurrencyChartSection> {
       children: [
         SizedBox(height: 10.h),
         const CurrencyChart(),
-        SizedBox(height: 16.h),
-        CurrencyChartTimeRangeRow(
-          currentTimeRangeIndex: _currentTimeRangeIndex,
-        ),
+        // SizedBox(height: 16.h),
+        // CurrencyChartTimeRangeRow(
+        //   currentTimeRangeIndex: _currentTimeRangeIndex,
+        // ),
       ],
     );
   }
