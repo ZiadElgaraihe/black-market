@@ -220,6 +220,16 @@ class Tr {
     );
   }
 
+  /// `Day`
+  String get day {
+    return Intl.message(
+      'Day',
+      name: 'day',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Delete Account`
   String get deleteAccount {
     return Intl.message(
@@ -340,6 +350,16 @@ class Tr {
     );
   }
 
+  /// `Fri`
+  String get friday {
+    return Intl.message(
+      'Fri',
+      name: 'friday',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Full Name`
   String get fullName {
     return Intl.message(
@@ -425,6 +445,26 @@ class Tr {
     return Intl.message(
       'Log Out',
       name: 'logOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Mon`
+  String get monday {
+    return Intl.message(
+      'Mon',
+      name: 'monday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Month`
+  String get month {
+    return Intl.message(
+      'Month',
+      name: 'month',
       desc: '',
       args: [],
     );
@@ -540,6 +580,16 @@ class Tr {
     );
   }
 
+  /// `Sat`
+  String get saturday {
+    return Intl.message(
+      'Sat',
+      name: 'saturday',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Select Language`
   String get selectLanguage {
     return Intl.message(
@@ -590,11 +640,61 @@ class Tr {
     );
   }
 
+  /// `Sun`
+  String get sunday {
+    return Intl.message(
+      'Sun',
+      name: 'sunday',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Total tax`
   String get totalTax {
     return Intl.message(
       'Total tax',
       name: 'totalTax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tue`
+  String get tuesday {
+    return Intl.message(
+      'Tue',
+      name: 'tuesday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Thu`
+  String get thursday {
+    return Intl.message(
+      'Thu',
+      name: 'thursday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Wed`
+  String get wednesday {
+    return Intl.message(
+      'Wed',
+      name: 'wednesday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Week`
+  String get week {
+    return Intl.message(
+      'Week',
+      name: 'week',
       desc: '',
       args: [],
     );
@@ -615,6 +715,16 @@ class Tr {
     return Intl.message(
       'Workmanship per gram',
       name: 'workmanshipPerGram',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Year`
+  String get year {
+    return Intl.message(
+      'Year',
+      name: 'year',
       desc: '',
       args: [],
     );

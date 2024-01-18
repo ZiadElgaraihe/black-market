@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -25,13 +26,13 @@ class CurrencyChart extends StatelessWidget {
                 reservedSize: 32.h,
                 getTitlesWidget: (value, meta) {
                   Map<double, String> values = {
-                    1: 'سبت',
-                    2: 'حد',
-                    3: 'اثنين',
-                    4: 'ثلاثاء',
-                    5: 'أربعاء',
-                    6: 'خميس',
-                    7: 'جمعة',
+                    1: Tr.of(context).saturday,
+                    2: Tr.of(context).sunday,
+                    3: Tr.of(context).monday,
+                    4: Tr.of(context).tuesday,
+                    5: Tr.of(context).wednesday,
+                    6: Tr.of(context).thursday,
+                    7: Tr.of(context).friday,
                   };
                   return SideTitleWidget(
                     axisSide: AxisSide.top,

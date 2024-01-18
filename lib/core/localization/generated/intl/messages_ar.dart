@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "currency": MessageLookupByLibrary.simpleMessage("العملة"),
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الحالية"),
+        "day": MessageLookupByLibrary.simpleMessage("يوم"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "difference": MessageLookupByLibrary.simpleMessage("الفرق"),
         "editProfile":
@@ -59,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("أدخل  كود المرور"),
         "failure": MessageLookupByLibrary.simpleMessage("فشل"),
         "favourite": MessageLookupByLibrary.simpleMessage("المفضلة"),
+        "friday": MessageLookupByLibrary.simpleMessage("جمعة"),
         "fullName": MessageLookupByLibrary.simpleMessage("الاسم بالكامل"),
         "gold": MessageLookupByLibrary.simpleMessage("الذهب"),
         "gram": MessageLookupByLibrary.simpleMessage("جرام"),
@@ -68,6 +70,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("اللغة"),
         "lastUpdated": MessageLookupByLibrary.simpleMessage("آخر تحديث"),
         "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "monday": MessageLookupByLibrary.simpleMessage("اثنين"),
+        "month": MessageLookupByLibrary.simpleMessage("شهر"),
         "mySavings": MessageLookupByLibrary.simpleMessage("مدخراتي"),
         "newPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
@@ -84,15 +88,22 @@ class MessageLookup extends MessageLookupByLibrary {
             "السعر شامل المصنعية و الضريبة"),
         "pricePerGram": MessageLookupByLibrary.simpleMessage("سعر الجرام"),
         "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+        "saturday": MessageLookupByLibrary.simpleMessage("سبت"),
         "selectLanguage": MessageLookupByLibrary.simpleMessage("حدد اللغة"),
         "selectTheBaseCurrency":
             MessageLookupByLibrary.simpleMessage("حدد العملة الأساسية"),
         "sell": MessageLookupByLibrary.simpleMessage("بيع"),
         "setting": MessageLookupByLibrary.simpleMessage("الإعدادات"),
         "shareTheApp": MessageLookupByLibrary.simpleMessage("مشاركة التطبيق"),
+        "sunday": MessageLookupByLibrary.simpleMessage("حد"),
+        "thursday": MessageLookupByLibrary.simpleMessage("خميس"),
         "totalTax": MessageLookupByLibrary.simpleMessage("الضريبة الكلية"),
+        "tuesday": MessageLookupByLibrary.simpleMessage("ثلاثاء"),
+        "wednesday": MessageLookupByLibrary.simpleMessage("أربعاء"),
+        "week": MessageLookupByLibrary.simpleMessage("إسبوع"),
         "welcome": MessageLookupByLibrary.simpleMessage("مرحباً"),
         "workmanshipPerGram":
-            MessageLookupByLibrary.simpleMessage("مصنعية الجرام")
+            MessageLookupByLibrary.simpleMessage("مصنعية الجرام"),
+        "year": MessageLookupByLibrary.simpleMessage("سنة")
       };
 }

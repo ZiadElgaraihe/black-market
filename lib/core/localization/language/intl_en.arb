@@ -19,6 +19,7 @@
     "currency": "Currency",
     "currentPassword": "Current Password",
 
+    "day": "Day",
     "deleteAccount": "Delete Account",
     "difference": "Difference",
 
@@ -33,6 +34,7 @@
 
     "failure": "Failure",
     "favourite": "Favourite",
+    "friday": "Fri",
     "fullName": "Full Name",
 
     "gold": "Gold",
@@ -47,6 +49,8 @@
     "lastUpdated": "Last Updated",
     "logOut": "Log Out",
 
+    "monday": "Mon",
+    "month": "Month",
     "mySavings": "My Savings",
 
     "newPassword": "New Password",
@@ -61,14 +65,22 @@
     "profile": "Profile",
     "pound": "Pound",
     
+    "saturday": "Sat",
     "selectLanguage": "Select Language",
     "selectTheBaseCurrency": "Select the base currency",
     "sell": "Sell",
     "setting": "Setting",
     "shareTheApp": "Share The App",
+    "sunday": "Sun",
 
     "totalTax": "Total tax",
+    "tuesday": "Tue",
+    "thursday": "Thu",
 
+    "wednesday": "Wed",
+    "week": "Week",
     "welcome": "Welcome",
-    "workmanshipPerGram": "Workmanship per gram"
+    "workmanshipPerGram": "Workmanship per gram",
+
+    "year": "Year"
 }

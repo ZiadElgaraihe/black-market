@@ -42,6 +42,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "currency": MessageLookupByLibrary.simpleMessage("Currency"),
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("Current Password"),
+        "day": MessageLookupByLibrary.simpleMessage("Day"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
         "difference": MessageLookupByLibrary.simpleMessage("Difference"),
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
@@ -56,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterPassword": MessageLookupByLibrary.simpleMessage("Enter Password"),
         "failure": MessageLookupByLibrary.simpleMessage("Failure"),
         "favourite": MessageLookupByLibrary.simpleMessage("Favourite"),
+        "friday": MessageLookupByLibrary.simpleMessage("Fri"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gold": MessageLookupByLibrary.simpleMessage("Gold"),
         "gram": MessageLookupByLibrary.simpleMessage("Gram"),
@@ -65,6 +67,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lastUpdated": MessageLookupByLibrary.simpleMessage("Last Updated"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
+        "monday": MessageLookupByLibrary.simpleMessage("Mon"),
+        "month": MessageLookupByLibrary.simpleMessage("Month"),
         "mySavings": MessageLookupByLibrary.simpleMessage("My Savings"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "newPasswordConfirmation":
@@ -80,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Price includes tax and workmanship"),
         "pricePerGram": MessageLookupByLibrary.simpleMessage("Price per gram"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "saturday": MessageLookupByLibrary.simpleMessage("Sat"),
         "selectLanguage":
             MessageLookupByLibrary.simpleMessage("Select Language"),
         "selectTheBaseCurrency":
@@ -87,9 +92,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "sell": MessageLookupByLibrary.simpleMessage("Sell"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "shareTheApp": MessageLookupByLibrary.simpleMessage("Share The App"),
+        "sunday": MessageLookupByLibrary.simpleMessage("Sun"),
+        "thursday": MessageLookupByLibrary.simpleMessage("Thu"),
         "totalTax": MessageLookupByLibrary.simpleMessage("Total tax"),
+        "tuesday": MessageLookupByLibrary.simpleMessage("Tue"),
+        "wednesday": MessageLookupByLibrary.simpleMessage("Wed"),
+        "week": MessageLookupByLibrary.simpleMessage("Week"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
         "workmanshipPerGram":
-            MessageLookupByLibrary.simpleMessage("Workmanship per gram")
+            MessageLookupByLibrary.simpleMessage("Workmanship per gram"),
+        "year": MessageLookupByLibrary.simpleMessage("Year")
       };
 }

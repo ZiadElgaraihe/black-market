@@ -19,6 +19,7 @@
     "currency": "العملة",
     "currentPassword": "كلمة المرور الحالية",
 
+    "day": "يوم",
     "deleteAccount": "حذف الحساب",
     "difference": "الفرق",
 
@@ -33,6 +34,7 @@
 
     "failure": "فشل",
     "favourite": "المفضلة",
+    "friday": "جمعة",
     "fullName": "الاسم بالكامل",
 
     "gold": "الذهب",
@@ -47,6 +49,8 @@
     "lastUpdated": "آخر تحديث",
     "logOut": "تسجيل الخروج",
 
+    "monday": "اثنين",
+    "month": "شهر",
     "mySavings": "مدخراتي",
 
     "newPassword": "كلمة المرور الجديدة",
@@ -61,14 +65,22 @@
     "profile": "الملف الشخصي",
     "pound": "جنيه",
     
+    "saturday": "سبت",
     "selectLanguage": "حدد اللغة",
     "selectTheBaseCurrency": "حدد العملة الأساسية",
     "sell": "بيع",
     "setting": "الإعدادات",
     "shareTheApp": "مشاركة التطبيق",
+    "sunday": "حد",
 
     "totalTax": "الضريبة الكلية",
-
+    "tuesday": "ثلاثاء",
+    "thursday": "خميس",
+    
+    "wednesday": "أربعاء",
+    "week": "إسبوع",
     "welcome": "مرحباً",
-    "workmanshipPerGram": "مصنعية الجرام"
+    "workmanshipPerGram": "مصنعية الجرام",
+
+    "year": "سنة"
 }
