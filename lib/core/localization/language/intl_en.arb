@@ -19,7 +19,6 @@
     "currency": "Currency",
     "currentPassword": "Current Password",
 
-    "day": "Day",
     "deleteAccount": "Delete Account",
     "difference": "Difference",
 
@@ -50,7 +49,6 @@
     "logOut": "Log Out",
 
     "monday": "Mon",
-    "month": "Month",
     "mySavings": "My Savings",
 
     "newPassword": "New Password",
@@ -78,9 +76,6 @@
     "thursday": "Thu",
 
     "wednesday": "Wed",
-    "week": "Week",
     "welcome": "Welcome",
-    "workmanshipPerGram": "Workmanship per gram",
-
-    "year": "Year"
+    "workmanshipPerGram": "Workmanship per gram"
 }

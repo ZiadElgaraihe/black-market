@@ -42,7 +42,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "currency": MessageLookupByLibrary.simpleMessage("Currency"),
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("Current Password"),
-        "day": MessageLookupByLibrary.simpleMessage("Day"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
         "difference": MessageLookupByLibrary.simpleMessage("Difference"),
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
@@ -68,7 +67,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "lastUpdated": MessageLookupByLibrary.simpleMessage("Last Updated"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "monday": MessageLookupByLibrary.simpleMessage("Mon"),
-        "month": MessageLookupByLibrary.simpleMessage("Month"),
         "mySavings": MessageLookupByLibrary.simpleMessage("My Savings"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "newPasswordConfirmation":
@@ -97,10 +95,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "totalTax": MessageLookupByLibrary.simpleMessage("Total tax"),
         "tuesday": MessageLookupByLibrary.simpleMessage("Tue"),
         "wednesday": MessageLookupByLibrary.simpleMessage("Wed"),
-        "week": MessageLookupByLibrary.simpleMessage("Week"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
         "workmanshipPerGram":
-            MessageLookupByLibrary.simpleMessage("Workmanship per gram"),
-        "year": MessageLookupByLibrary.simpleMessage("Year")
+            MessageLookupByLibrary.simpleMessage("Workmanship per gram")
       };
 }

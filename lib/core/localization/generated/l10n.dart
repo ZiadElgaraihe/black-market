@@ -220,16 +220,6 @@ class Tr {
     );
   }
 
-  /// `Day`
-  String get day {
-    return Intl.message(
-      'Day',
-      name: 'day',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Delete Account`
   String get deleteAccount {
     return Intl.message(
@@ -460,16 +450,6 @@ class Tr {
     );
   }
 
-  /// `Month`
-  String get month {
-    return Intl.message(
-      'Month',
-      name: 'month',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `My Savings`
   String get mySavings {
     return Intl.message(
@@ -690,16 +670,6 @@ class Tr {
     );
   }
 
-  /// `Week`
-  String get week {
-    return Intl.message(
-      'Week',
-      name: 'week',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Welcome`
   String get welcome {
     return Intl.message(
@@ -715,16 +685,6 @@ class Tr {
     return Intl.message(
       'Workmanship per gram',
       name: 'workmanshipPerGram',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Year`
-  String get year {
-    return Intl.message(
-      'Year',
-      name: 'year',
       desc: '',
       args: [],
     );

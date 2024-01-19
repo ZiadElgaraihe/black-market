@@ -3,7 +3,7 @@ import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_header_price_content_column.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_header_price_shimmer_column.dart';
-import 'package:black_market/features/currency/presentation/view_model/currency_latest/currency_latest_cubit.dart';
+import 'package:black_market/features/currency/presentation/view_model/currency_latest_cubit/currency_latest_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

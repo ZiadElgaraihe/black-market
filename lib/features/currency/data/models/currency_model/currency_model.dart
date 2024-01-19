@@ -1,4 +1,5 @@
 import 'package:black_market/features/currency/data/models/currency_price_model/currency_price_model.dart';
+import 'package:black_market/features/currency/data/models/filter_price_model/filter_price_model.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 part 'currency_model.g.dart';
@@ -16,7 +17,7 @@ class CurrencyModel {
   @HiveField(4)
   String updatedAt;
   @HiveField(5)
-  List<CurrencyPriceModel> livePrices;
+  List<FilterPriceModel>? livePrices;
   @HiveField(6)
   List<CurrencyPriceModel> blackMarketPrices;
   @HiveField(7)
@@ -28,7 +29,6 @@ class CurrencyModel {
     required this.name,
     required this.code,
     required this.updatedAt,
-    required this.livePrices,
     required this.blackMarketPrices,
     required this.bankPrices,
   });
@@ -63,11 +63,6 @@ class CurrencyModel {
       name: data['name'],
       code: data['code'],
       updatedAt: data['updated_at'],
-      livePrices: List.generate(
-        data['live_prices'].length,
-        (index) =>
-            CurrencyPriceModel.fromJson(data: data['live_prices'][index]),
-      ),
       blackMarketPrices: List.generate(
         data['black_market_prices'].length,
         (index) => CurrencyPriceModel.fromJson(

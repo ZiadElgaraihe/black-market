@@ -5,7 +5,7 @@ import 'package:black_market/core/presentation/view/grid_views/default_grid_view
 import 'package:black_market/core/presentation/view_model/favourite_cubit/favourite_cubit.dart';
 import 'package:black_market/features/currency/presentation/view/bank_view.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/columns/currency_bank_item_content_column.dart';
-import 'package:black_market/features/currency/presentation/view_model/currency_latest/currency_latest_cubit.dart';
+import 'package:black_market/features/currency/presentation/view_model/currency_latest_cubit/currency_latest_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

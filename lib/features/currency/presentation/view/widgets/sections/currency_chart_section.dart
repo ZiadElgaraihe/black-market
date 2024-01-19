@@ -1,5 +1,4 @@
 import 'package:black_market/features/currency/presentation/view/widgets/charts/currency_chart.dart';
-import 'package:black_market/features/currency/presentation/view/widgets/rows/currency_chart_time_range_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,15 +20,9 @@ class _CurrencyChartSectionState extends State<CurrencyChartSection> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SizedBox(height: 10.h),
-        const CurrencyChart(),
-        // SizedBox(height: 16.h),
-        // CurrencyChartTimeRangeRow(
-        //   currentTimeRangeIndex: _currentTimeRangeIndex,
-        // ),
-      ],
+    return Padding(
+      padding: EdgeInsets.only(top: 10.h),
+      child: const CurrencyChart(),
     );
   }
 }

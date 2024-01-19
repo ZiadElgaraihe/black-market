@@ -42,7 +42,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "currency": MessageLookupByLibrary.simpleMessage("العملة"),
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الحالية"),
-        "day": MessageLookupByLibrary.simpleMessage("يوم"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
         "difference": MessageLookupByLibrary.simpleMessage("الفرق"),
         "editProfile":
@@ -71,7 +70,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "lastUpdated": MessageLookupByLibrary.simpleMessage("آخر تحديث"),
         "logOut": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
         "monday": MessageLookupByLibrary.simpleMessage("اثنين"),
-        "month": MessageLookupByLibrary.simpleMessage("شهر"),
         "mySavings": MessageLookupByLibrary.simpleMessage("مدخراتي"),
         "newPassword":
             MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
@@ -100,10 +98,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "totalTax": MessageLookupByLibrary.simpleMessage("الضريبة الكلية"),
         "tuesday": MessageLookupByLibrary.simpleMessage("ثلاثاء"),
         "wednesday": MessageLookupByLibrary.simpleMessage("أربعاء"),
-        "week": MessageLookupByLibrary.simpleMessage("إسبوع"),
         "welcome": MessageLookupByLibrary.simpleMessage("مرحباً"),
         "workmanshipPerGram":
-            MessageLookupByLibrary.simpleMessage("مصنعية الجرام"),
-        "year": MessageLookupByLibrary.simpleMessage("سنة")
+            MessageLookupByLibrary.simpleMessage("مصنعية الجرام")
       };
 }
