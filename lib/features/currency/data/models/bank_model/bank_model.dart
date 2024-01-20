@@ -1,13 +1,13 @@
 class BankModel {
   int id;
   String name;
-  String icon;
+  String image;
   String shortName;
 
   BankModel({
     required this.id,
     required this.name,
-    required this.icon,
+    required this.image,
     required this.shortName,
   });
 
@@ -15,7 +15,7 @@ class BankModel {
     return BankModel(
       id: data['id'],
       name: data['name'],
-      icon: data['icon'],
+      image: 'http://www.voipsys.space/storage/${data['icon']}',
       shortName: data['shortname'],
     );
   }

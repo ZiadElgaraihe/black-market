@@ -23,13 +23,15 @@ class CurrencyPriceModelAdapter extends TypeAdapter<CurrencyPriceModel> {
       buyPrice: fields[3] as double?,
       sellPrice: fields[4] as double?,
       updatedAt: fields[5] as String,
-    )..bankName = fields[6] as String?;
+    )
+      ..bankName = fields[6] as String?
+      ..bankImage = fields[7] as String?;
   }
 
   @override
   void write(BinaryWriter writer, CurrencyPriceModel obj) {
     writer
-      ..writeByte(7)
+      ..writeByte(8)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -43,7 +45,9 @@ class CurrencyPriceModelAdapter extends TypeAdapter<CurrencyPriceModel> {
       ..writeByte(5)
       ..write(obj.updatedAt)
       ..writeByte(6)
-      ..write(obj.bankName);
+      ..write(obj.bankName)
+      ..writeByte(7)
+      ..write(obj.bankImage);
   }
 
   @override

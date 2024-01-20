@@ -7,6 +7,7 @@ import 'package:black_market/core/utils/app_images.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/currency/data/models/currency_model/currency_model.dart';
 import 'package:black_market/features/currency/data/models/currency_price_model/currency_price_model.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,11 +32,29 @@ class BankHeaderPriceContentColumn extends StatelessWidget {
             CircleAvatar(
               radius: 11.w,
               backgroundColor: AppColors.white,
-              child: Padding(
-                padding: EdgeInsets.all(2.5.w),
-                child: SvgPicture.asset(
-                  AppImages.assetsImagesBank,
-                ),
+              child: CachedNetworkImage(
+                imageUrl: currency.bankPrices
+                    .firstWhere((element) => element.bankId == bankId)
+                    .bankImage!,
+                errorWidget: (context, url, error) {
+                  return Padding(
+                    padding: EdgeInsets.all(2.5.w),
+                    child: SvgPicture.asset(
+                      AppImages.assetsImagesBank,
+                    ),
+                  );
+                },
+                progressIndicatorBuilder: (context, url, progress) {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 5.w,
+                      vertical: 2.5.h,
+                    ),
+                    child: CircularProgressIndicator(
+                      color: AppColors.black,
+                    ),
+                  );
+                },
               ),
             ),
             SizedBox(width: 6.w),

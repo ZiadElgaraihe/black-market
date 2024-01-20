@@ -29,8 +29,8 @@ class GridViewItemShimmerColumn extends StatelessWidget {
               ),
             if (!containTwoActionButtons) const Spacer(),
             ShimmerContainer(
-              height: 50.h,
-              width: 50.w,
+              height: 60.h,
+              width: 60.w,
               shape: BoxShape.circle,
             ),
             if (!containTwoActionButtons) SizedBox(width: 5.w),

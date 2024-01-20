@@ -125,6 +125,16 @@ class CurrencyLatestCubit extends Cubit<CurrencyLatestState> {
                                             .bankId,
                                   )
                                   .name;
+                          currencies[currencyIndex].bankPrices[bankIndex].bankImage =
+                              bankModel
+                                  .firstWhere(
+                                    (element) =>
+                                        element.id ==
+                                        currencies[currencyIndex]
+                                            .bankPrices[bankIndex]
+                                            .bankId,
+                                  )
+                                  .image;
                         }
                       }
 
