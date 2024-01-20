@@ -13,6 +13,9 @@ import 'package:black_market/features/auth/presentation/view_model/update_passwo
 import 'package:black_market/features/currency/data/repos/currency_repo.dart';
 import 'package:black_market/features/currency/data/services/bank_services.dart';
 import 'package:black_market/features/currency/presentation/view_model/currency_latest_cubit/currency_latest_cubit.dart';
+import 'package:black_market/features/gold/data/repos/gold_repo.dart';
+import 'package:black_market/features/gold/presentation/view_model/get_gold_data_cubit/get_gold_data_cubit.dart';
+import 'package:black_market/features/gold/presentation/view_model/get_ingots_coins_data_cubit/get_ingots_coins_data_cubit.dart';
 import 'package:black_market/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -75,6 +78,22 @@ class BlackMarket extends StatelessWidget {
         BlocProvider<FavouriteCubit>(
           create: (context) => FavouriteCubit(
             localDatabaseServices: getIt<LocalDatabaseServices>(),
+          ),
+        ),
+        BlocProvider<GetGoldDataCubit>(
+          create: (context) => GetGoldDataCubit(
+            connectionServices: getIt<ConnectionServices>(),
+            goldServices: GoldServices(
+              dioHelper: getIt<DioHelper>(),
+            ),
+          ),
+        ),
+        BlocProvider<GetIngotsCoinsDataCubit>(
+          create: (context) => GetIngotsCoinsDataCubit(
+            connectionServices: getIt<ConnectionServices>(),
+            goldServices: GoldServices(
+              dioHelper: getIt<DioHelper>(),
+            ),
           ),
         ),
       ],
