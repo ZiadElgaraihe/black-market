@@ -4,7 +4,7 @@ class DioHelper {
   DioHelper() {
     _dio = Dio(
       BaseOptions(
-        baseUrl: 'https://voipsys.space/api/',
+        baseUrl: 'https://www.voipsys.space/api/',
       ),
     );
   }

@@ -127,7 +127,7 @@ class CurrencyLatestCubit extends Cubit<CurrencyLatestState> {
                                   .name;
                         }
                       }
-                      
+
                       this.currencies = currencies;
                       _localDatabaseServices.store<List<CurrencyModel>>(
                         boxName: kCurrencyBox,

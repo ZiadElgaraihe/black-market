@@ -41,7 +41,9 @@ class _CurrencyViewBodyState extends State<CurrencyViewBody> {
                 CurrencyHeaderSection(
                   currentIndexValueNotifier: _currentIndexValueNotifier,
                 ),
-                const CurrencyChartSection(),
+                CurrencyChartSection(
+                  currentIndex: currentIndex,
+                ),
                 CurrencyAveragePriceSection(
                   currentIndex: currentIndex,
                 ),
