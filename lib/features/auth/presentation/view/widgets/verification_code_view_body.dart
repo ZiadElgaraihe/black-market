@@ -7,7 +7,6 @@ import 'package:black_market/features/auth/presentation/view/reset_password_view
 import 'package:black_market/features/auth/presentation/view/widgets/forms/otp_form.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/rows/resend_code_row.dart';
 import 'package:black_market/features/auth/presentation/view_model/resend_verification_code_cubit/resend_veification_code_cubit.dart';
-import 'package:black_market/features/auth/presentation/view_model/update_password_cubit/update_password_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -31,16 +30,18 @@ class _VerificationCodeViewBodyState extends State<VerificationCodeViewBody> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  final ValueNotifier<String> _otpValueNotifier = ValueNotifier<String>('');
+
   @override
   void initState() {
     super.initState();
     context.read<ResendVeificationCodeCubit>().email = widget.email;
-    context.read<UpdatePasswordCubit>().email = widget.email;
   }
 
   @override
   void dispose() {
     _autoValidateModeValueNotifier.dispose();
+    _otpValueNotifier.dispose();
     super.dispose();
   }
 
@@ -81,6 +82,7 @@ class _VerificationCodeViewBodyState extends State<VerificationCodeViewBody> {
             OtpForm(
               autoValidateModeValueNotifier: _autoValidateModeValueNotifier,
               formKey: _formKey,
+              otpValueNotifier: _otpValueNotifier,
             ),
             SizedBox(height: 43.h),
             const ResendCodeRow(),
@@ -90,12 +92,15 @@ class _VerificationCodeViewBodyState extends State<VerificationCodeViewBody> {
                 if (_formKey.currentState!.validate()) {
                   //make otp empty before save new value
                   //to make sure that otp isn't overridding on an old value
-                  context.read<UpdatePasswordCubit>().otp = '';
+                  _otpValueNotifier.value = '';
                   _formKey.currentState!.save();
                   Navigator.push(
                     context,
                     SideSlideTransition(
-                      page: const ResetPasswordView(),
+                      page: ResetPasswordView(
+                        email: widget.email,
+                        otp: _otpValueNotifier.value,
+                      ),
                     ),
                   );
                 } else {

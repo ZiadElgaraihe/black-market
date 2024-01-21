@@ -1,15 +1,13 @@
 import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
-import 'package:black_market/core/data/services/secure_database_services.dart';
 import 'package:black_market/core/helpers/dio_helper.dart';
 import 'package:black_market/core/localization/generated/l10n.dart';
+import 'package:black_market/core/presentation/view_model/app_cubit/app_cubit.dart';
 import 'package:black_market/core/presentation/view_model/favourite_cubit/favourite_cubit.dart';
 import 'package:black_market/core/presentation/view_model/localization_cubit/localization_cubit.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/hive_setup.dart';
 import 'package:black_market/core/utils/service_locator.dart';
-import 'package:black_market/features/auth/data/services/auth_services.dart';
-import 'package:black_market/features/auth/presentation/view_model/update_password_cubit/update_password_cubit.dart';
 import 'package:black_market/features/currency/data/repos/currency_repo.dart';
 import 'package:black_market/features/currency/data/services/bank_services.dart';
 import 'package:black_market/features/currency/presentation/view_model/currency_latest_cubit/currency_latest_cubit.dart';
@@ -32,12 +30,7 @@ void main() {
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
     (_) {
       runApp(
-        BlocProvider<LocalizationCubit>(
-          create: (context) => LocalizationCubit(
-            localDatabaseServices: getIt<LocalDatabaseServices>(),
-          ),
-          child: const BlackMarket(),
-        ),
+        const BlackMarket(),
       );
     },
   );
@@ -55,12 +48,12 @@ class BlackMarket extends StatelessWidget {
     );
     return MultiBlocProvider(
       providers: [
-        BlocProvider<UpdatePasswordCubit>(
-          create: (context) => UpdatePasswordCubit(
-            authServices: getIt<AuthServices>(),
-            connectionServices: getIt<ConnectionServices>(),
+        BlocProvider<AppCubit>(
+          create: (context) => AppCubit(),
+        ),
+        BlocProvider<LocalizationCubit>(
+          create: (context) => LocalizationCubit(
             localDatabaseServices: getIt<LocalDatabaseServices>(),
-            secureDatabaseServices: getIt<SecureDatabaseServices>(),
           ),
         ),
         BlocProvider<CurrencyLatestCubit>(

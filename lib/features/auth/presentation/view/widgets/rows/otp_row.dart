@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OtpRow extends StatelessWidget {
-  const OtpRow({super.key});
+  const OtpRow({
+    super.key,
+    required this.otpValueNotifier,
+  });
+
+  final ValueNotifier<String> otpValueNotifier;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,10 @@ class OtpRow extends StatelessWidget {
             4,
             (index) => SizedBox(
               width: 65.w,
-              child: OtpTextField(index: index),
+              child: OtpTextField(
+                index: index,
+                otpValueNotifier: otpValueNotifier,
+              ),
             ),
           ),
         ),

@@ -2,6 +2,7 @@ import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
 import 'package:black_market/core/data/services/secure_database_services.dart';
 import 'package:black_market/core/errors/failure.dart';
+import 'package:black_market/core/presentation/view_model/app_cubit/app_cubit.dart';
 import 'package:black_market/core/utils/constants.dart';
 import 'package:black_market/features/auth/data/models/user/user.dart';
 import 'package:black_market/features/auth/data/models/user_model.dart';
@@ -14,17 +15,20 @@ part 'update_password_state.dart';
 
 class UpdatePasswordCubit extends Cubit<UpdatePasswordState> {
   UpdatePasswordCubit({
+    required AppCubit appCubit,
     required AuthServices authServices,
     required ConnectionServices connectionServices,
     required LocalDatabaseServices localDatabaseServices,
     required SecureDatabaseServices secureDatabaseServices,
   }) : super(UpdatePasswordInitial()) {
+    _appCubit = appCubit;
     _authServices = authServices;
     _connectionServices = connectionServices;
     _localDatabaseServices = localDatabaseServices;
     _secureDatabaseServices = secureDatabaseServices;
   }
 
+  late AppCubit _appCubit;
   late AuthServices _authServices;
   late ConnectionServices _connectionServices;
   late LocalDatabaseServices _localDatabaseServices;
@@ -65,6 +69,7 @@ class UpdatePasswordCubit extends Cubit<UpdatePasswordState> {
           },
           //success
           (userModel) async {
+            _appCubit.userModel = userModel;
             await _localDatabaseServices.store<User>(
               boxName: kUserBox,
               key: kUserKey,
