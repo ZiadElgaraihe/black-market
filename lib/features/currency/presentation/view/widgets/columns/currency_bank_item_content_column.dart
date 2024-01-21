@@ -34,37 +34,37 @@ class CurrencyBankItemContentColumn extends StatelessWidget {
             CircleAvatar(
               radius: 23.3.w,
               backgroundColor: AppColors.white,
-              child: (bankPrice != null && bankPrice!.bankImage != null)
-                  ? CachedNetworkImage(
-                      imageUrl: bankPrice!.bankImage!,
-                      height: 46.6.h,
-                      width: 46.6.w,
-                      errorWidget: (context, url, error) {
-                        return Padding(
-                          padding: EdgeInsets.all(7.5.w),
-                          child: SvgPicture.asset(
-                            AppImages.assetsImagesBank,
-                          ),
-                        );
-                      },
-                      progressIndicatorBuilder: (context, url, progress) {
-                        return Padding(
-                          padding: EdgeInsets.symmetric(
-                            horizontal: 13.5.w,
-                            vertical: 10.h,
-                          ),
-                          child: CircularProgressIndicator(
-                            color: AppColors.black,
-                          ),
-                        );
-                      },
-                    )
-                  : Padding(
-                      padding: EdgeInsets.all(7.5.w),
-                      child: SvgPicture.asset(
-                        AppImages.assetsImagesBank,
+              child: ClipOval(
+                child: (bankPrice != null && bankPrice!.bankImage != null)
+                    ? CachedNetworkImage(
+                        imageUrl: bankPrice!.bankImage!,
+                        errorWidget: (context, url, error) {
+                          return Padding(
+                            padding: EdgeInsets.all(7.5.w),
+                            child: SvgPicture.asset(
+                              AppImages.assetsImagesBank,
+                            ),
+                          );
+                        },
+                        progressIndicatorBuilder: (context, url, progress) {
+                          return Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 13.5.w,
+                              vertical: 10.h,
+                            ),
+                            child: CircularProgressIndicator(
+                              color: AppColors.black,
+                            ),
+                          );
+                        },
+                      )
+                    : Padding(
+                        padding: EdgeInsets.all(7.5.w),
+                        child: SvgPicture.asset(
+                          AppImages.assetsImagesBank,
+                        ),
                       ),
-                    ),
+              ),
             ),
             FavouriteButton(
               bankPrice: bankPrice,

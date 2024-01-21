@@ -34,7 +34,7 @@ class User {
       roleId: data['role_id'],
       name: data['name'],
       email: data['email'],
-      avatar: data['avatar'],
+      avatar: 'http://www.voipsys.space/storage/${data['avatar']}',
       createdAt: data['created_at'],
       updatedAt: data['updated_at'],
     );
