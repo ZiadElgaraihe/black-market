@@ -1,5 +1,6 @@
 import 'package:black_market/core/animations/bottom_slide_transition.dart';
 import 'package:black_market/core/functions/show_alert_dialog.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/presentation/view/buttons/default_loading_button.dart';
@@ -35,7 +36,7 @@ class ResetPasswordBlocConsumer extends StatelessWidget {
                 autoValidateModeValueNotifier.value = AutovalidateMode.always;
               }
             },
-            title: 'متابعة',
+            title: Tr.of(context).track,
           );
         }
       },
@@ -47,7 +48,9 @@ class ResetPasswordBlocConsumer extends StatelessWidget {
       Navigator.pushAndRemoveUntil(
         context,
         BottomSlideTransition(
-          page: const SuccessView(title: 'تم إنشاء كلمة مرور جديدة بنجاح'),
+          page: SuccessView(
+            title: Tr.of(context).newPasswordWasCreatedSuccessfully,
+          ),
         ),
         (route) => false,
       );
@@ -55,12 +58,12 @@ class ResetPasswordBlocConsumer extends StatelessWidget {
       showAlertDialog(
         context,
         child: ResultAlertDialog(
-          buttonTitle: 'عودة',
+          buttonTitle: Tr.of(context).cancel,
           message: state.errMessage,
           onPressed: () {
             Navigator.pop(context);
           },
-          title: 'فشل',
+          title: Tr.of(context).failure,
         ),
       );
     }

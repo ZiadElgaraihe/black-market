@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/blocs/resend_password_bloc_consumer.dart';
@@ -12,7 +13,7 @@ class ResendCodeRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          'لم تتلق الرمز. ',
+          Tr.of(context).didnotReceiveTheCode,
           style: TextStyles.textStyle14.copyWith(
             fontWeight: FontWeight.w400,
             color: AppColors.lightGrey,

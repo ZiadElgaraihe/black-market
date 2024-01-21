@@ -60,6 +60,16 @@ class Tr {
     );
   }
 
+  /// `Account Created Successfully`
+  String get accountCreatedSuccessfully {
+    return Intl.message(
+      'Account Created Successfully',
+      name: 'accountCreatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Arabic`
   String get arabic {
     return Intl.message(
@@ -190,6 +200,36 @@ class Tr {
     );
   }
 
+  /// `Continue With Google`
+  String get continueWithGoogle {
+    return Intl.message(
+      'Continue With Google',
+      name: 'continueWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create an account`
+  String get createAnAccount {
+    return Intl.message(
+      'Create an account',
+      name: 'createAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create New Password`
+  String get createNewPassword {
+    return Intl.message(
+      'Create New Password',
+      name: 'createNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Currencies`
   String get currencies {
     return Intl.message(
@@ -230,11 +270,31 @@ class Tr {
     );
   }
 
+  /// `Didn't receive the code. `
+  String get didnotReceiveTheCode {
+    return Intl.message(
+      'Didn\'t receive the code. ',
+      name: 'didnotReceiveTheCode',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Difference`
   String get difference {
     return Intl.message(
       'Difference',
       name: 'difference',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account? `
+  String get donotHaveAnAccount {
+    return Intl.message(
+      'Don\'t have an account? ',
+      name: 'donotHaveAnAccount',
       desc: '',
       args: [],
     );
@@ -320,6 +380,16 @@ class Tr {
     );
   }
 
+  /// `Enter The Confirmation Code`
+  String get enterTheConfirmationCode {
+    return Intl.message(
+      'Enter The Confirmation Code',
+      name: 'enterTheConfirmationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Failure`
   String get failure {
     return Intl.message(
@@ -335,6 +405,16 @@ class Tr {
     return Intl.message(
       'Favourite',
       name: 'favourite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forget Password ?`
+  String get forgetPassword {
+    return Intl.message(
+      'Forget Password ?',
+      name: 'forgetPassword',
       desc: '',
       args: [],
     );
@@ -430,6 +510,26 @@ class Tr {
     );
   }
 
+  /// `Log In`
+  String get logIn {
+    return Intl.message(
+      'Log In',
+      name: 'logIn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log in\nto your account`
+  String get logInToYourAccount {
+    return Intl.message(
+      'Log in\nto your account',
+      name: 'logInToYourAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Log Out`
   String get logOut {
     return Intl.message(
@@ -480,11 +580,31 @@ class Tr {
     );
   }
 
+  /// `New Password Was Created Successfully`
+  String get newPasswordWasCreatedSuccessfully {
+    return Intl.message(
+      'New Password Was Created Successfully',
+      name: 'newPasswordWasCreatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `News`
   String get news {
     return Intl.message(
       'News',
       name: 'news',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message(
+      'Next',
+      name: 'next',
       desc: '',
       args: [],
     );
@@ -510,11 +630,61 @@ class Tr {
     );
   }
 
+  /// `OR`
+  String get or {
+    return Intl.message(
+      'OR',
+      name: 'or',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message(
+      'Password',
+      name: 'password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Passwords are not matching`
+  String get passwordsArenotMatching {
+    return Intl.message(
+      'Passwords are not matching',
+      name: 'passwordsArenotMatching',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Password Changed Successfully!`
   String get passwordChangedSuccessfully {
     return Intl.message(
       'Password Changed Successfully!',
       name: 'passwordChangedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password Confirmation`
+  String get passwordConfirmation {
+    return Intl.message(
+      'Password Confirmation',
+      name: 'passwordConfirmation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password Recovery`
+  String get passwordRecovery {
+    return Intl.message(
+      'Password Recovery',
+      name: 'passwordRecovery',
       desc: '',
       args: [],
     );
@@ -560,11 +730,41 @@ class Tr {
     );
   }
 
+  /// `Remember Me`
+  String get rememberMe {
+    return Intl.message(
+      'Remember Me',
+      name: 'rememberMe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Resend`
+  String get resend {
+    return Intl.message(
+      'Resend',
+      name: 'resend',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sat`
   String get saturday {
     return Intl.message(
       'Sat',
       name: 'saturday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Seconds`
+  String get second {
+    return Intl.message(
+      'Seconds',
+      name: 'second',
       desc: '',
       args: [],
     );
@@ -620,6 +820,16 @@ class Tr {
     );
   }
 
+  /// `Sign Up`
+  String get signUp {
+    return Intl.message(
+      'Sign Up',
+      name: 'signUp',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sun`
   String get sunday {
     return Intl.message(
@@ -630,11 +840,31 @@ class Tr {
     );
   }
 
+  /// `This field is required`
+  String get thisFieldIsRequired {
+    return Intl.message(
+      'This field is required',
+      name: 'thisFieldIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Total tax`
   String get totalTax {
     return Intl.message(
       'Total tax',
       name: 'totalTax',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get track {
+    return Intl.message(
+      'Continue',
+      name: 'track',
       desc: '',
       args: [],
     );
@@ -660,6 +890,16 @@ class Tr {
     );
   }
 
+  /// `Verification code has been re-sent`
+  String get verificationCodeHasBeenResent {
+    return Intl.message(
+      'Verification code has been re-sent',
+      name: 'verificationCodeHasBeenResent',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Wed`
   String get wednesday {
     return Intl.message(
@@ -675,6 +915,28 @@ class Tr {
     return Intl.message(
       'Welcome',
       name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We have sent the confirmation code to`
+  String get weHaveSentTheConfirmationCodeTo {
+    return Intl.message(
+      'We have sent the confirmation code to',
+      name: 'weHaveSentTheConfirmationCodeTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We will send an OTP code to your email for security when you forget your password`
+  String
+      get weWillSendAnOTPCodeToYourEmailForSecurityWhenYouForgetYourPassword {
+    return Intl.message(
+      'We will send an OTP code to your email for security when you forget your password',
+      name:
+          'weWillSendAnOTPCodeToYourEmailForSecurityWhenYouForgetYourPassword',
       desc: '',
       args: [],
     );

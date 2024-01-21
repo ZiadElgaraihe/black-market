@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/sections/user_data_section.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/features/auth/presentation/view_model/log_in_cubit/log_in_cubit.dart';
@@ -26,24 +27,24 @@ class LogInForm extends StatelessWidget {
         child: Column(
           children: [
             UserDataSection(
-              hintText: 'أدخل البريد الإلكتروني',
+              hintText: Tr.of(context).enterEmail,
               keyboardType: TextInputType.emailAddress,
               obscureText: false,
               onSaved: (newValue) {
                 context.read<LogInCubit>().email = newValue;
               },
-              sectionTitle: 'البريد الإلكتروني',
+              sectionTitle: Tr.of(context).email,
               suffixIcon: AppIcons.assetsIconsMessage,
             ),
             SizedBox(height: 24.h),
             UserDataSection(
-              hintText: 'أدخل  كود المرور',
+              hintText: Tr.of(context).enterPassword,
               keyboardType: TextInputType.visiblePassword,
               obscureText: true,
               onSaved: (newValue) {
                 context.read<LogInCubit>().password = newValue;
               },
-              sectionTitle: 'كلمة المرور',
+              sectionTitle: Tr.of(context).password,
               suffixIcon: AppIcons.assetsIconsLock,
             ),
           ],

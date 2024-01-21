@@ -1,4 +1,5 @@
 import 'package:black_market/core/animations/side_slide_transition.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
@@ -54,13 +55,13 @@ class _VerificationCodeViewBodyState extends State<VerificationCodeViewBody> {
           children: [
             SizedBox(height: 60.h),
             Text(
-              'قم بإدخال الكود المرسل',
+              Tr.of(context).enterTheConfirmationCode,
               style: TextStyles.textStyle18,
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 18.h),
             Text(
-              'لقد قمنا بإرسال رمز التأكيد الى',
+              Tr.of(context).weHaveSentTheConfirmationCodeTo,
               style: TextStyles.textStyle12.copyWith(
                 fontWeight: FontWeight.w400,
                 color: AppColors.lightYellowHover,
@@ -102,7 +103,7 @@ class _VerificationCodeViewBodyState extends State<VerificationCodeViewBody> {
                       AutovalidateMode.always;
                 }
               },
-              title: 'متابعة',
+              title: Tr.of(context).track,
             ),
             SizedBox(height: 20.h),
           ],

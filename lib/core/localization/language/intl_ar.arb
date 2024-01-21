@@ -1,5 +1,6 @@
 {
     "aboutTheApp": "عن التطبيق",
+    "accountCreatedSuccessfully": "تم إنشاء الحساب بنجاح",
     "arabic": "العربية",
     "areYouSureToLogOut": "هل أنت متأكد من تسجيل الخروج",
     "averagePrice": "متوسط السعر",
@@ -15,12 +16,17 @@
     "change": "تغيير",
     "changePassword": "تغيير كلمة المرور",
     "changePhoto": "تغيير الصورة",
+    "continueWithGoogle": "اكمل بإستخدام جوجل",
+    "createAnAccount": "إنشاء حساب",
+    "createNewPassword": "إنشاء كلمة المرور الجديدة",
     "currencies": "العملات",
     "currency": "العملة",
     "currentPassword": "كلمة المرور الحالية",
 
     "deleteAccount": "حذف الحساب",
+    "didnotReceiveTheCode": "لم تتلق الرمز. ",
     "difference": "الفرق",
+    "donotHaveAnAccount": "لا تمتلك حساب؟ ",
 
     "editProfile": "تعديل الملف الشخصي",
     "egyptianPoundAbbreviation": "ج.م",
@@ -30,9 +36,11 @@
     "enterEmail": "أدخل البريد الإلكتروني",
     "enterFullName": "أدخل الاسم بالكامل",
     "enterPassword": "أدخل  كود المرور",
+    "enterTheConfirmationCode": "قم بإدخال الكود المرسل",
 
     "failure": "فشل",
     "favourite": "المفضلة",
+    "forgetPassword": "هل نسيت كلمة المرور ؟",
     "friday": "الجمعة",
     "fullName": "الاسم بالكامل",
 
@@ -46,6 +54,8 @@
 
     "language": "اللغة",
     "lastUpdated": "آخر تحديث",
+    "logIn": "تسجيل الدخول",
+    "logInToYourAccount": "تسجيل الدخول\nالى حسابك",
     "logOut": "تسجيل الخروج",
 
     "monday": "الاثنين",
@@ -53,29 +63,48 @@
 
     "newPassword": "كلمة المرور الجديدة",
     "newPasswordConfirmation": "تاكيد كلمة المرور الجديدة",
+    "newPasswordWasCreatedSuccessfully": "تم إنشاء كلمة مرور جديدة بنجاح",
     "news": "الأخبار",
+    "next": "التالي",
     "notifications": "الإشعارات",
     "notificationsSetting": "إعدادات الإشعارات",
 
+    "or": "أو",
+
+    "password": "كلمة المرور",
+    "passwordsArenotMatching": "تأكد من تطابق كلمة المرور",
     "passwordChangedSuccessfully": "تم تغيير كلمة المرور بنجاح!",
+    "passwordConfirmation": "تاكيد كلمة المرور",
+    "passwordRecovery": "إسترجاع كلمة المرور",
     "priceIncludesTaxAndWorkmanship": "السعر شامل المصنعية و الضريبة",
     "pricePerGram": "سعر الجرام",
     "profile": "الملف الشخصي",
     "pound": "جنيه",
+
+    "rememberMe": "تذكرني",
+    "resend": "إعادة الإرسال",
     
     "saturday": "السبت",
+    "second": "ثانية",
     "selectLanguage": "حدد اللغة",
     "selectTheBaseCurrency": "حدد العملة الأساسية",
     "sell": "بيع",
     "setting": "الإعدادات",
     "shareTheApp": "مشاركة التطبيق",
+    "signUp": "إنشاء حساب جديد",
     "sunday": "الأحد",
 
+    "thisFieldIsRequired": "هذا الحقل مطلوب",
     "totalTax": "الضريبة الكلية",
+    "track": "متابعة",
     "tuesday": "الثلاثاء",
     "thursday": "الخميس",
+
+    "verificationCodeHasBeenResent": "تم إعادة إرسال رمز التحقق",
     
     "wednesday": "الأربعاء",
     "welcome": "مرحباً",
+    "weHaveSentTheConfirmationCodeTo": "لقد قمنا بإرسال رمز التأكيد إلي",
+    "weWillSendAnOTPCodeToYourEmailForSecurityWhenYouForgetYourPassword": "سنرسل رمز OTP إلي بريدك الإلكتروني للأمان عند نسيان كلمة المرور الخاصة بك",
     "workmanshipPerGram": "مصنعية الجرام"
 }

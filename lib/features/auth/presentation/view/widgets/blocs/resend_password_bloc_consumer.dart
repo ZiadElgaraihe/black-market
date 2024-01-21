@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:black_market/core/functions/show_alert_dialog.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/snack_bars/message_snack_bar.dart';
 import 'package:black_market/core/utils/app_colors.dart';
@@ -65,7 +66,7 @@ class _ResendPasswordBlocConsumerState
                 ),
               ),
               child: Text(
-                'إعادة الإرسال ${(remainingSeconds != 0) ? '($remainingSeconds ثانية)' : ''}',
+                '${Tr.of(context).resend} ${(remainingSeconds != 0) ? '($remainingSeconds ${Tr.of(context).second})' : ''}',
                 style: TextStyles.textStyle14.copyWith(
                   color: AppColors.yellow,
                 ),
@@ -80,7 +81,7 @@ class _ResendPasswordBlocConsumerState
   void _listener(context, state) {
     if (state is ResendVeificationCodeSuccess) {
       ScaffoldMessenger.of(context).showSnackBar(
-        messageSnackBar(message: 'تم إعادة إرسال رمز التحقق'),
+        messageSnackBar(message: Tr.of(context).verificationCodeHasBeenResent),
       );
       _remainingSeconds.value = 60;
       _startTimer();
@@ -88,12 +89,12 @@ class _ResendPasswordBlocConsumerState
       showAlertDialog(
         context,
         child: ResultAlertDialog(
-          buttonTitle: 'عودة',
+          buttonTitle: Tr.of(context).cancel,
           message: state.errMessage,
           onPressed: () {
             Navigator.pop(context);
           },
-          title: 'فشل',
+          title: Tr.of(context).failure,
         ),
       );
     }

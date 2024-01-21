@@ -1,4 +1,5 @@
 import 'package:black_market/core/functions/show_alert_dialog.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/presentation/view/buttons/default_loading_button.dart';
@@ -34,7 +35,7 @@ class LogInBlocConsumer extends StatelessWidget {
                 autoValidateModeValueNotifier.value = AutovalidateMode.always;
               }
             },
-            title: 'تسجيل الدخول',
+            title: Tr.of(context).logIn,
           );
         }
       },
@@ -47,12 +48,12 @@ class LogInBlocConsumer extends StatelessWidget {
       showAlertDialog(
         context,
         child: ResultAlertDialog(
-          buttonTitle: 'عودة',
+          buttonTitle: Tr.of(context).cancel,
           message: state.errMessage,
           onPressed: () {
             Navigator.pop(context);
           },
-          title: 'فشل',
+          title: Tr.of(context).failure,
         ),
       );
     }

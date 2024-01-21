@@ -1,4 +1,5 @@
 import 'package:black_market/core/functions/future_delayd_navigator.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_images.dart';
 import 'package:black_market/core/utils/text_styles.dart';
@@ -36,7 +37,7 @@ class ContinueWithGoogleButton extends StatelessWidget {
           ),
           SizedBox(width: 10.w),
           Text(
-            'اكمل باستخدام جوجل',
+            Tr.of(context).continueWithGoogle,
             style: TextStyles.textStyle14,
           ),
         ],
