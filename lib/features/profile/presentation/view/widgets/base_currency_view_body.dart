@@ -23,7 +23,8 @@ class BaseCurrencyViewBody extends StatelessWidget {
           RadioButtonContainer(
             groupValue: 'egp',
             onChanged: (value) {},
-            title: 'جنيه مصري / EGP',
+            title:
+                '${Tr.of(context).egyptianPound} / ${Tr.of(context).egyptianPoundAbbreviation}',
             value: 'egp',
           ),
         ],

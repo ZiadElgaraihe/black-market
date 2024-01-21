@@ -39,7 +39,7 @@ class CurrencyHeaderPriceContentColumn extends StatelessWidget {
                 titleColor: AppColors.grey,
                 value: (currencies != null)
                     ? '${currencies![currentIndexValueNotifier.value].bankPrices.where((element) => element.bankId == 8).first.buyPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
-                    : 'N/A',
+                    : Tr.of(context).unknown,
                 valueColor: AppColors.darkGrey,
               ),
               CustomVerticalDivider(color: AppColors.lightGrey),
@@ -48,7 +48,7 @@ class CurrencyHeaderPriceContentColumn extends StatelessWidget {
                 titleColor: AppColors.grey,
                 value: (currencies != null)
                     ? _getTimeSinceLastUpdate(context)
-                    : 'N/A',
+                    : Tr.of(context).unknown,
                 valueColor: AppColors.darkGrey,
               ),
               CustomVerticalDivider(color: AppColors.lightGrey),
@@ -57,7 +57,7 @@ class CurrencyHeaderPriceContentColumn extends StatelessWidget {
                 titleColor: AppColors.grey,
                 value: (currencies != null)
                     ? '${_getLastUpdatedCurrency().buyPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
-                    : 'N/A',
+                    : Tr.of(context).unknown,
                 valueColor: AppColors.gold,
               ),
             ],

@@ -310,6 +310,16 @@ class Tr {
     );
   }
 
+  /// `Egyptian Pound`
+  String get egyptianPound {
+    return Intl.message(
+      'Egyptian Pound',
+      name: 'egyptianPound',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `EGP`
   String get egyptianPoundAbbreviation {
     return Intl.message(
@@ -885,6 +895,16 @@ class Tr {
     return Intl.message(
       'Thu',
       name: 'thursday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `N/A`
+  String get unknown {
+    return Intl.message(
+      'N/A',
+      name: 'unknown',
       desc: '',
       args: [],
     );

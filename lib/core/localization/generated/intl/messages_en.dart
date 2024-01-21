@@ -57,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "donotHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account? "),
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "egyptianPound": MessageLookupByLibrary.simpleMessage("Egyptian Pound"),
         "egyptianPoundAbbreviation":
             MessageLookupByLibrary.simpleMessage("EGP"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -132,6 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "totalTax": MessageLookupByLibrary.simpleMessage("Total tax"),
         "track": MessageLookupByLibrary.simpleMessage("Continue"),
         "tuesday": MessageLookupByLibrary.simpleMessage("Tue"),
+        "unknown": MessageLookupByLibrary.simpleMessage("N/A"),
         "verificationCodeHasBeenResent": MessageLookupByLibrary.simpleMessage(
             "Verification code has been re-sent"),
         "weHaveSentTheConfirmationCodeTo": MessageLookupByLibrary.simpleMessage(

@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/columns/buy_and_sell_info_shimmer_column.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/presentation/view/containers/shimmer_container.dart';
@@ -21,17 +22,17 @@ class CurrencyHeaderPriceShimmerColumn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               BuyAndSellInfoShimmerColumn(
-                title: 'سعر البنك',
+                title: Tr.of(context).bankPrice,
                 titleColor: AppColors.grey,
               ),
               CustomVerticalDivider(color: AppColors.lightGrey),
               BuyAndSellInfoShimmerColumn(
-                title: 'آخر تحديث',
+                title: Tr.of(context).lastUpdated,
                 titleColor: AppColors.grey,
               ),
               CustomVerticalDivider(color: AppColors.lightGrey),
               BuyAndSellInfoShimmerColumn(
-                title: 'السوق السوداء',
+                title: Tr.of(context).blackMarket,
                 titleColor: AppColors.grey,
               ),
             ],

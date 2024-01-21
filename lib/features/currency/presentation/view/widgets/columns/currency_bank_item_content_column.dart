@@ -72,7 +72,9 @@ class CurrencyBankItemContentColumn extends StatelessWidget {
           ],
         ),
         Text(
-          (bankPrice != null) ? '${bankPrice!.bankName}' : 'N/A',
+          (bankPrice != null)
+              ? '${bankPrice!.bankName}'
+              : Tr.of(context).unknown,
           style: TextStyles.textStyle11.copyWith(
             color: AppColors.white,
           ),
@@ -88,7 +90,7 @@ class CurrencyBankItemContentColumn extends StatelessWidget {
                 titleColor: AppColors.white,
                 value: (bankPrice != null)
                     ? '${bankPrice!.buyPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
-                    : 'N/A',
+                    : Tr.of(context).unknown,
                 valueColor: AppColors.white,
               ),
               CustomVerticalDivider(color: AppColors.grey),
@@ -97,7 +99,7 @@ class CurrencyBankItemContentColumn extends StatelessWidget {
                 titleColor: AppColors.white,
                 value: (bankPrice != null)
                     ? '${bankPrice!.sellPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
-                    : 'N/A',
+                    : Tr.of(context).unknown,
                 valueColor: AppColors.white,
               ),
             ],

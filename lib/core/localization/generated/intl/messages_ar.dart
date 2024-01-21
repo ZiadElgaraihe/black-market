@@ -57,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("لا تمتلك حساب؟ "),
         "editProfile":
             MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+        "egyptianPound": MessageLookupByLibrary.simpleMessage("جنيه مصري"),
         "egyptianPoundAbbreviation":
             MessageLookupByLibrary.simpleMessage("ج.م"),
         "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
@@ -134,6 +135,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "totalTax": MessageLookupByLibrary.simpleMessage("الضريبة الكلية"),
         "track": MessageLookupByLibrary.simpleMessage("متابعة"),
         "tuesday": MessageLookupByLibrary.simpleMessage("الثلاثاء"),
+        "unknown": MessageLookupByLibrary.simpleMessage("غير معروف"),
         "verificationCodeHasBeenResent":
             MessageLookupByLibrary.simpleMessage("تم إعادة إرسال رمز التحقق"),
         "weHaveSentTheConfirmationCodeTo": MessageLookupByLibrary.simpleMessage(

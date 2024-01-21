@@ -39,7 +39,7 @@ class CurrencyAveragePriceContentRow extends StatelessWidget {
             titleColor: AppColors.black,
             value: (currencies != null)
                 ? '${currencies![currentIndex].bankPrices.where((element) => element.bankId == 8).first.buyPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
-                : 'N/A',
+                : Tr.of(context).unknown,
             valueColor: AppColors.black,
           ),
           CustomVerticalDivider(color: AppColors.gold),
@@ -48,7 +48,7 @@ class CurrencyAveragePriceContentRow extends StatelessWidget {
             titleColor: AppColors.black,
             value: (currencies != null)
                 ? '${currencies![currentIndex].bankPrices.where((element) => element.bankId == 8).first.sellPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
-                : 'N/A',
+                : Tr.of(context).unknown,
             valueColor: AppColors.black,
           ),
           SvgPicture.asset(

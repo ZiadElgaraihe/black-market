@@ -29,6 +29,7 @@
     "donotHaveAnAccount": "Don't have an account? ",
 
     "editProfile": "Edit Profile",
+    "egyptianPound": "Egyptian Pound",
     "egyptianPoundAbbreviation": "EGP",
     "email": "Email",
     "english": "English",
@@ -99,6 +100,8 @@
     "track": "Continue",
     "tuesday": "Tue",
     "thursday": "Thu",
+
+    "unknown": "N/A",
 
     "verificationCodeHasBeenResent": "Verification code has been re-sent",
 

@@ -44,7 +44,7 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
             ? (widget.isCoin)
                 ? '${widget.weight! / 8} ${Tr.of(context).pound} - ${widget.weight} ${Tr.of(context).gram}'
                 : '${widget.weight} ${Tr.of(context).gram}'
-            : 'N/A',
+            : Tr.of(context).unknown,
         style: TextStyles.textStyle16.copyWith(
           color: AppColors.white,
         ),

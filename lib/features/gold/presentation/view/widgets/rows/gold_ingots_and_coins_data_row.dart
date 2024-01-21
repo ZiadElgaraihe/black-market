@@ -38,7 +38,7 @@ class GoldIngotsAndCoinsDataRow extends StatelessWidget {
           Text(
             (price != null)
                 ? '$price ${Tr.of(context).egyptianPoundAbbreviation}'
-                : 'N/A',
+                : Tr.of(context).unknown,
             style: textStyle ??
                 TextStyles.textStyle14.copyWith(
                   color: AppColors.white,

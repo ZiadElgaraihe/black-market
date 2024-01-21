@@ -29,6 +29,7 @@
     "donotHaveAnAccount": "لا تمتلك حساب؟ ",
 
     "editProfile": "تعديل الملف الشخصي",
+    "egyptianPound": "جنيه مصري",
     "egyptianPoundAbbreviation": "ج.م",
     "email": "البريد الإلكتروني",
     "english": "الإنجليزية",
@@ -99,6 +100,8 @@
     "track": "متابعة",
     "tuesday": "الثلاثاء",
     "thursday": "الخميس",
+
+    "unknown": "غير معروف",
 
     "verificationCodeHasBeenResent": "تم إعادة إرسال رمز التحقق",
     

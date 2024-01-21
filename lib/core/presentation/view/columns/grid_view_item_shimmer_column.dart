@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/columns/buy_and_sell_info_shimmer_column.dart';
 import 'package:black_market/core/presentation/view/containers/shimmer_container.dart';
 import 'package:black_market/core/presentation/view/dividers/custom_vertical_divider.dart';
@@ -48,12 +49,12 @@ class GridViewItemShimmerColumn extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               BuyAndSellInfoShimmerColumn(
-                title: 'شراء',
+                title: Tr.of(context).buy,
                 titleColor: AppColors.white,
               ),
               CustomVerticalDivider(color: AppColors.grey),
               BuyAndSellInfoShimmerColumn(
-                title: 'بيع',
+                title: Tr.of(context).sell,
                 titleColor: AppColors.white,
               ),
             ],

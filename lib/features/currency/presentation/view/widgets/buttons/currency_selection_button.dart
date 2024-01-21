@@ -1,5 +1,6 @@
 import 'package:black_market/core/functions/future_delayd_navigator.dart';
 import 'package:black_market/core/functions/show_alert_dialog.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
@@ -35,7 +36,7 @@ class CurrencySelectionButton extends StatelessWidget {
             Text(
               (currencies != null)
                   ? currencies![currentIndexValueNotifier.value].name
-                  : 'N/A',
+                  : Tr.of(context).unknown,
               style: TextStyles.textStyle10.copyWith(
                 color: AppColors.darkGrey,
               ),
