@@ -24,4 +24,11 @@ class SecureDatabaseServices implements SecureDatabaseRepo {
   }) async {
     return await _flutterSecureStorage.read(key: key);
   }
+
+  @override
+  Future<void> deleteFromSecureStorage({
+    required String key,
+  }) async {
+    await _flutterSecureStorage.delete(key: key);
+  }
 }

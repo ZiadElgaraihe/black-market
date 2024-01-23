@@ -7,4 +7,8 @@ abstract class SecureDatabaseRepo {
   Future<String?> getFromSecureStorage({
     required String key,
   });
+
+  Future<void> deleteFromSecureStorage({
+    required String key,
+  });
 }
