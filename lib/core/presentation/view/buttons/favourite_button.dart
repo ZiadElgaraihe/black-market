@@ -112,17 +112,21 @@ class _FavouriteButtonState extends State<FavouriteButton> {
   }
 
   void _checkIfFavourite(BuildContext context) {
-    FavouriteCubit favouriteCubit = context.read<FavouriteCubit>();
-    for (int index = 0; index < favouriteCubit.favouriteData.length; index++) {
-      if (favouriteCubit.favouriteData[index].id == widget.bankPrice?.id) {
-        _isFavourite.value = true;
-        break;
-      }
-      //use this else if condition to solve the problem of _isFavourite is come
-      //with value true when currency is changed and the index is equal to the
-      //index of the bank added to favourite in the previous currency
-      else if (index == favouriteCubit.favouriteData.length - 1) {
-        _isFavourite.value = false;
+    if (context.read<AppCubit>().userModel != null) {
+      FavouriteCubit favouriteCubit = context.read<FavouriteCubit>();
+      for (int index = 0;
+          index < favouriteCubit.favouriteData.length;
+          index++) {
+        if (favouriteCubit.favouriteData[index].id == widget.bankPrice?.id) {
+          _isFavourite.value = true;
+          break;
+        }
+        //use this else if condition to solve the problem of _isFavourite is come
+        //with value true when currency is changed and the index is equal to the
+        //index of the bank added to favourite in the previous currency
+        else if (index == favouriteCubit.favouriteData.length - 1) {
+          _isFavourite.value = false;
+        }
       }
     }
   }
