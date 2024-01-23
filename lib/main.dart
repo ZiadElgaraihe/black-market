@@ -1,20 +1,11 @@
 import 'package:black_market/core/data/repos/localization_repo.dart';
-import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
-import 'package:black_market/core/helpers/dio_helper.dart';
 import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view_model/app_cubit/app_cubit.dart';
-import 'package:black_market/core/presentation/view_model/favourite_cubit/favourite_cubit.dart';
 import 'package:black_market/core/presentation/view_model/localization_cubit/localization_cubit.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/hive_setup.dart';
 import 'package:black_market/core/utils/service_locator.dart';
-import 'package:black_market/features/currency/data/repos/currency_repo.dart';
-import 'package:black_market/features/currency/data/services/bank_services.dart';
-import 'package:black_market/features/currency/presentation/view_model/currency_latest_cubit/currency_latest_cubit.dart';
-import 'package:black_market/features/gold/data/repos/gold_repo.dart';
-import 'package:black_market/features/gold/presentation/view_model/get_gold_data_cubit/get_gold_data_cubit.dart';
-import 'package:black_market/features/gold/presentation/view_model/get_ingots_coins_data_cubit/get_ingots_coins_data_cubit.dart';
 import 'package:black_market/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -56,39 +47,6 @@ class BlackMarket extends StatelessWidget {
           create: (context) => LocalizationCubit(
             localizationServices: LocalizationServices(
               localDatabaseServices: getIt<LocalDatabaseServices>(),
-            ),
-          ),
-        ),
-        BlocProvider<CurrencyLatestCubit>(
-          create: (context) => CurrencyLatestCubit(
-            bankServices: BankServices(
-              dioHelper: getIt<DioHelper>(),
-            ),
-            connectionServices: getIt<ConnectionServices>(),
-            currencyServices: CurrencyServices(
-              dioHelper: getIt<DioHelper>(),
-            ),
-            localDatabaseServices: getIt<LocalDatabaseServices>(),
-          ),
-        ),
-        BlocProvider<FavouriteCubit>(
-          create: (context) => FavouriteCubit(
-            localDatabaseServices: getIt<LocalDatabaseServices>(),
-          ),
-        ),
-        BlocProvider<GetGoldDataCubit>(
-          create: (context) => GetGoldDataCubit(
-            connectionServices: getIt<ConnectionServices>(),
-            goldServices: GoldServices(
-              dioHelper: getIt<DioHelper>(),
-            ),
-          ),
-        ),
-        BlocProvider<GetIngotsCoinsDataCubit>(
-          create: (context) => GetIngotsCoinsDataCubit(
-            connectionServices: getIt<ConnectionServices>(),
-            goldServices: GoldServices(
-              dioHelper: getIt<DioHelper>(),
             ),
           ),
         ),
