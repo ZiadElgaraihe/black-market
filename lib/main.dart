@@ -1,3 +1,4 @@
+import 'package:black_market/core/data/repos/localization_repo.dart';
 import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
 import 'package:black_market/core/helpers/dio_helper.dart';
@@ -53,7 +54,9 @@ class BlackMarket extends StatelessWidget {
         ),
         BlocProvider<LocalizationCubit>(
           create: (context) => LocalizationCubit(
-            localDatabaseServices: getIt<LocalDatabaseServices>(),
+            localizationServices: LocalizationServices(
+              localDatabaseServices: getIt<LocalDatabaseServices>(),
+            ),
           ),
         ),
         BlocProvider<CurrencyLatestCubit>(

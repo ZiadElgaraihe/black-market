@@ -9,12 +9,19 @@ class SecureDatabaseServices implements SecureDatabaseRepo {
   }
 
   late FlutterSecureStorage _flutterSecureStorage;
-  
+
   @override
   Future<void> storeInSecureStorage({
     required String key,
     required String value,
   }) async {
     await _flutterSecureStorage.write(key: key, value: value);
+  }
+
+  @override
+  Future<String?> getFromSecureStorage({
+    required String key,
+  }) async {
+    return await _flutterSecureStorage.read(key: key);
   }
 }
