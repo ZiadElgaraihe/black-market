@@ -12,7 +12,7 @@ class GoldServices implements GoldRepo {
     return await executeAndHandleErrors<List<GoldModel>>(
       () async {
         List<dynamic> data = await _dioHelper.getRequest(
-          endPoint: 'https://voipsys.space/api/gold',
+          endPoint: 'gold',
         );
 
         List<GoldModel> golds = <GoldModel>[];
@@ -35,7 +35,7 @@ class GoldServices implements GoldRepo {
   Future<Either<Failure, IngotsCoinsModel>> getIngotsCoinsData() async {
     return await executeAndHandleErrors<IngotsCoinsModel>(() async {
       Map<String, dynamic> data = await _dioHelper.getRequest(
-        endPoint: 'https://voipsys.space/api/ingots-coins',
+        endPoint: 'ingots-coins',
       );
 
       return IngotsCoinsModel.fromJson(data: data);

@@ -1,4 +1,5 @@
 import 'package:black_market/core/data/services/connection_services.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/app_bars/default_app_bar.dart';
 import 'package:black_market/core/utils/service_locator.dart';
 import 'package:black_market/features/auth/data/services/auth_services.dart';
@@ -25,7 +26,7 @@ class VerificationCodeView extends StatelessWidget {
       child: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
         child: Scaffold(
-          appBar: const DefaultAppBar(title: 'إسترجاع كلمة المرور'),
+          appBar: DefaultAppBar(title: Tr.of(context).passwordRecovery),
           body: VerificationCodeViewBody(email: email),
         ),
       ),

@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/sections/user_data_section.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/features/auth/presentation/view_model/update_password_cubit/update_password_cubit.dart';
@@ -39,31 +40,31 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
           children: [
             UserDataSection(
               controller: _passwordController,
-              hintText: 'أدخل  كود المرور',
+              hintText: Tr.of(context).enterPassword,
               keyboardType: TextInputType.visiblePassword,
               obscureText: true,
               onSaved: (newValue) {
                 context.read<UpdatePasswordCubit>().password = newValue;
               },
-              sectionTitle: 'كلمة المرور',
+              sectionTitle: Tr.of(context).password,
               suffixIcon: AppIcons.assetsIconsLock,
             ),
             SizedBox(height: 32.h),
             UserDataSection(
-              hintText: 'أدخل  كود المرور',
+              hintText: Tr.of(context).enterPassword,
               keyboardType: TextInputType.visiblePassword,
               obscureText: true,
               onSaved: (newValue) {
                 context.read<UpdatePasswordCubit>().confirmedPassword =
                     newValue;
               },
-              sectionTitle: 'تأكيد كلمة المرور',
+              sectionTitle: Tr.of(context).passwordConfirmation,
               suffixIcon: AppIcons.assetsIconsLock,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'هذا الحقل مطلوب';
+                  return Tr.of(context).thisFieldIsRequired;
                 } else if (value != _passwordController.text) {
-                  return 'تأكد من تطابق كلمة المرور';
+                  return Tr.of(context).passwordsArenotMatching;
                 }
                 return null;
               },

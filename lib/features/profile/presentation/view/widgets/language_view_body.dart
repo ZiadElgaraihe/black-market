@@ -65,7 +65,7 @@ class _LanguageViewBodyState extends State<LanguageViewBody> {
             SizedBox(height: 12.h),
             Column(
               children: List.generate(
-                context.read<LocalizationCubit>().supportedLanguages.length,
+                _languagesData.length,
                 (index) => RadioButtonContainer(
                   groupValue: currentLanguage,
                   onChanged: (value) {

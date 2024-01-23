@@ -1,8 +1,12 @@
+import 'package:black_market/core/animations/bottom_slide_transition.dart';
 import 'package:black_market/core/functions/show_alert_dialog.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/presentation/view/buttons/default_loading_button.dart';
+import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/features/auth/presentation/view_model/log_in_cubit/log_in_cubit.dart';
+import 'package:black_market/features/navbar/presentation/view/nav_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,7 +38,7 @@ class LogInBlocConsumer extends StatelessWidget {
                 autoValidateModeValueNotifier.value = AutovalidateMode.always;
               }
             },
-            title: 'تسجيل الدخول',
+            title: Tr.of(context).logIn,
           );
         }
       },
@@ -42,17 +46,32 @@ class LogInBlocConsumer extends StatelessWidget {
   }
 
   void _listener(context, state) {
-    if (state is LogInSuccess) {
+    if (state is LogInLoading) {
+      showAlertDialog(
+        context,
+        canDismiss: false,
+        barrierColor: AppColors.transparent,
+        child: const AlertDialog(),
+      );
+    } else if (state is LogInSuccess) {
+      Navigator.pushAndRemoveUntil(
+        context,
+        BottomSlideTransition(
+          page: const NavBarView(),
+        ),
+        (route) => false,
+      );
     } else if (state is LogInFailure) {
+      Navigator.pop(context);
       showAlertDialog(
         context,
         child: ResultAlertDialog(
-          buttonTitle: 'عودة',
+          buttonTitle: Tr.of(context).cancel,
           message: state.errMessage,
           onPressed: () {
             Navigator.pop(context);
           },
-          title: 'فشل',
+          title: Tr.of(context).failure,
         ),
       );
     }

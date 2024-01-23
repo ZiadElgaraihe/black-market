@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/sections/user_data_section.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/features/auth/presentation/view_model/forget_password_cubit/forget_password_cubit.dart';
@@ -22,13 +23,13 @@ class ForgetPasswordForm extends StatelessWidget {
         key: formKey,
         autovalidateMode: autovalidateMode,
         child: UserDataSection(
-          hintText: 'أدخل البريد الإلكتروني',
+          hintText: Tr.of(context).enterEmail,
           keyboardType: TextInputType.emailAddress,
           obscureText: false,
           onSaved: (newValue) {
             context.read<ForgetPasswordCubit>().email = newValue;
           },
-          sectionTitle: 'البريد الإلكتروني',
+          sectionTitle: Tr.of(context).email,
           suffixIcon: AppIcons.assetsIconsMessage,
         ),
       ),

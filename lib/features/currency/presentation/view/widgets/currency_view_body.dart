@@ -3,7 +3,7 @@ import 'package:black_market/features/currency/presentation/view/widgets/section
 import 'package:black_market/features/currency/presentation/view/widgets/sections/currency_bank_section.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/sections/currency_chart_section.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/sections/currency_header_section.dart';
-import 'package:black_market/features/currency/presentation/view_model/currency_latest/currency_latest_cubit.dart';
+import 'package:black_market/features/currency/presentation/view_model/currency_latest_cubit/currency_latest_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -41,7 +41,9 @@ class _CurrencyViewBodyState extends State<CurrencyViewBody> {
                 CurrencyHeaderSection(
                   currentIndexValueNotifier: _currentIndexValueNotifier,
                 ),
-                const CurrencyChartSection(),
+                CurrencyChartSection(
+                  currentIndex: currentIndex,
+                ),
                 CurrencyAveragePriceSection(
                   currentIndex: currentIndex,
                 ),

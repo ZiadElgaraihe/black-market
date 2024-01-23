@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "aboutTheApp": MessageLookupByLibrary.simpleMessage("About The App"),
+        "accountCreatedSuccessfully": MessageLookupByLibrary.simpleMessage(
+            "Account Created Successfully"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "areYouSureToLogOut":
             MessageLookupByLibrary.simpleMessage("Are you sure to log out"),
@@ -38,13 +40,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "changePhoto": MessageLookupByLibrary.simpleMessage("Change The Photo"),
+        "continueWithGoogle":
+            MessageLookupByLibrary.simpleMessage("Continue With Google"),
+        "createAnAccount":
+            MessageLookupByLibrary.simpleMessage("Create an account"),
+        "createNewPassword":
+            MessageLookupByLibrary.simpleMessage("Create New Password"),
         "currencies": MessageLookupByLibrary.simpleMessage("Currencies"),
         "currency": MessageLookupByLibrary.simpleMessage("Currency"),
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("Current Password"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
+        "didnotReceiveTheCode":
+            MessageLookupByLibrary.simpleMessage("Didn\'t receive the code. "),
         "difference": MessageLookupByLibrary.simpleMessage("Difference"),
+        "donotHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account? "),
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+        "egyptianPound": MessageLookupByLibrary.simpleMessage("Egyptian Pound"),
         "egyptianPoundAbbreviation":
             MessageLookupByLibrary.simpleMessage("EGP"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
@@ -54,8 +67,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterFullName":
             MessageLookupByLibrary.simpleMessage("Enter Full Name"),
         "enterPassword": MessageLookupByLibrary.simpleMessage("Enter Password"),
+        "enterTheConfirmationCode":
+            MessageLookupByLibrary.simpleMessage("Enter The Confirmation Code"),
         "failure": MessageLookupByLibrary.simpleMessage("Failure"),
         "favourite": MessageLookupByLibrary.simpleMessage("Favourite"),
+        "forgetPassword":
+            MessageLookupByLibrary.simpleMessage("Forget Password ?"),
+        "friday": MessageLookupByLibrary.simpleMessage("Fri"),
         "fullName": MessageLookupByLibrary.simpleMessage("Full Name"),
         "gold": MessageLookupByLibrary.simpleMessage("Gold"),
         "gram": MessageLookupByLibrary.simpleMessage("Gram"),
@@ -64,22 +82,42 @@ class MessageLookup extends MessageLookupByLibrary {
         "ingots": MessageLookupByLibrary.simpleMessage("Ingots"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "lastUpdated": MessageLookupByLibrary.simpleMessage("Last Updated"),
+        "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
+        "logInToYourAccount":
+            MessageLookupByLibrary.simpleMessage("Log in\nto your account"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
+        "monday": MessageLookupByLibrary.simpleMessage("Mon"),
         "mySavings": MessageLookupByLibrary.simpleMessage("My Savings"),
         "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
         "newPasswordConfirmation":
             MessageLookupByLibrary.simpleMessage("New Password Confirmation"),
+        "newPasswordWasCreatedSuccessfully":
+            MessageLookupByLibrary.simpleMessage(
+                "New Password Was Created Successfully"),
         "news": MessageLookupByLibrary.simpleMessage("News"),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "notificationsSetting":
             MessageLookupByLibrary.simpleMessage("Notifications Setting"),
+        "or": MessageLookupByLibrary.simpleMessage("OR"),
+        "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordChangedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Password Changed Successfully!"),
+        "passwordConfirmation":
+            MessageLookupByLibrary.simpleMessage("Password Confirmation"),
+        "passwordRecovery":
+            MessageLookupByLibrary.simpleMessage("Password Recovery"),
+        "passwordsArenotMatching":
+            MessageLookupByLibrary.simpleMessage("Passwords are not matching"),
         "pound": MessageLookupByLibrary.simpleMessage("Pound"),
         "priceIncludesTaxAndWorkmanship": MessageLookupByLibrary.simpleMessage(
             "Price includes tax and workmanship"),
         "pricePerGram": MessageLookupByLibrary.simpleMessage("Price per gram"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "rememberMe": MessageLookupByLibrary.simpleMessage("Remember Me"),
+        "resend": MessageLookupByLibrary.simpleMessage("Resend"),
+        "saturday": MessageLookupByLibrary.simpleMessage("Sat"),
+        "second": MessageLookupByLibrary.simpleMessage("Seconds"),
         "selectLanguage":
             MessageLookupByLibrary.simpleMessage("Select Language"),
         "selectTheBaseCurrency":
@@ -87,7 +125,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "sell": MessageLookupByLibrary.simpleMessage("Sell"),
         "setting": MessageLookupByLibrary.simpleMessage("Setting"),
         "shareTheApp": MessageLookupByLibrary.simpleMessage("Share The App"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "sunday": MessageLookupByLibrary.simpleMessage("Sun"),
+        "thisFieldIsRequired":
+            MessageLookupByLibrary.simpleMessage("This field is required"),
+        "thursday": MessageLookupByLibrary.simpleMessage("Thu"),
         "totalTax": MessageLookupByLibrary.simpleMessage("Total tax"),
+        "track": MessageLookupByLibrary.simpleMessage("Continue"),
+        "tuesday": MessageLookupByLibrary.simpleMessage("Tue"),
+        "unknown": MessageLookupByLibrary.simpleMessage("N/A"),
+        "verificationCodeHasBeenResent": MessageLookupByLibrary.simpleMessage(
+            "Verification code has been re-sent"),
+        "weHaveSentTheConfirmationCodeTo": MessageLookupByLibrary.simpleMessage(
+            "We have sent the confirmation code to"),
+        "weWillSendAnOTPCodeToYourEmailForSecurityWhenYouForgetYourPassword":
+            MessageLookupByLibrary.simpleMessage(
+                "We will send an OTP code to your email for security when you forget your password"),
+        "wednesday": MessageLookupByLibrary.simpleMessage("Wed"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
         "workmanshipPerGram":
             MessageLookupByLibrary.simpleMessage("Workmanship per gram")

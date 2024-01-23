@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/columns/buy_and_sell_info_shimmer_column.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
@@ -18,7 +19,7 @@ class CurrencyAveragePriceShimmerRow extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            'متوسط السعر',
+            Tr.of(context).averagePrice,
             style: TextStyles.textStyle10.copyWith(
               color: AppColors.black,
               fontWeight: FontWeight.w800,
@@ -26,14 +27,14 @@ class CurrencyAveragePriceShimmerRow extends StatelessWidget {
           ),
           CustomVerticalDivider(color: AppColors.gold),
           BuyAndSellInfoShimmerColumn(
-            title: 'شراء',
+            title: Tr.of(context).buy,
             titleColor: AppColors.black,
             baseColor: AppColors.gold,
             highlightColor: AppColors.gold.withOpacity(0.5),
           ),
           CustomVerticalDivider(color: AppColors.gold),
           BuyAndSellInfoShimmerColumn(
-            title: 'بيع',
+            title: Tr.of(context).sell,
             titleColor: AppColors.black,
             baseColor: AppColors.gold,
             highlightColor: AppColors.gold.withOpacity(0.5),

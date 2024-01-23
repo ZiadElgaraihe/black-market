@@ -52,7 +52,7 @@ class GoldItemContentColumn extends StatelessWidget {
                 ? context.read<LocalizationCubit>().isArabic()
                     ? 'ذهب عيار ${gold!.karat}'
                     : '${gold!.karat} Karat'
-                : 'N/A',
+                : Tr.of(context).unknown,
             style: TextStyles.textStyle12.copyWith(
               color: AppColors.white,
             ),
@@ -68,7 +68,7 @@ class GoldItemContentColumn extends StatelessWidget {
                 titleColor: AppColors.lightGrey,
                 value: (gold != null)
                     ? '${gold!.price.buyPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
-                    : 'N/A',
+                    : Tr.of(context).unknown,
                 valueColor: AppColors.white,
               ),
               CustomVerticalDivider(color: AppColors.grey),
@@ -77,7 +77,7 @@ class GoldItemContentColumn extends StatelessWidget {
                 titleColor: AppColors.lightGrey,
                 value: (gold != null)
                     ? '${gold!.price.sellPrice} ${Tr.of(context).egyptianPoundAbbreviation}'
-                    : 'N/A',
+                    : Tr.of(context).unknown,
                 valueColor: AppColors.white,
               ),
             ],

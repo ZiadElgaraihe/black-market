@@ -3,7 +3,7 @@ import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/gold/data/models/ingots_coins/ingots_coins_model.dart';
-import 'package:black_market/features/gold/presentation/view/widgets/rows/gold_ingots_and_icons_data_row.dart';
+import 'package:black_market/features/gold/presentation/view/widgets/rows/gold_ingots_and_coins_data_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -44,7 +44,7 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
             ? (widget.isCoin)
                 ? '${widget.weight! / 8} ${Tr.of(context).pound} - ${widget.weight} ${Tr.of(context).gram}'
                 : '${widget.weight} ${Tr.of(context).gram}'
-            : 'N/A',
+            : Tr.of(context).unknown,
         style: TextStyles.textStyle16.copyWith(
           color: AppColors.white,
         ),
@@ -88,25 +88,25 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
           indent: 5.w,
           endIndent: 5.w,
         ),
-        GoldIngotsAndIconsDataRow(
+        GoldIngotsAndCoinsDataRow(
           title: Tr.of(context).pricePerGram,
           price: (widget.price != null && widget.weight != null)
               ? '${widget.price!.buyPrice / widget.weight!}'
               : null,
         ),
-        GoldIngotsAndIconsDataRow(
+        GoldIngotsAndCoinsDataRow(
           title: Tr.of(context).workmanshipPerGram,
           price: (widget.company != null)
               ? '${widget.company!.workmanship}'
               : null,
         ),
-        GoldIngotsAndIconsDataRow(
+        GoldIngotsAndCoinsDataRow(
           title: Tr.of(context).totalTax,
           price: (widget.company != null)
               ? '${widget.company!.tax + widget.company!.workmanship}'
               : null,
         ),
-        GoldIngotsAndIconsDataRow(
+        GoldIngotsAndCoinsDataRow(
           title: Tr.of(context).priceIncludesTaxAndWorkmanship,
           price: (widget.price != null && widget.company != null)
               ? '${widget.price!.buyPrice + widget.company!.tax + widget.company!.workmanship}'
@@ -117,12 +117,12 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
             color: AppColors.yellow,
           ),
         ),
-        GoldIngotsAndIconsDataRow(
+        GoldIngotsAndCoinsDataRow(
           title: Tr.of(context).importPrice,
           price:
               (widget.company != null) ? '${widget.company!.returnFees}' : null,
         ),
-        GoldIngotsAndIconsDataRow(
+        GoldIngotsAndCoinsDataRow(
           title: Tr.of(context).difference,
           price: (widget.price != null)
               ? '${widget.price!.buyPrice - widget.price!.sellPrice}'

@@ -1,23 +1,23 @@
-import 'package:black_market/core/data/services/local_database_services.dart';
-import 'package:black_market/core/utils/constants.dart';
+import 'package:black_market/core/data/repos/localization_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl_standalone.dart';
 
 part 'localization_state.dart';
 
 class LocalizationCubit extends Cubit<LocalizationState> {
-  LocalizationCubit({required LocalDatabaseServices localDatabaseServices})
-      : super(LocalizationInitial()) {
-    _localDatabaseServices = localDatabaseServices;
+  LocalizationCubit({
+    required LocalizationServices localizationServices,
+  }) : super(LocalizationInitial()) {
+    _localizationServices = localizationServices;
     appLocale = const Locale('ar');
+    supportedLanguages = localizationServices.supportedLanguages;
   }
 
-  late LocalDatabaseServices _localDatabaseServices;
+  late LocalizationServices _localizationServices;
   late Locale appLocale;
 
   // List of supported languages in app
-  List<String> supportedLanguages = ['ar', 'en'];
+  late List<String> supportedLanguages;
 
   bool isArabic() {
     return appLocale.languageCode == 'ar';
@@ -26,10 +26,8 @@ class LocalizationCubit extends Cubit<LocalizationState> {
   // Change language of the app
   Future<void> changeCurrentLanguage({required String languageCode}) async {
     appLocale = Locale(languageCode);
-    await _localDatabaseServices.store<String>(
-      boxName: kLanguageBox,
-      key: kLanguageKey,
-      value: languageCode,
+    await _localizationServices.saveNewLanguageInLocalDatabase(
+      languageCode: languageCode,
     );
     emit(LocalizationInitial());
   }
@@ -39,23 +37,9 @@ class LocalizationCubit extends Cubit<LocalizationState> {
   // get it from device system (if user didn't choose language)
   Future<void> setUpAppLanguage() async {
     appLocale = Locale(
-      await _getLanguageFromLocalDatabase() ?? await _getSystemLanguage(),
+      await _localizationServices.getLanguageFromLocalDatabase() ??
+          await _localizationServices.getSystemLanguage(),
     );
     emit(LocalizationInitial());
-  }
-
-  // Get the system language or use 'ar' (Arabic) as default
-  Future<String> _getSystemLanguage() async {
-    String systemLanguage =
-        await findSystemLocale().then((value) => value.split('_')[0]);
-    return supportedLanguages.contains(systemLanguage) ? systemLanguage : 'ar';
-  }
-
-  // Get language from local database (if exists)
-  Future<String?> _getLanguageFromLocalDatabase() async {
-    return await _localDatabaseServices.get<String?>(
-      boxName: kLanguageBox,
-      key: kLanguageKey,
-    );
   }
 }

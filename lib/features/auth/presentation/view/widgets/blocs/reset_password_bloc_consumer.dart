@@ -1,8 +1,10 @@
 import 'package:black_market/core/animations/bottom_slide_transition.dart';
 import 'package:black_market/core/functions/show_alert_dialog.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/presentation/view/buttons/default_loading_button.dart';
+import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/features/auth/presentation/view/success_view.dart';
 import 'package:black_market/features/auth/presentation/view_model/update_password_cubit/update_password_cubit.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +37,7 @@ class ResetPasswordBlocConsumer extends StatelessWidget {
                 autoValidateModeValueNotifier.value = AutovalidateMode.always;
               }
             },
-            title: 'متابعة',
+            title: Tr.of(context).track,
           );
         }
       },
@@ -43,24 +45,34 @@ class ResetPasswordBlocConsumer extends StatelessWidget {
   }
 
   void _listener(context, state) {
-    if (state is UpdatePasswordSuccess) {
+    if (state is UpdatePasswordLoading) {
+      showAlertDialog(
+        context,
+        canDismiss: false,
+        barrierColor: AppColors.transparent,
+        child: const AlertDialog(),
+      );
+    } else if (state is UpdatePasswordSuccess) {
       Navigator.pushAndRemoveUntil(
         context,
         BottomSlideTransition(
-          page: const SuccessView(title: 'تم إنشاء كلمة مرور جديدة بنجاح'),
+          page: SuccessView(
+            title: Tr.of(context).newPasswordWasCreatedSuccessfully,
+          ),
         ),
         (route) => false,
       );
     } else if (state is UpdatePasswordFailure) {
+      Navigator.pop(context);
       showAlertDialog(
         context,
         child: ResultAlertDialog(
-          buttonTitle: 'عودة',
+          buttonTitle: Tr.of(context).cancel,
           message: state.errMessage,
           onPressed: () {
             Navigator.pop(context);
           },
-          title: 'فشل',
+          title: Tr.of(context).failure,
         ),
       );
     }

@@ -22,10 +22,9 @@ class CurrencyModelAdapter extends TypeAdapter<CurrencyModel> {
       name: fields[2] as String,
       code: fields[3] as String,
       updatedAt: fields[4] as String,
-      livePrices: (fields[5] as List).cast<CurrencyPriceModel>(),
       blackMarketPrices: (fields[6] as List).cast<CurrencyPriceModel>(),
       bankPrices: (fields[7] as List).cast<CurrencyPriceModel>(),
-    );
+    )..livePrices = (fields[5] as List?)?.cast<FilterPriceModel>();
   }
 
   @override

@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
@@ -36,7 +37,8 @@ class ForgetPasswordWarningMessageContainer extends StatelessWidget {
           SizedBox(
             width: 258.w,
             child: Text(
-              'سنرسل رمز OTP إلى بريدك الإلكتروني للأمان عند نسيان كلمة المرور الخاصة بك',
+              Tr.of(context)
+                  .weWillSendAnOTPCodeToYourEmailForSecurityWhenYouForgetYourPassword,
               style: TextStyles.textStyle12.copyWith(
                 fontWeight: FontWeight.w400,
                 color: AppColors.lightYellowHover,

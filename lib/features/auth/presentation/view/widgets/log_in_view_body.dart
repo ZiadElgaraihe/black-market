@@ -1,4 +1,5 @@
 import 'package:black_market/core/animations/side_slide_transition.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/auth/presentation/view/forget_password_view.dart';
 import 'package:black_market/features/auth/presentation/view/widgets/blocs/log_in_bloc_consumer.dart';
@@ -42,7 +43,7 @@ class _LogInViewBodyState extends State<LogInViewBody> {
             children: [
               SizedBox(height: 12.h),
               Text(
-                'تسجيل الدخول\nالى حسابك',
+                Tr.of(context).logInToYourAccount,
                 style: TextStyles.textStyle26,
                 textAlign: TextAlign.center,
               ),
@@ -65,7 +66,7 @@ class _LogInViewBodyState extends State<LogInViewBody> {
                         ),
                       );
                     },
-                    title: 'هل نسيت كلمة المرور ؟',
+                    title: Tr.of(context).forgetPassword,
                   ),
                 ],
               ),

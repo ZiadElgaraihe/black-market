@@ -1,6 +1,6 @@
 import 'package:black_market/features/currency/presentation/view/widgets/rows/currency_average_price_content_row.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/rows/currency_average_price_shimmer_row.dart';
-import 'package:black_market/features/currency/presentation/view_model/currency_latest/currency_latest_cubit.dart';
+import 'package:black_market/features/currency/presentation/view_model/currency_latest_cubit/currency_latest_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

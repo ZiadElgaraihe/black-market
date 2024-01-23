@@ -6,10 +6,12 @@ class OtpForm extends StatelessWidget {
     super.key,
     required this.autoValidateModeValueNotifier,
     required this.formKey,
+    required this.otpValueNotifier,
   });
 
   final ValueNotifier<AutovalidateMode> autoValidateModeValueNotifier;
   final GlobalKey<FormState> formKey;
+  final ValueNotifier<String> otpValueNotifier;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,9 @@ class OtpForm extends StatelessWidget {
       builder: (context, autovalidateMode, child) => Form(
         key: formKey,
         autovalidateMode: autovalidateMode,
-        child: const OtpRow(),
+        child: OtpRow(
+          otpValueNotifier: otpValueNotifier,
+        ),
       ),
     );
   }

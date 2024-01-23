@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
@@ -67,7 +68,7 @@ class _UserDataTextFormFieldState extends State<UserDataTextFormField> {
           ? (value) {
               if (value == null || value.isEmpty) {
                 _hasError.value = true;
-                return 'هذا الحقل مطلوب';
+                return Tr.of(context).thisFieldIsRequired;
               }
               _hasError.value = false;
               return null;

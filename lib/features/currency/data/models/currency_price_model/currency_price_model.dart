@@ -18,6 +18,8 @@ class CurrencyPriceModel {
   String updatedAt;
   @HiveField(6)
   String? bankName;
+  @HiveField(7)
+  String? bankImage;
 
   CurrencyPriceModel({
     required this.id,

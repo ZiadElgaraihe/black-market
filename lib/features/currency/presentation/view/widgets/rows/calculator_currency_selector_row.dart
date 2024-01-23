@@ -93,7 +93,7 @@ class CalculatorCurrencySelectorRow extends StatelessWidget {
               ),
               SizedBox(width: 4.7.w),
               Text(
-                'EGP',
+                Tr.of(context).egyptianPoundAbbreviation,
                 style: TextStyles.textStyle7.copyWith(
                   color: AppColors.black,
                 ),

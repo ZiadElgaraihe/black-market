@@ -1,5 +1,6 @@
 {
     "aboutTheApp": "About The App",
+    "accountCreatedSuccessfully": "Account Created Successfully",
     "arabic": "Arabic",
     "areYouSureToLogOut": "Are you sure to log out",
     "averagePrice": "Average Price",
@@ -15,14 +16,20 @@
     "change": "Change",
     "changePassword": "Change Password",
     "changePhoto": "Change The Photo",
+    "continueWithGoogle": "Continue With Google",
+    "createAnAccount": "Create an account",
+    "createNewPassword": "Create New Password",
     "currencies": "Currencies",
     "currency": "Currency",
     "currentPassword": "Current Password",
 
     "deleteAccount": "Delete Account",
+    "didnotReceiveTheCode": "Didn't receive the code. ",
     "difference": "Difference",
+    "donotHaveAnAccount": "Don't have an account? ",
 
     "editProfile": "Edit Profile",
+    "egyptianPound": "Egyptian Pound",
     "egyptianPoundAbbreviation": "EGP",
     "email": "Email",
     "english": "English",
@@ -30,9 +37,12 @@
     "enterEmail": "Enter Email",
     "enterFullName": "Enter Full Name",
     "enterPassword": "Enter Password",
+    "enterTheConfirmationCode": "Enter The Confirmation Code",
 
     "failure": "Failure",
     "favourite": "Favourite",
+    "forgetPassword": "Forget Password ?",
+    "friday": "Fri",
     "fullName": "Full Name",
 
     "gold": "Gold",
@@ -45,30 +55,59 @@
 
     "language": "Language",
     "lastUpdated": "Last Updated",
+    "logIn": "Log In",
+    "logInToYourAccount": "Log in\nto your account",
     "logOut": "Log Out",
 
+    "monday": "Mon",
     "mySavings": "My Savings",
 
     "newPassword": "New Password",
     "newPasswordConfirmation": "New Password Confirmation",
+    "newPasswordWasCreatedSuccessfully": "New Password Was Created Successfully",
     "news": "News",
+    "next": "Next",
     "notifications": "Notifications",
     "notificationsSetting": "Notifications Setting",
 
+    "or": "OR",
+
+    "password": "Password",
+    "passwordsArenotMatching": "Passwords are not matching",
     "passwordChangedSuccessfully": "Password Changed Successfully!",
+    "passwordConfirmation": "Password Confirmation",
+    "passwordRecovery": "Password Recovery",
     "priceIncludesTaxAndWorkmanship": "Price includes tax and workmanship",
     "pricePerGram": "Price per gram",
     "profile": "Profile",
     "pound": "Pound",
+
+    "rememberMe": "Remember Me",
+    "resend": "Resend",
     
+    "saturday": "Sat",
+    "second": "Seconds",
     "selectLanguage": "Select Language",
     "selectTheBaseCurrency": "Select the base currency",
     "sell": "Sell",
     "setting": "Setting",
     "shareTheApp": "Share The App",
+    "signUp": "Sign Up",
+    "sunday": "Sun",
 
+    "thisFieldIsRequired": "This field is required",
     "totalTax": "Total tax",
+    "track": "Continue",
+    "tuesday": "Tue",
+    "thursday": "Thu",
 
+    "unknown": "N/A",
+
+    "verificationCodeHasBeenResent": "Verification code has been re-sent",
+
+    "wednesday": "Wed",
     "welcome": "Welcome",
+    "weHaveSentTheConfirmationCodeTo": "We have sent the confirmation code to",
+    "weWillSendAnOTPCodeToYourEmailForSecurityWhenYouForgetYourPassword": "We will send an OTP code to your email for security when you forget your password",
     "workmanshipPerGram": "Workmanship per gram"
 }
