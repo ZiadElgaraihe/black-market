@@ -4,6 +4,7 @@ import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/core/presentation/view/buttons/default_button.dart';
 import 'package:black_market/core/presentation/view/buttons/default_loading_button.dart';
+import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/features/auth/presentation/view/verification_code_view.dart';
 import 'package:black_market/features/auth/presentation/view_model/forget_password_cubit/forget_password_cubit.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,15 @@ class ForgetPasswordBlocConsumer extends StatelessWidget {
   }
 
   void _listener(context, state) {
-    if (state is ForgetPasswordSuccess) {
+    if (state is ForgetPasswordLoading) {
+      showAlertDialog(
+        context,
+        canDismiss: false,
+        barrierColor: AppColors.transparent,
+        child: const AlertDialog(),
+      );
+    } else if (state is ForgetPasswordSuccess) {
+      Navigator.pop(context);
       Navigator.push(
         context,
         SideSlideTransition(
@@ -52,6 +61,7 @@ class ForgetPasswordBlocConsumer extends StatelessWidget {
         ),
       );
     } else if (state is ForgetPasswordFailure) {
+      Navigator.pop(context);
       showAlertDialog(
         context,
         child: ResultAlertDialog(
