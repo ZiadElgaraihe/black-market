@@ -36,6 +36,7 @@ class LogInCubit extends Cubit<LogInState> {
 
   String? email;
   String? password;
+  bool remeberMe = false;
 
   Future<void> logIn() async {
     Either<ConnectionFailure, void> connectionResult =
@@ -66,15 +67,21 @@ class LogInCubit extends Cubit<LogInState> {
           //success
           (userModel) async {
             _appCubit.userModel = userModel;
-            await _localDatabaseServices.store<User>(
-              boxName: kUserBox,
-              key: kUserKey,
-              value: userModel.user,
-            );
-            await _secureDatabaseServices.storeInSecureStorage(
-              key: kTokenKey,
-              value: userModel.token,
-            );
+            if (remeberMe) {
+              Future.wait(
+                [
+                  _localDatabaseServices.store<User>(
+                    boxName: kUserBox,
+                    key: kUserKey,
+                    value: userModel.user,
+                  ),
+                  _secureDatabaseServices.storeInSecureStorage(
+                    key: kTokenKey,
+                    value: userModel.token,
+                  ),
+                ],
+              );
+            }
             emit(LogInSuccess());
           },
         );
