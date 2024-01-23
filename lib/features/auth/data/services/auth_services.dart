@@ -1,9 +1,4 @@
-import 'package:black_market/core/errors/failure.dart';
-import 'package:black_market/core/functions/execute_and_handle_errors.dart';
-import 'package:black_market/core/helpers/dio_helper.dart';
-import 'package:black_market/features/auth/data/models/user_model.dart';
-import 'package:black_market/features/auth/data/repos/auth_repo.dart';
-import 'package:dartz/dartz.dart';
+part of 'package:black_market/features/auth/data/repos/auth_repo.dart';
 
 class AuthServices implements AuthRepo {
   AuthServices({required DioHelper dioHelper}) {
@@ -32,15 +27,15 @@ class AuthServices implements AuthRepo {
   }
 
   @override
-  Future<Either<Failure, void>> signUp({
+  Future<Either<Failure, UserModel>> signUp({
     required String fullName,
     required String email,
     required String password,
     required String confirmedPassword,
   }) async {
-    return await executeAndHandleErrors<void>(
+    return await executeAndHandleErrors<UserModel>(
       () async {
-        await _dioHelper.postRequest(
+        Map<String, dynamic> data = await _dioHelper.postRequest(
           endPoint: 'register',
           data: {
             'name': fullName,
@@ -49,6 +44,7 @@ class AuthServices implements AuthRepo {
             'password_confirmation': confirmedPassword,
           },
         );
+        return UserModel.fromJson(data: data);
       },
     );
   }

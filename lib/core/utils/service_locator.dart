@@ -2,7 +2,7 @@ import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
 import 'package:black_market/core/data/services/secure_database_services.dart';
 import 'package:black_market/core/helpers/dio_helper.dart';
-import 'package:black_market/features/auth/data/services/auth_services.dart';
+import 'package:black_market/features/auth/data/repos/auth_repo.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 

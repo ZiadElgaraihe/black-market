@@ -1,9 +1,13 @@
 import 'package:black_market/core/errors/failure.dart';
+import 'package:black_market/core/functions/execute_and_handle_errors.dart';
+import 'package:black_market/core/helpers/dio_helper.dart';
 import 'package:black_market/features/auth/data/models/user_model.dart';
 import 'package:dartz/dartz.dart';
 
+part 'package:black_market/features/auth/data/services/auth_services.dart';
+
 abstract class AuthRepo {
-  Future<Either<Failure, void>> signUp({
+  Future<Either<Failure, UserModel>> signUp({
     required String fullName,
     required String email,
     required String password,
