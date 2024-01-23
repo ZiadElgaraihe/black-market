@@ -3,7 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DefaultLoadingButton extends StatelessWidget {
-  const DefaultLoadingButton({super.key});
+  const DefaultLoadingButton({
+    super.key,
+    this.backgroundColor,
+    this.height,
+    this.progressIndicatorColor,
+    this.width,
+  });
+
+  final Color? backgroundColor;
+  final double? height;
+  final Color? progressIndicatorColor;
+  final double? width;
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +22,14 @@ class DefaultLoadingButton extends StatelessWidget {
       onPressed: null,
       style: ButtonStyle(
         fixedSize: MaterialStatePropertyAll(
-          Size(327.w, 52.h),
+          Size(
+            width ?? 327.w,
+            height ?? 52.h,
+          ),
         ),
-        backgroundColor: MaterialStatePropertyAll(AppColors.yellow),
+        backgroundColor: MaterialStatePropertyAll(
+          backgroundColor ?? AppColors.yellow,
+        ),
         shape: MaterialStatePropertyAll(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14.w),
@@ -21,7 +37,7 @@ class DefaultLoadingButton extends StatelessWidget {
         ),
       ),
       child: CircularProgressIndicator(
-        color: AppColors.black,
+        color: progressIndicatorColor ?? AppColors.black,
       ),
     );
   }
