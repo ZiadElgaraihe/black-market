@@ -1,6 +1,7 @@
 {
     "aboutTheApp": "About The App",
     "accountCreatedSuccessfully": "Account Created Successfully",
+    "alert": "Alert",
     "arabic": "Arabic",
     "areYouSureToLogOut": "Are you sure to log out",
     "averagePrice": "Average Price",
@@ -109,5 +110,7 @@
     "welcome": "Welcome",
     "weHaveSentTheConfirmationCodeTo": "We have sent the confirmation code to",
     "weWillSendAnOTPCodeToYourEmailForSecurityWhenYouForgetYourPassword": "We will send an OTP code to your email for security when you forget your password",
-    "workmanshipPerGram": "Workmanship per gram"
+    "workmanshipPerGram": "Workmanship per gram",
+
+    "youMustLogInFirst": "You must log in first"
 }

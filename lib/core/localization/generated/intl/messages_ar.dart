@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutTheApp": MessageLookupByLibrary.simpleMessage("عن التطبيق"),
         "accountCreatedSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم إنشاء الحساب بنجاح"),
+        "alert": MessageLookupByLibrary.simpleMessage("تنبيه"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "areYouSureToLogOut": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد من تسجيل الخروج"),
@@ -146,6 +147,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "wednesday": MessageLookupByLibrary.simpleMessage("الأربعاء"),
         "welcome": MessageLookupByLibrary.simpleMessage("مرحباً"),
         "workmanshipPerGram":
-            MessageLookupByLibrary.simpleMessage("مصنعية الجرام")
+            MessageLookupByLibrary.simpleMessage("مصنعية الجرام"),
+        "youMustLogInFirst":
+            MessageLookupByLibrary.simpleMessage("يجب تسجيل الدخول أولا")
       };
 }

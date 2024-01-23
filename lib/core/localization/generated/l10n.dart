@@ -70,6 +70,16 @@ class Tr {
     );
   }
 
+  /// `Alert`
+  String get alert {
+    return Intl.message(
+      'Alert',
+      name: 'alert',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Arabic`
   String get arabic {
     return Intl.message(
@@ -967,6 +977,16 @@ class Tr {
     return Intl.message(
       'Workmanship per gram',
       name: 'workmanshipPerGram',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You must log in first`
+  String get youMustLogInFirst {
+    return Intl.message(
+      'You must log in first',
+      name: 'youMustLogInFirst',
       desc: '',
       args: [],
     );

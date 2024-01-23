@@ -1,6 +1,13 @@
+import 'package:black_market/core/animations/side_slide_transition.dart';
+import 'package:black_market/core/functions/future_delayd_navigator.dart';
+import 'package:black_market/core/functions/show_alert_dialog.dart';
+import 'package:black_market/core/localization/generated/l10n.dart';
+import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
+import 'package:black_market/core/presentation/view_model/app_cubit/app_cubit.dart';
 import 'package:black_market/core/presentation/view_model/favourite_cubit/favourite_cubit.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
+import 'package:black_market/features/auth/presentation/view/log_in_view.dart';
 import 'package:black_market/features/currency/data/models/currency_price_model/currency_price_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -45,18 +52,9 @@ class _FavouriteButtonState extends State<FavouriteButton> {
         color: AppColors.transparent,
         child: IconButton(
           onPressed: () {
-            if (widget.bankPrice?.id != null) {
-              if (_isFavourite.value) {
-                context.read<FavouriteCubit>().removeFromFavourite(
-                      bankPrice: widget.bankPrice!,
-                    );
-              } else {
-                context.read<FavouriteCubit>().addToFavourite(
-                      bankPrice: widget.bankPrice!,
-                    );
-              }
-              _isFavourite.value = !_isFavourite.value;
-            }
+            futureDelayedNavigator(() {
+              _addAndRemoveFromFavourite(context);
+            });
           },
           splashRadius: 12.w,
           icon: ValueListenableBuilder(
@@ -78,21 +76,52 @@ class _FavouriteButtonState extends State<FavouriteButton> {
     );
   }
 
+  void _addAndRemoveFromFavourite(BuildContext context) {
+    if (context.read<AppCubit>().userModel != null) {
+      if (widget.bankPrice?.id != null) {
+        if (_isFavourite.value) {
+          context.read<FavouriteCubit>().removeFromFavourite(
+                bankPrice: widget.bankPrice!,
+              );
+        } else {
+          context.read<FavouriteCubit>().addToFavourite(
+                bankPrice: widget.bankPrice!,
+              );
+        }
+        _isFavourite.value = !_isFavourite.value;
+      }
+    } else {
+      showAlertDialog(
+        context,
+        child: ResultAlertDialog(
+          buttonTitle: Tr.of(context).logIn,
+          message: Tr.of(context).youMustLogInFirst,
+          onPressed: () {
+            Navigator.pop(context);
+            Navigator.push(
+              context,
+              SideSlideTransition(
+                page: const LogInView(),
+              ),
+            );
+          },
+          title: Tr.of(context).alert,
+        ),
+      );
+    }
+  }
+
   void _checkIfFavourite(BuildContext context) {
     FavouriteCubit favouriteCubit = context.read<FavouriteCubit>();
-    for (int index = 0;
-        index < favouriteCubit.favouriteData.length;
-        index++) {
-      if (favouriteCubit.favouriteData[index].id ==
-          widget.bankPrice?.id) {
+    for (int index = 0; index < favouriteCubit.favouriteData.length; index++) {
+      if (favouriteCubit.favouriteData[index].id == widget.bankPrice?.id) {
         _isFavourite.value = true;
         break;
       }
       //use this else if condition to solve the problem of _isFavourite is come
       //with value true when currency is changed and the index is equal to the
       //index of the bank added to favourite in the previous currency
-      else if (index ==
-          favouriteCubit.favouriteData.length - 1) {
+      else if (index == favouriteCubit.favouriteData.length - 1) {
         _isFavourite.value = false;
       }
     }

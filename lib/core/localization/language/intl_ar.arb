@@ -1,6 +1,7 @@
 {
     "aboutTheApp": "عن التطبيق",
     "accountCreatedSuccessfully": "تم إنشاء الحساب بنجاح",
+    "alert": "تنبيه",
     "arabic": "العربية",
     "areYouSureToLogOut": "هل أنت متأكد من تسجيل الخروج",
     "averagePrice": "متوسط السعر",
@@ -109,5 +110,7 @@
     "welcome": "مرحباً",
     "weHaveSentTheConfirmationCodeTo": "لقد قمنا بإرسال رمز التأكيد إلي",
     "weWillSendAnOTPCodeToYourEmailForSecurityWhenYouForgetYourPassword": "سنرسل رمز OTP إلي بريدك الإلكتروني للأمان عند نسيان كلمة المرور الخاصة بك",
-    "workmanshipPerGram": "مصنعية الجرام"
+    "workmanshipPerGram": "مصنعية الجرام",
+
+    "youMustLogInFirst": "يجب تسجيل الدخول أولا"
 }

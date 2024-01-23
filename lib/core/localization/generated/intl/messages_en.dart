@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "aboutTheApp": MessageLookupByLibrary.simpleMessage("About The App"),
         "accountCreatedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Account Created Successfully"),
+        "alert": MessageLookupByLibrary.simpleMessage("Alert"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "areYouSureToLogOut":
             MessageLookupByLibrary.simpleMessage("Are you sure to log out"),
@@ -144,6 +145,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "wednesday": MessageLookupByLibrary.simpleMessage("Wed"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome"),
         "workmanshipPerGram":
-            MessageLookupByLibrary.simpleMessage("Workmanship per gram")
+            MessageLookupByLibrary.simpleMessage("Workmanship per gram"),
+        "youMustLogInFirst":
+            MessageLookupByLibrary.simpleMessage("You must log in first")
       };
 }
