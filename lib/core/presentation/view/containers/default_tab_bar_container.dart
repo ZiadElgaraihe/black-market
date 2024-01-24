@@ -8,10 +8,12 @@ class DefaultTabBarContainer extends StatefulWidget {
     super.key,
     required this.pageController,
     required this.tabBarTitles,
+    required this.width,
   });
 
   final PageController pageController;
   final List<String> tabBarTitles;
+  final double width;
 
   @override
   State<DefaultTabBarContainer> createState() => _DefaultTabBarContainerState();
@@ -37,7 +39,7 @@ class _DefaultTabBarContainerState extends State<DefaultTabBarContainer> {
         borderRadius: BorderRadius.circular(16.w),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: List.generate(
           widget.tabBarTitles.length,
           (index) => GestureDetector(
@@ -48,7 +50,7 @@ class _DefaultTabBarContainerState extends State<DefaultTabBarContainer> {
             child: ValueListenableBuilder(
               valueListenable: _currentSectionIndex,
               builder: (context, currenctSectionIndex, child) => Container(
-                width: 94.w,
+                width: widget.width,
                 alignment: Alignment.center,
                 padding: EdgeInsets.symmetric(vertical: 13.h),
                 decoration: BoxDecoration(
