@@ -1,8 +1,11 @@
+import 'package:black_market/core/animations/side_slide_transition.dart';
+import 'package:black_market/core/functions/future_delayd_navigator.dart';
 import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view_model/app_cubit/app_cubit.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
+import 'package:black_market/features/notifications/presentation/view/notifications_view.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -90,7 +93,16 @@ class CurrencyHeaderProfileInfoRow extends StatelessWidget {
               child: Material(
                 color: AppColors.transparent,
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    futureDelayedNavigator(() {
+                      Navigator.push(
+                        context,
+                        SideSlideTransition(
+                          page: const NotificationsView(),
+                        ),
+                      );
+                    });
+                  },
                   icon: SvgPicture.asset(
                     AppIcons.assetsIconsNotification,
                     width: 24.w,

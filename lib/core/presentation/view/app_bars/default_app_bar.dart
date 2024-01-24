@@ -7,8 +7,8 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   const DefaultAppBar({
     super.key,
     required this.title,
-    this.backButtonBackgroundColor,
     this.canPop = true,
+    this.backButtonBackgroundColor,
   });
 
   final Color? backButtonBackgroundColor;

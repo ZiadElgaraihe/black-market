@@ -1,35 +1,29 @@
-import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class GoldViewTabBarContainer extends StatefulWidget {
-  const GoldViewTabBarContainer({
+class DefaultTabBarContainer extends StatefulWidget {
+  const DefaultTabBarContainer({
     super.key,
-    required this.currentSectionIndexValueNotifier,
     required this.pageController,
+    required this.tabBarTitles,
   });
 
-  final ValueNotifier<int> currentSectionIndexValueNotifier;
   final PageController pageController;
+  final List<String> tabBarTitles;
 
   @override
-  State<GoldViewTabBarContainer> createState() =>
-      _GoldViewTabBarContainerState();
+  State<DefaultTabBarContainer> createState() => _DefaultTabBarContainerState();
 }
 
-class _GoldViewTabBarContainerState extends State<GoldViewTabBarContainer> {
-  late List<String> _tabBarTitles;
+class _DefaultTabBarContainerState extends State<DefaultTabBarContainer> {
+  final ValueNotifier<int> _currentSectionIndex = ValueNotifier<int>(0);
 
   @override
-  void didChangeDependencies() {
-    _tabBarTitles = <String>[
-      Tr.of(context).gold,
-      Tr.of(context).ingots,
-      Tr.of(context).currencies,
-    ];
-    super.didChangeDependencies();
+  void dispose() {
+    _currentSectionIndex.dispose();
+    super.dispose();
   }
 
   @override
@@ -45,14 +39,14 @@ class _GoldViewTabBarContainerState extends State<GoldViewTabBarContainer> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: List.generate(
-          _tabBarTitles.length,
+          widget.tabBarTitles.length,
           (index) => GestureDetector(
             onTap: () {
-              widget.currentSectionIndexValueNotifier.value = index;
+              _currentSectionIndex.value = index;
               widget.pageController.jumpToPage(index);
             },
             child: ValueListenableBuilder(
-              valueListenable: widget.currentSectionIndexValueNotifier,
+              valueListenable: _currentSectionIndex,
               builder: (context, currenctSectionIndex, child) => Container(
                 width: 94.w,
                 alignment: Alignment.center,
@@ -63,7 +57,7 @@ class _GoldViewTabBarContainerState extends State<GoldViewTabBarContainer> {
                   borderRadius: BorderRadius.circular(16.w),
                 ),
                 child: Text(
-                  _tabBarTitles[index],
+                  widget.tabBarTitles[index],
                   style: TextStyles.textStyle16.copyWith(
                     color: (currenctSectionIndex == index)
                         ? AppColors.black
