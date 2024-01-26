@@ -1,5 +1,6 @@
 import 'package:black_market/core/presentation/view/containers/default_tab_bar_container.dart';
 import 'package:black_market/core/presentation/view/page_views/default_tab_bar_page_view_builder.dart';
+import 'package:black_market/features/notifications/presentation/view/widgets/sections/articles_section.dart';
 import 'package:black_market/features/notifications/presentation/view/widgets/sections/notifications_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -36,7 +37,7 @@ class _NotificationsViewBodyState extends State<NotificationsViewBody> {
           pageController: _pageController,
           pages: const <Widget>[
             NotificationsSection(),
-            Text('data2'),
+            ArticlesSection(),
           ],
         ),
       ],
