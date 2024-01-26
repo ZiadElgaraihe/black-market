@@ -1,6 +1,5 @@
 import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/errors/failure.dart';
-import 'package:black_market/core/presentation/view_model/localization_cubit/localization_cubit.dart';
 import 'package:black_market/features/notifications/data/models/notification_model.dart';
 import 'package:black_market/features/notifications/data/repos/notifications_repo.dart';
 import 'package:dartz/dartz.dart';
@@ -13,16 +12,13 @@ part 'get_notifications_state.dart';
 class GetNotificationsCubit extends Cubit<GetNotificationsState> {
   GetNotificationsCubit({
     required ConnectionServices connectionServices,
-    required LocalizationCubit localizationCubit,
     required NotificationsServices notificationsServices,
   }) : super(GetNotificationsInitial()) {
     _connectionServices = connectionServices;
-    _localizationCubit = localizationCubit;
     _notificationsServices = notificationsServices;
   }
 
   late ConnectionServices _connectionServices;
-  late LocalizationCubit _localizationCubit;
   late NotificationsServices _notificationsServices;
 
   Map<String, List<NotificationModel>>? notificationsMap;
@@ -78,10 +74,7 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
 
     for (NotificationModel notification in notifications) {
       DateTime dateTime = DateTime.parse(notification.notificationDate);
-      String formattedDate = DateFormat(
-        'dd MMM yyyy',
-        _localizationCubit.appLocale.languageCode,
-      ).format(dateTime);
+      String formattedDate = DateFormat('yyyy-MM-dd', 'en').format(dateTime);
 
       if (!result.containsKey(formattedDate)) {
         result[formattedDate] = [];

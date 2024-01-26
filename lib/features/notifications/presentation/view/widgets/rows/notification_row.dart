@@ -1,11 +1,17 @@
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
+import 'package:black_market/features/notifications/data/models/notification_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NotificationRow extends StatelessWidget {
-  const NotificationRow({super.key});
+  const NotificationRow({
+    super.key,
+    required this.notification,
+  });
+
+  final NotificationModel notification;
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +37,12 @@ class NotificationRow extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'بنك فرنسي: دولار السوق السوداء في مصر سيواصل صعودة',
+                  notification.title,
                   style: TextStyles.textStyle11,
                 ),
                 SizedBox(height: 6.h),
                 Text(
-                  'لقد تم صعود الجنيه المصري',
+                  notification.body,
                   style: TextStyles.textStyle10.copyWith(
                     color: AppColors.grey,
                     fontWeight: FontWeight.w400,
