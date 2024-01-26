@@ -8,7 +8,9 @@ import 'package:black_market/core/presentation/view_model/localization_cubit/loc
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/hive_setup.dart';
 import 'package:black_market/core/utils/service_locator.dart';
+import 'package:black_market/features/notifications/data/repos/articles_repo.dart';
 import 'package:black_market/features/notifications/data/repos/notifications_repo.dart';
+import 'package:black_market/features/notifications/presentation/view_model/get_articles_cubit/get_articles_cubit.dart';
 import 'package:black_market/features/notifications/presentation/view_model/get_notifications_cubit/get_notifications_cubit.dart';
 import 'package:black_market/features/splash/presentation/view/splash_view.dart';
 import 'package:flutter/material.dart';
@@ -60,6 +62,14 @@ class BlackMarket extends StatelessWidget {
             notificationsServices: NotificationsServices(
               dioHelper: getIt<DioHelper>(),
             ),
+          ),
+        ),
+        BlocProvider<GetArticlesCubit>(
+          create: (context) => GetArticlesCubit(
+            articlesServices: ArticlesServices(
+              dioHelper: getIt<DioHelper>(),
+            ),
+            connectionServices: getIt<ConnectionServices>(),
           ),
         ),
       ],

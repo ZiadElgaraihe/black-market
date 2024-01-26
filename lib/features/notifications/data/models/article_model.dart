@@ -18,8 +18,8 @@ class ArticleModel {
   factory ArticleModel.fromJson({required Map<String, dynamic> data}) {
     return ArticleModel(
       id: data['id'],
-      thumbnail: data['thumbnail'],
-      banner: data['banner'],
+      thumbnail: 'http://www.voipsys.space/storage/${data['thumbnail']}',
+      banner: 'http://www.voipsys.space/storage/${data['banner']}',
       title: data['title'],
       shortDescription: data['short_description'],
       createdAt: data['created_at'],
