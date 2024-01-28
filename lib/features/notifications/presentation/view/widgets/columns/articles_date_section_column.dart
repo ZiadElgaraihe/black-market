@@ -1,4 +1,7 @@
+import 'package:black_market/core/animations/side_slide_transition.dart';
+import 'package:black_market/core/functions/future_delayd_navigator.dart';
 import 'package:black_market/features/notifications/data/models/article_model.dart';
+import 'package:black_market/features/notifications/presentation/view/article_view.dart';
 import 'package:black_market/features/notifications/presentation/view/widgets/dividers/date_divider.dart';
 import 'package:black_market/features/notifications/presentation/view/widgets/rows/article_row.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +28,18 @@ class ArticlesDateSectionColumn extends StatelessWidget {
           children: List.generate(
             articles.length,
             (index) => InkWell(
-              onTap: () {},
+              onTap: () {
+                futureDelayedNavigator(() {
+                  Navigator.push(
+                    context,
+                    SideSlideTransition(
+                      page: ArticleView(
+                        banner: articles[index].banner,
+                      ),
+                    ),
+                  );
+                });
+              },
               borderRadius: BorderRadius.circular(14.w),
               child: ArticleRow(
                 article: articles[index],
