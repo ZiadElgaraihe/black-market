@@ -4,6 +4,7 @@ class ArticleModel {
   final String banner;
   final String title;
   final String shortDescription;
+  final String? description;
   final String createdAt;
 
   ArticleModel({
@@ -12,6 +13,7 @@ class ArticleModel {
     required this.banner,
     required this.title,
     required this.shortDescription,
+    this.description,
     required this.createdAt,
   });
 
@@ -22,6 +24,7 @@ class ArticleModel {
       banner: 'http://www.voipsys.space/storage/${data['banner']}',
       title: data['title'],
       shortDescription: data['short_description'],
+      description: data['description'],
       createdAt: data['created_at'],
     );
   }
