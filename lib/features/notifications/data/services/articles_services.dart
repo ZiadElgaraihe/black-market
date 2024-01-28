@@ -20,15 +20,30 @@ class ArticlesServices implements ArticlesRepo {
     );
   }
 
+  @override
+  Future<Either<Failure, ArticleModel>> getOneArticle({
+    required int id,
+  }) async {
+    return await executeAndHandleErrors<ArticleModel>(
+      () async {
+        Map<String, dynamic> data = await _dioHelper.getRequest(
+          endPoint: 'articles/$id',
+        );
+
+        return ArticleModel.fromJson(data: data['data'][0]);
+      },
+    );
+  }
+
   List<ArticleModel> _parseDataToListOfArticleModel(Map<String, dynamic> data) {
     List<ArticleModel> articles = <ArticleModel>[];
-    
+
     for (var article in data['data']) {
       articles.add(
         ArticleModel.fromJson(data: article),
       );
     }
-    
+
     return articles;
   }
 }

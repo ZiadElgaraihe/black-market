@@ -8,4 +8,8 @@ part 'package:black_market/features/notifications/data/services/articles_service
 
 abstract class ArticlesRepo {
   Future<Either<Failure, List<ArticleModel>>> getArticles();
+
+  Future<Either<Failure, ArticleModel>> getOneArticle({
+    required int id,
+  });
 }
