@@ -24,6 +24,20 @@ class NotificationRow extends StatelessWidget {
             child: CachedNetworkImage(
               imageUrl:
                   'http://www.voipsys.space/storage/settings/March2023/eqXjF0gwhXjBlyi4zXED.jpg',
+              errorWidget: (context, url, error) {
+                return const Placeholder();
+              },
+              progressIndicatorBuilder: (context, url, progress) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 13.5.w,
+                    vertical: 10.h,
+                  ),
+                  child: CircularProgressIndicator(
+                    color: AppColors.white,
+                  ),
+                );
+              },
               height: 48.h,
               width: 48.w,
               fit: BoxFit.cover,

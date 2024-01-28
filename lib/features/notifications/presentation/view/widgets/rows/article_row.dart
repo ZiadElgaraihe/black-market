@@ -23,6 +23,20 @@ class ArticleRow extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.w),
             child: CachedNetworkImage(
               imageUrl: article.thumbnail,
+              errorWidget: (context, url, error) {
+                return const Placeholder();
+              },
+              progressIndicatorBuilder: (context, url, progress) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 13.5.w,
+                    vertical: 10.h,
+                  ),
+                  child: CircularProgressIndicator(
+                    color: AppColors.white,
+                  ),
+                );
+              },
               height: 48.h,
               width: 48.w,
               fit: BoxFit.cover,

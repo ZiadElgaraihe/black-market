@@ -44,6 +44,16 @@ class OneArticleSuccess extends StatelessWidget {
                 final src = element.attributes['src'];
                 return CachedNetworkImage(
                   imageUrl: src!,
+                  errorWidget: (context, url, error) {
+                    return const Placeholder();
+                  },
+                  progressIndicatorBuilder: (context, url, progress) {
+                    return Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.white,
+                      ),
+                    );
+                  },
                   fit: BoxFit.fill,
                 );
               }
