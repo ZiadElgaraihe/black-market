@@ -35,6 +35,7 @@ class ArticlesDateSectionColumn extends StatelessWidget {
                     SideSlideTransition(
                       page: ArticleView(
                         banner: articles[index].banner,
+                        id: articles[index].id,
                       ),
                     ),
                   );

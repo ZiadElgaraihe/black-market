@@ -66,9 +66,7 @@ class BlackMarket extends StatelessWidget {
         ),
         BlocProvider<GetArticlesCubit>(
           create: (context) => GetArticlesCubit(
-            articlesServices: ArticlesServices(
-              dioHelper: getIt<DioHelper>(),
-            ),
+            articlesServices: getIt<ArticlesServices>(),
             connectionServices: getIt<ConnectionServices>(),
           ),
         ),
