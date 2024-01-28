@@ -17,7 +17,10 @@ class ArticleViewBody extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        ArticleBannerContainer(banner: banner),
+        ArticleBannerContainer(
+          banner: banner,
+          id: id,
+        ),
         GetOneArticleFutureBuilder(id: id),
       ],
     );
