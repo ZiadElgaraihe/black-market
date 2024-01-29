@@ -59,7 +59,7 @@ class CurrencyModel {
     
     return CurrencyModel(
       id: data['id'],
-      icon: data['icon'],
+      icon: 'http://www.voipsys.space/storage/${data['icon']}',
       name: data['name'],
       code: data['code'],
       updatedAt: data['updated_at'],
