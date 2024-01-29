@@ -1,11 +1,11 @@
 import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/columns/buy_and_sell_info_column.dart';
+import 'package:black_market/core/presentation/view/dividers/custom_vertical_divider.dart';
 import 'package:black_market/core/presentation/view_model/localization_cubit/localization_cubit.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/features/currency/data/models/currency_model/currency_model.dart';
 import 'package:black_market/features/currency/data/models/currency_price_model/currency_price_model.dart';
 import 'package:black_market/features/currency/presentation/view/widgets/buttons/currency_selection_button.dart';
-import 'package:black_market/core/presentation/view/dividers/custom_vertical_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -80,28 +80,37 @@ class CurrencyHeaderPriceContentColumn extends StatelessWidget {
     final updatedAt =
         DateTime.parse(currencies![currentIndexValueNotifier.value].updatedAt);
     final currentTime = DateTime.now();
-    final difference = currentTime.difference(updatedAt).abs();
+    final difference = currentTime.difference(updatedAt);
 
-    if (difference.inSeconds <= 59) {
+    if (difference.inSeconds <= 59 && difference.inSeconds >= -59) {
       final seconds = difference.inSeconds;
       return context.read<LocalizationCubit>().isArabic()
           ? 'منذ $seconds ثانية'
           : '$seconds seconds ago';
-    } else if (difference.inMinutes <= 59) {
+    } else if (difference.inMinutes <= 59 && difference.inMinutes >= -59) {
       final minutes = difference.inMinutes;
       return context.read<LocalizationCubit>().isArabic()
           ? 'منذ $minutes دقيقة'
           : '$minutes minutes ago';
-    } else if (difference.inHours <= 23) {
+    } else if (difference.inHours <= 23 && difference.inHours >= -23) {
       final hours = difference.inHours;
       return context.read<LocalizationCubit>().isArabic()
           ? 'منذ $hours ساعة'
           : '$hours hours ago';
-    } else {
+    } else if (difference.inDays <= 30 && difference.inDays >= -30) {
       final days = difference.inDays;
       return context.read<LocalizationCubit>().isArabic()
           ? 'منذ $days يوم'
           : '$days days ago';
+    } else {
+      final days = difference.inDays;
+
+      final months =
+          ((days / 30) > 0) ? (days / 30).floor() : (days / 30).ceil();
+
+      return context.read<LocalizationCubit>().isArabic()
+          ? 'منذ $months شهر'
+          : '$months months ago';
     }
   }
 }

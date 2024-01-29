@@ -113,28 +113,37 @@ class BankHeaderPriceContentColumn extends StatelessWidget {
   String _getTimeSinceLastUpdate(BuildContext context) {
     final updatedAt = DateTime.parse(currency.updatedAt);
     final currentTime = DateTime.now();
-    final difference = currentTime.difference(updatedAt).abs();
+    final difference = currentTime.difference(updatedAt);
 
-    if (difference.inSeconds <= 59) {
+    if (difference.inSeconds <= 59 && difference.inSeconds >= -59) {
       final seconds = difference.inSeconds;
       return context.read<LocalizationCubit>().isArabic()
           ? 'منذ $seconds ثانية'
           : '$seconds seconds ago';
-    } else if (difference.inMinutes <= 59) {
+    } else if (difference.inMinutes <= 59 && difference.inMinutes >= -59) {
       final minutes = difference.inMinutes;
       return context.read<LocalizationCubit>().isArabic()
           ? 'منذ $minutes دقيقة'
           : '$minutes minutes ago';
-    } else if (difference.inHours <= 23) {
+    } else if (difference.inHours <= 23 && difference.inHours >= -23) {
       final hours = difference.inHours;
       return context.read<LocalizationCubit>().isArabic()
           ? 'منذ $hours ساعة'
           : '$hours hours ago';
-    } else {
+    } else if (difference.inDays <= 30 && difference.inDays >= -30) {
       final days = difference.inDays;
       return context.read<LocalizationCubit>().isArabic()
           ? 'منذ $days يوم'
           : '$days days ago';
+    } else {
+      final days = difference.inDays;
+
+      final months =
+          ((days / 30) > 0) ? (days / 30).floor() : (days / 30).ceil();
+
+      return context.read<LocalizationCubit>().isArabic()
+          ? 'منذ $months شهر'
+          : '$months months ago';
     }
   }
 }
