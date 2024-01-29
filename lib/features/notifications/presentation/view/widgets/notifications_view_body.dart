@@ -1,3 +1,4 @@
+import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/containers/default_tab_bar_container.dart';
 import 'package:black_market/core/presentation/view/page_views/default_tab_bar_page_view_builder.dart';
 import 'package:black_market/features/notifications/presentation/view/widgets/sections/articles_section.dart';
@@ -27,9 +28,9 @@ class _NotificationsViewBodyState extends State<NotificationsViewBody> {
       children: [
         DefaultTabBarContainer(
           pageController: _pageController,
-          tabBarTitles: const <String>[
-            'الإشعارات',
-            'المقالات',
+          tabBarTitles: <String>[
+            Tr.of(context).notifications,
+            Tr.of(context).articles,
           ],
           width: 138.w,
         ),

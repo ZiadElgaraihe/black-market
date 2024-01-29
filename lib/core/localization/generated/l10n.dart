@@ -100,6 +100,16 @@ class Tr {
     );
   }
 
+  /// `Articles`
+  String get articles {
+    return Intl.message(
+      'Articles',
+      name: 'articles',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Average Price`
   String get averagePrice {
     return Intl.message(
@@ -625,6 +635,16 @@ class Tr {
     return Intl.message(
       'Next',
       name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No data to display`
+  String get noDataToDisplay {
+    return Intl.message(
+      'No data to display',
+      name: 'noDataToDisplay',
       desc: '',
       args: [],
     );

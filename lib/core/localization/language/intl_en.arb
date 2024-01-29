@@ -4,6 +4,7 @@
     "alert": "Alert",
     "arabic": "Arabic",
     "areYouSureToLogOut": "Are you sure to log out",
+    "articles": "Articles",
     "averagePrice": "Average Price",
 
     "bankPrice": "Bank Price",
@@ -68,6 +69,7 @@
     "newPasswordWasCreatedSuccessfully": "New Password Was Created Successfully",
     "news": "News",
     "next": "Next",
+    "noDataToDisplay": "No data to display",
     "notifications": "Notifications",
     "notificationsSetting": "Notifications Setting",
 

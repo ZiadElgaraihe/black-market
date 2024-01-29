@@ -4,6 +4,7 @@
     "alert": "تنبيه",
     "arabic": "العربية",
     "areYouSureToLogOut": "هل أنت متأكد من تسجيل الخروج",
+    "articles": "المقالات",
     "averagePrice": "متوسط السعر",
 
     "bankPrice": "سعر البنك",
@@ -68,6 +69,7 @@
     "newPasswordWasCreatedSuccessfully": "تم إنشاء كلمة مرور جديدة بنجاح",
     "news": "الأخبار",
     "next": "التالي",
+    "noDataToDisplay": "لا توجد بيانات لعرضها",
     "notifications": "الإشعارات",
     "notificationsSetting": "إعدادات الإشعارات",
 

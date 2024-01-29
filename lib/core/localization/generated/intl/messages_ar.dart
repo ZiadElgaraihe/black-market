@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "areYouSureToLogOut": MessageLookupByLibrary.simpleMessage(
             "هل أنت متأكد من تسجيل الخروج"),
+        "articles": MessageLookupByLibrary.simpleMessage("المقالات"),
         "averagePrice": MessageLookupByLibrary.simpleMessage("متوسط السعر"),
         "bankPrice": MessageLookupByLibrary.simpleMessage("سعر البنك"),
         "baseCurrency": MessageLookupByLibrary.simpleMessage("العملة الأساسية"),
@@ -100,6 +101,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "تم إنشاء كلمة مرور جديدة بنجاح"),
         "news": MessageLookupByLibrary.simpleMessage("الأخبار"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "noDataToDisplay":
+            MessageLookupByLibrary.simpleMessage("لا توجد بيانات لعرضها"),
         "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
         "notificationsSetting":
             MessageLookupByLibrary.simpleMessage("إعدادات الإشعارات"),

@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "areYouSureToLogOut":
             MessageLookupByLibrary.simpleMessage("Are you sure to log out"),
+        "articles": MessageLookupByLibrary.simpleMessage("Articles"),
         "averagePrice": MessageLookupByLibrary.simpleMessage("Average Price"),
         "bankPrice": MessageLookupByLibrary.simpleMessage("Bank Price"),
         "baseCurrency": MessageLookupByLibrary.simpleMessage("Base Currency"),
@@ -97,6 +98,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "New Password Was Created Successfully"),
         "news": MessageLookupByLibrary.simpleMessage("News"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "noDataToDisplay":
+            MessageLookupByLibrary.simpleMessage("No data to display"),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "notificationsSetting":
             MessageLookupByLibrary.simpleMessage("Notifications Setting"),
