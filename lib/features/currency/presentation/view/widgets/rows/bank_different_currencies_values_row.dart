@@ -1,6 +1,7 @@
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/currency/data/models/currency_model/currency_model.dart';
+import 'package:black_market/features/currency/presentation/view/widgets/cached_network_images/currency_icon_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,11 +19,18 @@ class BankDifferentCurrenciesValuesRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return (currency.bankPrices
                 .where((element) => element.bankId == bankId)
-                .firstOrNull != null)
+                .firstOrNull !=
+            null)
         ? Padding(
             padding: EdgeInsets.symmetric(vertical: 7.5.h),
             child: Row(
               children: [
+                CurrencyIconCachedNetworkImage(
+                  height: 20.h,
+                  width: 20.w,
+                  imageUrl: currency.icon,
+                ),
+                SizedBox(width: 6.w),
                 SizedBox(
                   width: 125.w,
                   child: Text(
