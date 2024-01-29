@@ -17,27 +17,27 @@ class ArticleBannerContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Hero(
       tag: id,
-      child: Container(
+      child: Padding(
         padding: EdgeInsets.only(bottom: 16.h),
-        decoration: BoxDecoration(
+        child: ClipRRect(
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(16.w),
           ),
-        ),
-        child: CachedNetworkImage(
-          imageUrl: banner,
-          errorWidget: (context, url, error) {
-            return const Placeholder();
-          },
-          progressIndicatorBuilder: (context, url, progress) {
-            return Center(
-              child: CircularProgressIndicator(
-                color: AppColors.white,
-              ),
-            );
-          },
-          height: 300.h,
-          fit: BoxFit.fitWidth,
+          child: CachedNetworkImage(
+            imageUrl: banner,
+            errorWidget: (context, url, error) {
+              return const Placeholder();
+            },
+            progressIndicatorBuilder: (context, url, progress) {
+              return Center(
+                child: CircularProgressIndicator(
+                  color: AppColors.white,
+                ),
+              );
+            },
+            height: 300.h,
+            fit: BoxFit.fitWidth,
+          ),
         ),
       ),
     );
