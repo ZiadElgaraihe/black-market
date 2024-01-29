@@ -190,6 +190,16 @@ class Tr {
     );
   }
 
+  /// `Can't Launch This Url`
+  String get cannotLaunchThisUrl {
+    return Intl.message(
+      'Can\'t Launch This Url',
+      name: 'cannotLaunchThisUrl',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Change`
   String get change {
     return Intl.message(

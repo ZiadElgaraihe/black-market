@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "calculate": MessageLookupByLibrary.simpleMessage("Calc"),
         "calculator": MessageLookupByLibrary.simpleMessage("Calculator"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "cannotLaunchThisUrl":
+            MessageLookupByLibrary.simpleMessage("Can\'t Launch This Url"),
         "change": MessageLookupByLibrary.simpleMessage("Change"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),

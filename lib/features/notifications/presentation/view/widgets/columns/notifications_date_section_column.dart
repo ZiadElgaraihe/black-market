@@ -53,7 +53,7 @@ class NotificationsDateSectionColumn extends StatelessWidget {
         context,
         child: ResultAlertDialog(
           buttonTitle: Tr.of(context).cancel,
-          message: 'Can\'t Launch This Url',
+          message: Tr.of(context).cannotLaunchThisUrl,
           onPressed: () {
             Navigator.pop(context);
           },

@@ -38,6 +38,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "calculate": MessageLookupByLibrary.simpleMessage("حساب"),
         "calculator": MessageLookupByLibrary.simpleMessage("الحاسبة"),
         "cancel": MessageLookupByLibrary.simpleMessage("عودة"),
+        "cannotLaunchThisUrl":
+            MessageLookupByLibrary.simpleMessage("لا يمكن تشغيل هذا الرابط"),
         "change": MessageLookupByLibrary.simpleMessage("تغيير"),
         "changePassword":
             MessageLookupByLibrary.simpleMessage("تغيير كلمة المرور"),
