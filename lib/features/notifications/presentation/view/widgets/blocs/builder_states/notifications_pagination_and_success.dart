@@ -11,7 +11,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
 
 class NotificationsPaginationAndSuccess extends StatefulWidget {
-  const NotificationsPaginationAndSuccess({super.key});
+  const NotificationsPaginationAndSuccess({
+    super.key,
+    required this.isFailureValueNotifier,
+  });
+
+  final ValueNotifier<bool> isFailureValueNotifier;
 
   @override
   State<NotificationsPaginationAndSuccess> createState() =>
@@ -28,9 +33,28 @@ class _NotificationsPaginationAndSuccessState
   }
 
   Future<void> _scrollListener() async {
+    GetNotificationsCubit cubit = context.read<GetNotificationsCubit>();
     double currentPosition = _scrollController.position.pixels;
     double maxScrollExtent = _scrollController.position.maxScrollExtent;
-    if (currentPosition == maxScrollExtent) {
+    //if state is failure or pagination failure and current position is the max
+    if ((cubit.state is GetNotificationsFailure ||
+            cubit.state is GetNotificationsPaginationFailure) &&
+        currentPosition == maxScrollExtent) {
+      //this condition is made to prevent making more than one request at a time
+      if (cubit.state is GetNotificationsPaginationLoading) return;
+      //make sure that no failure message is already appear before make the request
+      //this condition is made to prevent appearing more than one error message
+      //at a time
+      if (!widget.isFailureValueNotifier.value) {
+        await BlocProvider.of<GetNotificationsCubit>(context)
+            .getNotifications(isPagination: true);
+      }
+    }
+    //if state is success and current position is bigger than 75% of the max
+    else if (cubit.state is GetNotificationsSuccess &&
+        currentPosition >= 0.75 * maxScrollExtent) {
+      //this condition is made to prevent making more than one request at a time
+      if (cubit.state is GetNotificationsPaginationLoading) return;
       await BlocProvider.of<GetNotificationsCubit>(context)
           .getNotifications(isPagination: true);
     }
@@ -55,7 +79,8 @@ class _NotificationsPaginationAndSuccessState
         itemCount: cubit.notificationsMap.keys.length + 1,
         itemBuilder: (context, index) {
           if (index >= cubit.notificationsMap.keys.length) {
-            if (!cubit.hasMore) {
+            if (cubit.state is GetNotificationsPaginationFailure ||
+                cubit.state is GetNotificationsFailure) {
               return const SizedBox();
             }
             return Padding(

@@ -23,7 +23,7 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
 
   Map<String, List<NotificationModel>> notificationsMap = {};
   int _pageNumber = 1;
-  bool hasMore = true;
+  bool _hasMore = true;
 
   Future<void> getNotifications({
     bool isRefresh = false,
@@ -33,7 +33,7 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
       emit(
         GetNotificationsSuccess(),
       );
-    } else if (!hasMore && !isRefresh) {
+    } else if (!_hasMore && !isRefresh) {
       emit(
         GetNotificationsPaginationFailure(),
       );
@@ -54,7 +54,7 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
             emit(GetNotificationsPaginationLoading());
           } else {
             if (isRefresh) {
-              if (!hasMore) hasMore = true;
+              if (!_hasMore) _hasMore = true;
               _pageNumber = 1;
               notificationsMap = {};
             }
@@ -84,7 +84,7 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
                   GetNotificationsSuccess(),
                 );
               } else {
-                hasMore = false;
+                _hasMore = false;
                 emit(
                   GetNotificationsPaginationFailure(),
                 );
@@ -100,7 +100,6 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
   void _groupNotificationsByDate(
     List<NotificationModel> notifications,
   ) {
-
     for (NotificationModel notification in notifications) {
       DateTime dateTime = DateTime.parse(notification.notificationDate);
       String formattedDate = DateFormat('yyyy-MM-dd', 'en').format(dateTime);
@@ -111,6 +110,5 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
 
       notificationsMap[formattedDate]!.add(notification);
     }
-
   }
 }

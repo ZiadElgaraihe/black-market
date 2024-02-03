@@ -8,9 +8,17 @@ import 'package:black_market/features/notifications/presentation/view_model/get_
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class GetNotificationsBlocConsumer extends StatelessWidget {
+class GetNotificationsBlocConsumer extends StatefulWidget {
   const GetNotificationsBlocConsumer({super.key});
 
+  @override
+  State<GetNotificationsBlocConsumer> createState() =>
+      _GetNotificationsBlocConsumerState();
+}
+
+class _GetNotificationsBlocConsumerState
+    extends State<GetNotificationsBlocConsumer> {
+  final ValueNotifier<bool> _isFailure = ValueNotifier<bool>(false);
   @override
   Widget build(BuildContext context) {
     GetNotificationsCubit cubit = context.read<GetNotificationsCubit>();
@@ -19,13 +27,27 @@ class GetNotificationsBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         if (state is GetNotificationsLoading) {
           return const NotificationsFeatureLoading();
-        } else if (state is GetNotificationsPaginationLoading) {
-          return const NotificationsPaginationAndSuccess();
+        }
+        //make different conditions for the same widget
+        //to make sure that ui is rebuilt
+        /* ************************************************* */
+        else if (state is GetNotificationsPaginationLoading) {
+          return NotificationsPaginationAndSuccess(
+            isFailureValueNotifier: _isFailure,
+          );
         } else if (state is GetNotificationsPaginationFailure ||
-            state is GetNotificationsSuccess ||
-            cubit.notificationsMap.isNotEmpty) {
-          return const NotificationsPaginationAndSuccess();
-        } else {
+            (state is GetNotificationsFailure &&
+                cubit.notificationsMap.isNotEmpty)) {
+          return NotificationsPaginationAndSuccess(
+            isFailureValueNotifier: _isFailure,
+          );
+        } else if (state is GetNotificationsSuccess) {
+          return NotificationsPaginationAndSuccess(
+            isFailureValueNotifier: _isFailure,
+          );
+        }
+        /* ************************************************* */
+        else {
           return NotificationsFeatureFailure(
             onRefresh: () async {
               cubit.getNotifications(isRefresh: true);
@@ -38,12 +60,17 @@ class GetNotificationsBlocConsumer extends StatelessWidget {
 
   void _listener(context, state) {
     if (state is GetNotificationsFailure) {
+      _isFailure.value = true;
       showAlertDialog(
         context,
+        onPopInvoked: (didPop) {
+          _isFailure.value = false;
+        },
         child: ResultAlertDialog(
           buttonTitle: Tr.of(context).cancel,
           message: state.errMessage,
           onPressed: () {
+            _isFailure.value = false;
             Navigator.pop(context);
           },
           title: Tr.of(context).failure,
