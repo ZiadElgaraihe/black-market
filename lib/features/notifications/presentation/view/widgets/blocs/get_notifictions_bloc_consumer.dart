@@ -19,6 +19,13 @@ class GetNotificationsBlocConsumer extends StatefulWidget {
 class _GetNotificationsBlocConsumerState
     extends State<GetNotificationsBlocConsumer> {
   final ValueNotifier<bool> _isFailure = ValueNotifier<bool>(false);
+
+  @override
+  void dispose() {
+    _isFailure.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     GetNotificationsCubit cubit = context.read<GetNotificationsCubit>();
