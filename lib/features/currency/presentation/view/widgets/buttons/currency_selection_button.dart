@@ -35,12 +35,13 @@ class CurrencySelectionButton extends StatelessWidget {
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            CurrencyIconCachedNetworkImage(
-              height: 16.h,
-              width: 16.w,
-              imageUrl: currencies![currentIndexValueNotifier.value].icon,
-            ),
-            SizedBox(width: 6.w),
+            if (currencies != null)
+              CurrencyIconCachedNetworkImage(
+                height: 16.h,
+                width: 16.w,
+                imageUrl: currencies![currentIndexValueNotifier.value].icon,
+              ),
+            if (currencies != null) SizedBox(width: 6.w),
             Text(
               (currencies != null)
                   ? currencies![currentIndexValueNotifier.value].name
