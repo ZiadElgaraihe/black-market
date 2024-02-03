@@ -21,12 +21,21 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
   late ConnectionServices _connectionServices;
   late NotificationsServices _notificationsServices;
 
-  Map<String, List<NotificationModel>>? notificationsMap;
+  Map<String, List<NotificationModel>> notificationsMap = {};
+  int _pageNumber = 1;
+  bool hasMore = true;
 
-  Future<void> getNotifications({bool isRefresh = false}) async {
-    if (!isRefresh && notificationsMap != null) {
+  Future<void> getNotifications({
+    bool isRefresh = false,
+    bool isPagination = false,
+  }) async {
+    if (!isRefresh && !isPagination && notificationsMap.isNotEmpty) {
       emit(
         GetNotificationsSuccess(),
+      );
+    } else if (!hasMore && !isRefresh) {
+      emit(
+        GetNotificationsPaginationFailure(),
       );
     } else {
       Either<ConnectionFailure, void> connectionResult =
@@ -41,10 +50,21 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
         },
         //connection
         (_) async {
-          emit(GetNotificationsLoading());
+          if (isPagination) {
+            emit(GetNotificationsPaginationLoading());
+          } else {
+            if (isRefresh) {
+              if (!hasMore) hasMore = true;
+              _pageNumber = 1;
+              notificationsMap = {};
+            }
+            emit(GetNotificationsLoading());
+          }
 
           Either<Failure, List<NotificationModel>> result =
-              await _notificationsServices.getNotifications();
+              await _notificationsServices.getNotifications(
+            pageNumber: _pageNumber,
+          );
 
           result.fold(
             //error
@@ -55,11 +75,20 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
             },
             //success
             (notifications) {
-              notificationsMap = _groupNotificationsByDate(notifications);
+              if (notifications.isNotEmpty) {
+                _groupNotificationsByDate(notifications);
 
-              emit(
-                GetNotificationsSuccess(),
-              );
+                _pageNumber++;
+
+                emit(
+                  GetNotificationsSuccess(),
+                );
+              } else {
+                hasMore = false;
+                emit(
+                  GetNotificationsPaginationFailure(),
+                );
+              }
             },
           );
         },
@@ -68,21 +97,20 @@ class GetNotificationsCubit extends Cubit<GetNotificationsState> {
   }
 
   // Helper function to group notifications by date
-  Map<String, List<NotificationModel>> _groupNotificationsByDate(
-      List<NotificationModel> notifications) {
-    Map<String, List<NotificationModel>> result = {};
+  void _groupNotificationsByDate(
+    List<NotificationModel> notifications,
+  ) {
 
     for (NotificationModel notification in notifications) {
       DateTime dateTime = DateTime.parse(notification.notificationDate);
       String formattedDate = DateFormat('yyyy-MM-dd', 'en').format(dateTime);
 
-      if (!result.containsKey(formattedDate)) {
-        result[formattedDate] = [];
+      if (!notificationsMap.containsKey(formattedDate)) {
+        notificationsMap[formattedDate] = [];
       }
 
-      result[formattedDate]!.add(notification);
+      notificationsMap[formattedDate]!.add(notification);
     }
 
-    return result;
   }
 }

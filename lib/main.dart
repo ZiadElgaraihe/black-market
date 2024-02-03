@@ -6,6 +6,7 @@ import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view_model/app_cubit/app_cubit.dart';
 import 'package:black_market/core/presentation/view_model/localization_cubit/localization_cubit.dart';
 import 'package:black_market/core/utils/app_colors.dart';
+import 'package:black_market/core/utils/default_bloc_observer.dart';
 import 'package:black_market/core/utils/hive_setup.dart';
 import 'package:black_market/core/utils/service_locator.dart';
 import 'package:black_market/features/notifications/data/repos/articles_repo.dart';
@@ -24,6 +25,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   initializeLocalDatabase();
   setUpServiceLocator();
+  Bloc.observer = DefaultBlocObserver();
   //prevent app from being rotated
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]).then(
     (_) {

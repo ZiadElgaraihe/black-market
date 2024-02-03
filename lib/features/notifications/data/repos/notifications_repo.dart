@@ -7,5 +7,7 @@ import 'package:dartz/dartz.dart';
 part 'package:black_market/features/notifications/data/services/notifications_services.dart';
 
 abstract class NotificationsRepo {
-  Future<Either<Failure, List<NotificationModel>>> getNotifications();
+  Future<Either<Failure, List<NotificationModel>>> getNotifications({
+    int pageNumber,
+  });
 }

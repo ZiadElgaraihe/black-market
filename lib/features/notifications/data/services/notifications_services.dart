@@ -8,11 +8,14 @@ class NotificationsServices implements NotificationsRepo {
   late DioHelper _dioHelper;
 
   @override
-  Future<Either<Failure, List<NotificationModel>>> getNotifications() async {
+  Future<Either<Failure, List<NotificationModel>>> getNotifications({
+    int pageNumber = 1,
+  }) async {
     return await executeAndHandleErrors(() async {
+      String endPoint =
+          'notifications?start_date=2023-10-07&topics=marketing%2Cnew_marketing%2Cmarketing_1_0_10%2Cgold%2Ccurrencies%2Cnews&page=$pageNumber';
       Map<String, dynamic> data = await _dioHelper.getRequest(
-        endPoint:
-            'notifications?start_date=2023-10-07&topics=marketing%2Cnew_marketing%2Cmarketing_1_0_10%2Cgold%2Ccurrencies%2Cnews&page=1',
+        endPoint: endPoint,
       );
 
       List<NotificationModel> notifications = <NotificationModel>[];

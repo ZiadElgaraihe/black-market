@@ -3,7 +3,7 @@ import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view/alert_dialogs/result_alert_dialog.dart';
 import 'package:black_market/features/notifications/presentation/view/widgets/blocs/builder_states/notifications_feature_failure.dart';
 import 'package:black_market/features/notifications/presentation/view/widgets/blocs/builder_states/notifications_feature_loading.dart';
-import 'package:black_market/features/notifications/presentation/view/widgets/blocs/builder_states/notifications_success.dart';
+import 'package:black_market/features/notifications/presentation/view/widgets/blocs/builder_states/notifications_pagination_and_success.dart';
 import 'package:black_market/features/notifications/presentation/view_model/get_notifications_cubit/get_notifications_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,9 +19,12 @@ class GetNotificationsBlocConsumer extends StatelessWidget {
       builder: (context, state) {
         if (state is GetNotificationsLoading) {
           return const NotificationsFeatureLoading();
-        } else if (state is GetNotificationsSuccess ||
-            cubit.notificationsMap != null) {
-          return const NotificationsSuccess();
+        } else if (state is GetNotificationsPaginationLoading) {
+          return const NotificationsPaginationAndSuccess();
+        } else if (state is GetNotificationsPaginationFailure ||
+            state is GetNotificationsSuccess ||
+            cubit.notificationsMap.isNotEmpty) {
+          return const NotificationsPaginationAndSuccess();
         } else {
           return NotificationsFeatureFailure(
             onRefresh: () async {
