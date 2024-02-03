@@ -21,12 +21,21 @@ class GetArticlesCubit extends Cubit<GetArticlesState> {
   late ArticlesServices _articlesServices;
   late ConnectionServices _connectionServices;
 
-  Map<String, List<ArticleModel>>? articlesMap;
+  Map<String, List<ArticleModel>> articlesMap = {};
+  int _pageNumber = 1;
+  bool _hasMore = true;
 
-  Future<void> getArticles({bool isRefresh = false}) async {
-    if (!isRefresh && articlesMap != null) {
+  Future<void> getArticles({
+    bool isRefresh = false,
+    bool isPagination = false,
+  }) async {
+    if (!isRefresh && !isPagination && articlesMap.isNotEmpty) {
       emit(
         GetArticlesSuccess(),
+      );
+    } else if (!_hasMore && !isRefresh) {
+      emit(
+        GetArticlesPaginationFailure(),
       );
     } else {
       Either<ConnectionFailure, void> connectionResult =
@@ -41,10 +50,21 @@ class GetArticlesCubit extends Cubit<GetArticlesState> {
         },
         //connection
         (_) async {
-          emit(GetArticlesLoading());
+          if (isPagination) {
+            emit(GetArticlesPaginationLoading());
+          } else {
+            if (isRefresh) {
+              if (!_hasMore) _hasMore = true;
+              _pageNumber = 1;
+              articlesMap = {};
+            }
+            emit(GetArticlesLoading());
+          }
 
           Either<Failure, List<ArticleModel>> result =
-              await _articlesServices.getArticles();
+              await _articlesServices.getArticles(
+            pageNumber: _pageNumber,
+          );
 
           result.fold(
             //error
@@ -55,9 +75,20 @@ class GetArticlesCubit extends Cubit<GetArticlesState> {
             },
             //success
             (articles) {
-              articlesMap = _groupArticlesByDate(articles);
-              
-              emit(GetArticlesSuccess());
+              if (articles.isNotEmpty) {
+                _groupArticlesByDate(articles);
+
+                _pageNumber++;
+
+                emit(
+                  GetArticlesSuccess(),
+                );
+              } else {
+                _hasMore = false;
+                emit(
+                  GetArticlesPaginationFailure(),
+                );
+              }
             },
           );
         },
@@ -66,22 +97,18 @@ class GetArticlesCubit extends Cubit<GetArticlesState> {
   }
 
   // Helper function to group articles by date
-  Map<String, List<ArticleModel>> _groupArticlesByDate(
+  void _groupArticlesByDate(
     List<ArticleModel> articles,
   ) {
-    Map<String, List<ArticleModel>> result = {};
-
-    for (var article in articles) {
+    for (ArticleModel article in articles) {
       DateTime dateTime = DateTime.parse(article.createdAt);
       String formattedDate = DateFormat('yyyy-MM-dd', 'en').format(dateTime);
 
-      if (!result.containsKey(formattedDate)) {
-        result[formattedDate] = [];
+      if (!articlesMap.containsKey(formattedDate)) {
+        articlesMap[formattedDate] = [];
       }
 
-      result[formattedDate]!.add(article);
+      articlesMap[formattedDate]!.add(article);
     }
-
-    return result;
   }
 }

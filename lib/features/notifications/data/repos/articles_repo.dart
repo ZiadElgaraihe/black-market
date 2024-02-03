@@ -7,7 +7,9 @@ import 'package:dartz/dartz.dart';
 part 'package:black_market/features/notifications/data/services/articles_services.dart';
 
 abstract class ArticlesRepo {
-  Future<Either<Failure, List<ArticleModel>>> getArticles();
+  Future<Either<Failure, List<ArticleModel>>> getArticles({
+    int pageNumber,
+  });
 
   Future<Either<Failure, ArticleModel>> getOneArticle({
     required int id,

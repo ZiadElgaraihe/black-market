@@ -8,11 +8,13 @@ class ArticlesServices implements ArticlesRepo {
   late DioHelper _dioHelper;
 
   @override
-  Future<Either<Failure, List<ArticleModel>>> getArticles() async {
+  Future<Either<Failure, List<ArticleModel>>> getArticles({
+    int pageNumber = 1,
+  }) async {
     return await executeAndHandleErrors<List<ArticleModel>>(
       () async {
         Map<String, dynamic> data = await _dioHelper.getRequest(
-          endPoint: 'articles?start_date=2023-10-06&page=1',
+          endPoint: 'articles?start_date=2023-10-06&page=$pageNumber',
         );
 
         return _parseDataToListOfArticleModel(data);

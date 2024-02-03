@@ -7,6 +7,10 @@ final class GetArticlesInitial extends GetArticlesState {}
 
 final class GetArticlesLoading extends GetArticlesState {}
 
+final class GetArticlesPaginationLoading extends GetArticlesState {}
+
+final class GetArticlesPaginationFailure extends GetArticlesState {}
+
 final class GetArticlesSuccess extends GetArticlesState {}
 
 final class GetArticlesFailure extends GetArticlesState {
