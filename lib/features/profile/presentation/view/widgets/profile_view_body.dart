@@ -6,6 +6,7 @@ import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:black_market/features/auth/presentation/view/log_in_view.dart';
+import 'package:black_market/features/profile/presentation/view/about_app_view.dart';
 import 'package:black_market/features/profile/presentation/view/base_currency_view.dart';
 import 'package:black_market/features/profile/presentation/view/edit_profile_view.dart';
 import 'package:black_market/features/profile/presentation/view/setting_view.dart';
@@ -103,7 +104,14 @@ class ProfileViewBody extends StatelessWidget {
               ),
               ProfileItemContainerButton(
                 icon: AppIcons.assetsIconsAbout,
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    SideSlideTransition(
+                      page: const AboutAppView(),
+                    ),
+                  );
+                },
                 title: Tr.of(context).aboutTheApp,
               ),
               ProfileItemContainerButton(
