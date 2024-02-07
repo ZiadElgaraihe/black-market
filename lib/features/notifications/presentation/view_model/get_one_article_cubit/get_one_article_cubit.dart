@@ -1,14 +1,17 @@
 import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/errors/failure.dart';
+import 'package:black_market/core/utils/request_cancellation_mixin.dart';
 import 'package:black_market/features/notifications/data/models/article_model.dart';
 import 'package:black_market/features/notifications/data/repos/articles_repo.dart';
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'get_one_article_state.dart';
 
-class GetOneArticleCubit extends Cubit<GetOneArticleState> {
+class GetOneArticleCubit extends Cubit<GetOneArticleState>
+    with RequestCancellationMixin {
   GetOneArticleCubit({
     required ArticlesServices articlesServices,
     required ConnectionServices connectionServices,
@@ -19,6 +22,12 @@ class GetOneArticleCubit extends Cubit<GetOneArticleState> {
 
   late ArticlesServices _articlesServices;
   late ConnectionServices _connectionServices;
+
+  @override
+  Future<void> close() async {
+    cancelRequest();
+    await super.close();
+  }
 
   Future<void> getOneArticle({required int id}) async {
     Either<ConnectionFailure, void> connectionResult =
@@ -35,12 +44,18 @@ class GetOneArticleCubit extends Cubit<GetOneArticleState> {
       (_) async {
         emit(GetOneArticleLoading());
 
+        cancelToken = CancelToken();
+
         Either<Failure, ArticleModel> result =
-            await _articlesServices.getOneArticle(id: id);
+            await _articlesServices.getOneArticle(
+          id: id,
+          cancelToken: cancelToken!,
+        );
 
         result.fold(
           //error
           (failure) {
+            if (isCancelled) return;
             emit(
               GetOneArticleFailure(errMessage: failure.errMessage),
             );

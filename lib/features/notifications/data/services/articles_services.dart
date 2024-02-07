@@ -24,12 +24,14 @@ class ArticlesServices implements ArticlesRepo {
 
   @override
   Future<Either<Failure, ArticleModel>> getOneArticle({
+    required CancelToken cancelToken,
     required int id,
   }) async {
     return await executeAndHandleErrors<ArticleModel>(
       () async {
         Map<String, dynamic> data = await _dioHelper.getRequest(
           endPoint: 'articles/$id',
+          cancelToken: cancelToken,
         );
 
         return ArticleModel.fromJson(data: data['data'][0]);
