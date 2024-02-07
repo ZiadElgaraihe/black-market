@@ -29,16 +29,6 @@ class SettingViewBody extends StatelessWidget {
           },
           title: Tr.of(context).changePassword,
         ),
-        // ProfileItemContainerButton(
-        //   icon: AppIcons.assetsIconsBank,
-        //   onTap: () {},
-        //   title: 'الترتيب المفضل للبنوك',
-        // ),
-        // ProfileItemContainerButton(
-        //   icon: AppIcons.assetsIconsDollarCircle,
-        //   onTap: () {},
-        //   title: 'الترتيب المفضل للعملات',
-        // ),
         ProfileItemContainerButton(
           icon: AppIcons.assetsIconsLanguage,
           onTap: () {
