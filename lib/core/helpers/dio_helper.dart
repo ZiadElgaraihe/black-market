@@ -14,6 +14,7 @@ class DioHelper {
   ///http get request
   Future<dynamic> getRequest({
     required String endPoint,
+    CancelToken? cancelToken,
     Map<String, dynamic>? queryParameters,
     String? token,
   }) async {
@@ -29,6 +30,7 @@ class DioHelper {
       options: Options(
         headers: headers,
       ),
+      cancelToken: cancelToken,
     );
 
     return response.data;
@@ -37,6 +39,7 @@ class DioHelper {
   ///http post request
   Future<dynamic> postRequest({
     required String endPoint,
+    CancelToken? cancelToken,
     Object? data,
     String? token,
   }) async {
@@ -54,6 +57,7 @@ class DioHelper {
       options: Options(
         headers: headers,
       ),
+      cancelToken: cancelToken,
     );
 
     return response.data;
