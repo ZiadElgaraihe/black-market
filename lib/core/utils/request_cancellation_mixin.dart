@@ -6,7 +6,7 @@ mixin RequestCancellationMixin {
 
   void cancelRequest() {
     if (!cancelToken.isCancelled) {
-      cancelToken.cancel();
+      cancelToken.cancel('Request cancelled by user');
       isCancelled = true;
     }
   }
