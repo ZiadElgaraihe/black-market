@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:black_market/core/data/repos/localization_repo.dart';
 import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/data/services/local_database_services.dart';
@@ -6,6 +8,7 @@ import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/presentation/view_model/app_cubit/app_cubit.dart';
 import 'package:black_market/core/presentation/view_model/localization_cubit/localization_cubit.dart';
 import 'package:black_market/core/utils/app_colors.dart';
+import 'package:black_market/core/utils/constants.dart';
 import 'package:black_market/core/utils/service_locator.dart';
 import 'package:black_market/features/notifications/data/repos/articles_repo.dart';
 import 'package:black_market/features/notifications/data/repos/notifications_repo.dart';
@@ -24,6 +27,8 @@ class BlackMarket extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    isTablet = _checkForDeviceType(context);
+
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle.light.copyWith(
         statusBarColor: AppColors.transparent,
@@ -83,5 +88,18 @@ class BlackMarket extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  ///check if device is mobile or tablet using device's inches
+  ///
+  ///inches < 7 => mobile
+  ///
+  ///inches > 7 => tablet 
+  bool _checkForDeviceType(BuildContext context) {
+    final screenSize = MediaQuery.sizeOf(context);
+    final width = screenSize.width;
+    final height = screenSize.height;
+    final diagonalInches = sqrt(width * width + height * height) / 160.0;
+    return diagonalInches > 7;
   }
 }

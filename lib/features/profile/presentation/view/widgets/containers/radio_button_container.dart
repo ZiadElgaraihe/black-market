@@ -1,4 +1,5 @@
 import 'package:black_market/core/utils/app_colors.dart';
+import 'package:black_market/core/utils/constants.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,7 +35,7 @@ class RadioButtonContainer extends StatelessWidget {
             style: TextStyles.textStyle14,
           ),
           Transform.scale(
-            scale: 1.5,
+            scale: isTablet ? 1.5 : 1,
             child: Radio(
               activeColor: AppColors.yellow,
               value: value,

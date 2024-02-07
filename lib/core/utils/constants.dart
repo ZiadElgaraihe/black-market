@@ -1,3 +1,5 @@
+late bool isTablet;
+
 //Boxes
 
 const String kCurrencyBox = 'currencyBox';

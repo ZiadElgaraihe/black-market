@@ -1,4 +1,5 @@
 import 'package:black_market/core/utils/app_colors.dart';
+import 'package:black_market/core/utils/constants.dart';
 import 'package:flutter/material.dart';
 
 class NotificationSettingSwitchButton extends StatefulWidget {
@@ -28,7 +29,7 @@ class _NotificationSettingSwitchButtonState
       child: Directionality(
         textDirection: TextDirection.ltr,
         child: Transform.scale(
-          scale: 1.5,
+          scale: isTablet? 1.5 : 1,
           child: ValueListenableBuilder(
             valueListenable: _isTurnOn,
             builder: (context, isTurnOn, child) => Switch(
