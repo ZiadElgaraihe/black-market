@@ -4,6 +4,7 @@ import 'package:black_market/core/data/services/secure_database_services.dart';
 import 'package:black_market/core/errors/failure.dart';
 import 'package:black_market/core/presentation/view_model/app_cubit/app_cubit.dart';
 import 'package:black_market/core/utils/constants.dart';
+import 'package:black_market/core/utils/request_cancellation_mixin.dart';
 import 'package:black_market/features/auth/data/models/user/user.dart';
 import 'package:black_market/features/auth/data/models/user_model.dart';
 import 'package:black_market/features/auth/data/repos/auth_repo.dart';
@@ -13,7 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'log_in_state.dart';
 
-class LogInCubit extends Cubit<LogInState> {
+class LogInCubit extends Cubit<LogInState> with RequestCancellationMixin{
   LogInCubit({
     required AppCubit appCubit,
     required AuthServices authServices,
@@ -38,6 +39,12 @@ class LogInCubit extends Cubit<LogInState> {
   String? password;
   bool remeberMe = false;
 
+  @override
+  Future<void> close() async {
+    cancelRequest();
+    await super.close();
+  }
+
   Future<void> logIn() async {
     Either<ConnectionFailure, void> connectionResult =
         await _connectionServices.checkInternetConnection();
@@ -55,6 +62,7 @@ class LogInCubit extends Cubit<LogInState> {
         Either<Failure, UserModel> result = await _authServices.logIn(
           email: email!,
           password: password!,
+          cancelToken: cancelToken,
         );
 
         result.fold(

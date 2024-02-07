@@ -1,5 +1,6 @@
 import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/errors/failure.dart';
+import 'package:black_market/core/utils/request_cancellation_mixin.dart';
 import 'package:black_market/features/auth/data/repos/auth_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'forget_password_state.dart';
 
-class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
+class ForgetPasswordCubit extends Cubit<ForgetPasswordState>
+    with RequestCancellationMixin {
   ForgetPasswordCubit({
     required AuthServices authServices,
     required ConnectionServices connectionServices,
@@ -20,6 +22,12 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
   late ConnectionServices _connectionServices;
 
   String? email;
+
+  @override
+  Future<void> close() async {
+    cancelRequest();
+    await super.close();
+  }
 
   Future<void> forgetPassword() async {
     Either<ConnectionFailure, void> connectionResult =
@@ -35,8 +43,10 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
       (_) async {
         emit(ForgetPasswordLoading());
 
-        Either<Failure, void> result =
-            await _authServices.forgetPassword(email: email!);
+        Either<Failure, void> result = await _authServices.forgetPassword(
+          email: email!,
+          cancelToken: cancelToken,
+        );
 
         result.fold(
           //error

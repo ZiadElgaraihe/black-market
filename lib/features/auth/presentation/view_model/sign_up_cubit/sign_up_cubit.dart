@@ -1,6 +1,7 @@
 import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/errors/failure.dart';
 import 'package:black_market/core/presentation/view_model/app_cubit/app_cubit.dart';
+import 'package:black_market/core/utils/request_cancellation_mixin.dart';
 import 'package:black_market/features/auth/data/models/user_model.dart';
 import 'package:black_market/features/auth/data/repos/auth_repo.dart';
 import 'package:dartz/dartz.dart';
@@ -9,7 +10,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'sign_up_state.dart';
 
-class SignUpCubit extends Cubit<SignUpState> {
+class SignUpCubit extends Cubit<SignUpState> with RequestCancellationMixin {
   SignUpCubit({
     required AppCubit appCubit,
     required AuthServices authServices,
@@ -28,6 +29,12 @@ class SignUpCubit extends Cubit<SignUpState> {
   String? email;
   String? password;
   String? confirmedPassword;
+
+  @override
+  Future<void> close() async {
+    cancelRequest();
+    await super.close();
+  }
 
   Future<void> signUp() async {
     Either<ConnectionFailure, void> connectionResult =
@@ -48,6 +55,7 @@ class SignUpCubit extends Cubit<SignUpState> {
           email: email!,
           password: password!,
           confirmedPassword: confirmedPassword!,
+          cancelToken: cancelToken,
         );
 
         result.fold(

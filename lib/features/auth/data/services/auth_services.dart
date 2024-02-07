@@ -9,6 +9,7 @@ class AuthServices implements AuthRepo {
 
   @override
   Future<Either<Failure, UserModel>> logIn({
+    required CancelToken cancelToken,
     required String email,
     required String password,
   }) async {
@@ -20,6 +21,7 @@ class AuthServices implements AuthRepo {
             'email': email,
             'password': password,
           },
+          cancelToken: cancelToken,
         );
         return UserModel.fromJson(data: data);
       },
@@ -28,6 +30,7 @@ class AuthServices implements AuthRepo {
 
   @override
   Future<Either<Failure, UserModel>> signUp({
+    required CancelToken cancelToken,
     required String fullName,
     required String email,
     required String password,
@@ -43,6 +46,7 @@ class AuthServices implements AuthRepo {
             'password': password,
             'password_confirmation': confirmedPassword,
           },
+          cancelToken: cancelToken,
         );
         return UserModel.fromJson(data: data);
       },
@@ -51,6 +55,7 @@ class AuthServices implements AuthRepo {
 
   @override
   Future<Either<Failure, void>> forgetPassword({
+    required CancelToken cancelToken,
     required String email,
   }) async {
     return await executeAndHandleErrors<void>(
@@ -60,6 +65,7 @@ class AuthServices implements AuthRepo {
           data: {
             'email': email,
           },
+          cancelToken: cancelToken,
         );
       },
     );
@@ -67,6 +73,7 @@ class AuthServices implements AuthRepo {
 
   @override
   Future<Either<Failure, UserModel>> updatePassword({
+    required CancelToken cancelToken,
     required String email,
     required String otp,
     required String password,
@@ -82,6 +89,7 @@ class AuthServices implements AuthRepo {
             'password': password,
             'password_confirmation': confirmedPassword,
           },
+          cancelToken: cancelToken,
         );
         return UserModel.fromJson(data: data);
       },

@@ -1,5 +1,6 @@
 import 'package:black_market/core/data/services/connection_services.dart';
 import 'package:black_market/core/errors/failure.dart';
+import 'package:black_market/core/utils/request_cancellation_mixin.dart';
 import 'package:black_market/features/auth/data/repos/auth_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'resend_veification_code_state.dart';
 
-class ResendVeificationCodeCubit extends Cubit<ResendVeificationCodeState> {
+class ResendVeificationCodeCubit extends Cubit<ResendVeificationCodeState>
+    with RequestCancellationMixin {
   ResendVeificationCodeCubit({
     required AuthServices authServices,
     required ConnectionServices connectionServices,
@@ -20,6 +22,12 @@ class ResendVeificationCodeCubit extends Cubit<ResendVeificationCodeState> {
   late ConnectionServices _connectionServices;
 
   String? email;
+
+  @override
+  Future<void> close() async {
+    cancelRequest();
+    await super.close();
+  }
 
   Future<void> resendVerificationCode() async {
     Either<ConnectionFailure, void> connectionResult =
@@ -37,8 +45,10 @@ class ResendVeificationCodeCubit extends Cubit<ResendVeificationCodeState> {
       (_) async {
         emit(ResendVeificationCodeLoading());
 
-        Either<Failure, void> result =
-            await _authServices.forgetPassword(email: email!);
+        Either<Failure, void> result = await _authServices.forgetPassword(
+          email: email!,
+          cancelToken: cancelToken,
+        );
 
         result.fold(
           //error
