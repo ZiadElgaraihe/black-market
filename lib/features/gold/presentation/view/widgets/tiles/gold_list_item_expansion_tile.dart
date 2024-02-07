@@ -125,7 +125,7 @@ class _GoldListItemExpansionTileState extends State<GoldListItemExpansionTile> {
         GoldIngotsAndCoinsDataRow(
           title: Tr.of(context).difference,
           price: (widget.price != null)
-              ? '${widget.price!.buyPrice - widget.price!.sellPrice}'
+              ? '${widget.price!.sellPrice - widget.price!.buyPrice}'
               : null,
         ),
       ],
