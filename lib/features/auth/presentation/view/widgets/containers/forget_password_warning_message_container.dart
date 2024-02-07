@@ -1,6 +1,7 @@
 import 'package:black_market/core/localization/generated/l10n.dart';
 import 'package:black_market/core/utils/app_colors.dart';
 import 'package:black_market/core/utils/app_icons.dart';
+import 'package:black_market/core/utils/constants.dart';
 import 'package:black_market/core/utils/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -42,7 +43,7 @@ class ForgetPasswordWarningMessageContainer extends StatelessWidget {
               style: TextStyles.textStyle12.copyWith(
                 fontWeight: FontWeight.w400,
                 color: AppColors.lightYellowHover,
-                height: 1.h,
+                height: isTablet ? 1.h : 1.5.h,
               ),
               textAlign: TextAlign.start,
             ),
