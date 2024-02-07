@@ -62,6 +62,7 @@ class UpdatePasswordCubit extends Cubit<UpdatePasswordState>
         result.fold(
           //error
           (serverFailure) {
+            if (isCancelled) return;
             emit(
               UpdatePasswordFailure(errMessage: serverFailure.errMessage),
             );

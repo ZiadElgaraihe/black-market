@@ -61,6 +61,7 @@ class SignUpCubit extends Cubit<SignUpState> with RequestCancellationMixin {
         result.fold(
           //error
           (serverFailure) {
+            if (isCancelled) return;
             emit(
               SignUpFailure(errMessage: serverFailure.errMessage),
             );

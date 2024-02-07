@@ -68,6 +68,7 @@ class LogInCubit extends Cubit<LogInState> with RequestCancellationMixin{
         result.fold(
           //error
           (serverFailure) {
+            if (isCancelled) return;
             emit(
               LogInFailure(errMessage: serverFailure.errMessage),
             );

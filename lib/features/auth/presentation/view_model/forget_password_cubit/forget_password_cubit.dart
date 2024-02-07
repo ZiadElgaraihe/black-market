@@ -51,6 +51,7 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState>
         result.fold(
           //error
           (serverFailure) {
+            if (isCancelled) return;
             emit(
               ForgetPasswordFailure(errMessage: serverFailure.errMessage),
             );

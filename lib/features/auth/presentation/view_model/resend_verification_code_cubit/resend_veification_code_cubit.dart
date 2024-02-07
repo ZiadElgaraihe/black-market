@@ -53,6 +53,7 @@ class ResendVeificationCodeCubit extends Cubit<ResendVeificationCodeState>
         result.fold(
           //error
           (serverFailure) {
+            if (isCancelled) return;
             emit(
               ResendVeificationCodeFailure(
                   errMessage: serverFailure.errMessage),
