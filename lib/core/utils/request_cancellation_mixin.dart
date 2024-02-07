@@ -1,11 +1,13 @@
 import 'package:dio/dio.dart';
 
 mixin RequestCancellationMixin {
-  CancelToken? cancelToken;
+  CancelToken cancelToken = CancelToken();
   bool isCancelled = false;
 
   void cancelRequest() {
-    cancelToken!.cancel();
-    isCancelled = true;
+    if (!cancelToken.isCancelled) {
+      cancelToken.cancel();
+      isCancelled = true;
+    }
   }
 }
