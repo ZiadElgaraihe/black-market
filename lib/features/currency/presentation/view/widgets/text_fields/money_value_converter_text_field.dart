@@ -55,9 +55,10 @@ class MoneyValueConverterTextField extends StatelessWidget {
         ),
         constraints: BoxConstraints(
           minHeight: 40.h,
+          maxHeight: 50.h,
           maxWidth: 147.w,
         ),
-        suffixIconConstraints: BoxConstraints(minHeight: 40.h),
+        suffixIconConstraints: const BoxConstraints(minHeight: double.infinity),
         suffixIcon: Container(
           height: 35.h,
           width: 37.w,
