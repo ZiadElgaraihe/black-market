@@ -59,6 +59,7 @@ class CurrencyBankSection extends StatelessWidget {
                 future: context.read<FavouriteCubit>().getFavourite(),
                 builder: (context, snapshot) => CurrencyBankItemContentColumn(
                   bankPrice: cubit.currencies?[currentIndex].bankPrices[index],
+                  currencyName: cubit.currencies?[currentIndex].name,
                 ),
               ),
             ),
