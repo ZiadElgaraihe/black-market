@@ -9,7 +9,10 @@ class GoldView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: DefaultAppBar(title: Tr.of(context).gold),
+      appBar: DefaultAppBar(
+        title: Tr.of(context).gold,
+        canPop: false,
+      ),
       body: const GoldViewBody(),
     );
   }
